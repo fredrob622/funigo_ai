@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RechercheKanji</title>
+	<link rel="stylesheet" href="/general.css">
+	<link rel="stylesheet" href="/recherche.css">
+	<!-- <style <%- include('../css/rechercheKanji.css') %> </style> -->
+</head>
+
+<body>
+	<h1>Le dictionnaire Japonais <=> Francais</h1>
+
+    <section>
+	<div class="formulaire_recherche">
+	    <h2>Traduction dans la base</h2>
+
+			<form action="/API/rechercheVocab" method="post">
+
+			<div class="class_Label">
+
+				<label for="kanjiindex">Index    </label>
+				<label for="niveau">&nbsp;&nbsp;&nbsp;Niveau</label>
+				<label for="kana">&nbsp;Kana</label>
+				<label for="kanji">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kanji</label>
+				<label for="traduction">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Francais</label>
+
+			</div>
+
+			<div class="class_input">
+
+				<input type="text" id="voca_index" name="voca_index" placeholder="" size="4">
+
+				<select name="Niveau" id="Niveau" >
+					<option value="" > </option>
+					<option value="N5">N5</option>
+					<option value="N4">N4</option>
+					<option value="N3">N3</option>
+					<option value="N2">N2</option>
+					<option value="N1">N1</option>
+				</select>
+				
+				<input type="text" id="kana" name="kana" placeholder=""  size="4" >
+
+				<input type="text" id="kanji" name="kanji" placeholder=""  size="4" >
+			
+				<input type="text" id="traduction" name="traduction" placeholder="" size="20" >
+			</div>
+			
+			<div>
+				<button type="submit">lancer la recherche</button>
+			</div>
+	
+	    </form>
+	</div>
+	
+	</section>
+</body>
+</html>

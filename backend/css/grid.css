@@ -1,0 +1,79 @@
+/* Si vous utilisez auto-fit, le contenu s'étirera pour remplir toute la largeur de la ligne. 
+Alors qu'avec auto-fill, le navigateur permettra aux colonnes vides d'occuper de l'espace 
+dans la ligne comme leurs voisines non vides — elles se verront allouer une fraction de 
+l'espace même si elles ne contiennent aucun élément de grille, affectant ainsi 
+la taille/largeur de ces dernière */
+body {
+    padding: 20px;
+    font-family: sans-serif;
+    background: #f2f2f2;
+  }
+  img {
+    width: 100%; /* need to overwrite inline dimensions */
+    height: auto;
+  }
+  h2 {
+    margin-bottom: .5em;
+  }
+
+ .grid-container {
+    display: grid; /* convertit tous les éléments enfants en éléments de grille et les pose */  
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* une largeur minimum de 300 px et un maximum de 1fr */
+    grid-gap: 1em; /* détermine la distance entre les colonnes */
+  }
+
+  .location-listing {
+    position: relative;
+  }
+
+  .location-image {
+    line-height: 0;
+    overflow: hidden;
+  }
+  
+  .location-image img {
+    filter: blur(0px);
+    transition: filter 0.3s ease-in;
+    transform: scale(1.1);
+  }
+
+
+  .location-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .5s;
+    background: rgba(90,0,10,0.4);
+    color: white;
+    
+    /* position the text in t’ middle*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .location-listing:hover .location-title {
+    opacity: 1;
+  }
+  
+  .location-listing:hover .location-image img {
+    filter: blur(2px);
+  }
+  
+  /* for touch screen devices */
+  @media (hover: none) { 
+    .location-title {
+      opacity: 1;
+    }
+    .location-image img {
+      filter: blur(2px);
+    }
+  }
+ 

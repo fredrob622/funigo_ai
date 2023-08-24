@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RechercheDepartement</title>
+	<link rel="stylesheet" href="../css/general.css">
+	<link rel="stylesheet" href="../css/recherche.css">
+	<link rel="stylesheet" href="../css/departement.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap">
+    <!-- <style <%- include('../css/recherche.css') %> </style>  -->
+	<!-- <script type="text/javascript" src="../js/fonction.js"></script> -->
+</head>
+<body>
+    <body onload="fonctStorageGetDepChar()">
+
+        <h1>Les départements français</h1>
+    
+        <div id="container">
+    
+            <div id="container1">
+    
+                <div id="carte_dep">
+                    
+                    <img src="../cartes/dep_carte/01-ain.jpg" alt="ain" width="300">
+                </div>
+    
+                <div id="aglo_dep">
+                    
+                </div>
+            </div>
+    
+            <div id="container2">
+    
+                <div id="pos_dep">
+                   
+                </div>
+    
+                <div id="carte_reg">
+                    
+                </div>
+            </div> 
+    
+        </div>
+        <!-- <script>
+    
+            function fonctStorageGetDepChar(){
+    
+                // localStorage.setItem('Dep_numero','37');
+                // localStorage.setItem('Dep_nom','indre-et-loire');
+                // localStorage.setItem('Dep_region','Centre-Val-de-Loire');
+                
+    
+                var dep_num      =    localStorage.getItem('Dep_numero');
+                var dep_nom      =    localStorage.getItem('Dep_nom');
+                var dep_reg      =    localStorage.getItem('Dep_region');
+                var dep_sup      =    localStorage.getItem('Dep_superficie');
+                var dep_pop      =    localStorage.getItem('Dep_pop');
+                var dep_dens     =    localStorage.getItem('Dep_densite');
+                var dep_pref     =    localStorage.getItem('Dep_prefecture');
+                var dep_prefpop  =    localStorage.getItem('Dep_prefecturepop');		
+                var dep_souspref =    localStorage.getItem('Dep_sousprefecture');
+                
+                // var contenu = document.querySelector('caption').innerText;
+                // document.querySelector('caption').textContent = (contenu + " de " + inputNiveau);
+                 console.log(dep_num);
+                 console.log(dep_nom); 
+    
+                 console.log("<img src='/cartes/dep_region/" + dep_reg + ".png' width='300' height=auto>");
+    
+                var carte_dep_img = document.getElementById('carte_dep');
+                carte_dep_img.innerHTML = "<img src='../cartes/dep_carte/" + dep_num + "-" + dep_nom + ".jpg' width='550' height=auto>";
+                // document.querySelector('carte_dep').textContent = ("<img src='../cartes/dep_carte/" + dep_num + "-" + dep_nom + ".jpg' width='600' height=auto>");
+    
+                var carte_dep_img = document.getElementById('aglo_dep');
+                carte_dep_img.innerHTML = "<img src='../cartes/dep_aglomeration/" + dep_num + "-" + dep_nom + ".jpg' width='550' height=auto>";
+    
+                var carte_dep_img = document.getElementById('pos_dep');
+                carte_dep_img.innerHTML = "<img src='../cartes/dep_position/" + dep_num + "-" + dep_nom + ".png' width='300' height=auto>";
+    
+                var carte_dep_img = document.getElementById('carte_reg');
+                carte_dep_img.innerHTML = "<img src='../cartes/dep_region/" + dep_reg + ".png' width='550' height=auto>";
+            };
+    
+        </script> -->
+</body>
+</html> 

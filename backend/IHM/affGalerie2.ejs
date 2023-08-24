@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>affGalerie2</title>
+    <link rel="stylesheet" href="/galerie1.css">
+    <!-- <style <%- include('../css/galerie1.css')   %> 	</style> -->
+</head>
+<body>
+    <h1>Galerie2 Tokyo</h1>
+
+    <div class="grille">
+        <% for(i=0; i<files.length; i++) { %>
+            <div class="grille-item"><img src="..\galerie2\<%= files[i] %>" alt="tokyo" /></div>
+        <% } %> 
+    </div>
+    
+</body>
+</html>

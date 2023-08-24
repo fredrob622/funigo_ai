@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: radial-gradient(circle at center center, rgba(217, 217, 217,0.05) 0%, rgba(217, 217, 217,0.05) 15%,rgba(197, 197, 197,0.05) 15%, rgba(197, 197, 197,0.05) 34%,rgba(178, 178, 178,0.05) 34%, rgba(178, 178, 178,0.05) 51%,rgba(237, 237, 237,0.05) 51%, rgba(237, 237, 237,0.05) 75%,rgba(138, 138, 138,0.05) 75%, rgba(138, 138, 138,0.05) 89%,rgba(158, 158, 158,0.05) 89%, rgba(158, 158, 158,0.05) 100%),radial-gradient(circle at center center, rgb(255,255,255) 0%, rgb(255,255,255) 6%,rgb(255,255,255) 6%, rgb(255,255,255) 12%,rgb(255,255,255) 12%, rgb(255,255,255) 31%,rgb(255,255,255) 31%, rgb(255,255,255) 92%,rgb(255,255,255) 92%, rgb(255,255,255) 97%,rgb(255,255,255) 97%, rgb(255,255,255) 100%); background-size: 42px 42px;
+    height: 100vh;
+    /* overflow-x: hidden; */
+}
+
+/* h1{
+    width: 100px;
+} */
+.container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+h1 {
+    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-family:'Lato', Arial, sans-serif;
+
+    letter-spacing: 5px;
+    text-align: center;
+    padding-top: 2vh;
+    font-size: 4vw;
+    color: #333;
+    font-weight: 400;
+}
+
+.cercle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #222;
+    cursor: pointer;
+    position:absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#b2f2bb ;
+}
+
+img {
+    position: absolute;
+    transform: translate(0%, -50%) scale(0);
+    top: 40vh;
+}
+
+.P01 {
+    left: 2%;
+    width: 13vw;
+    z-index: 10;
+}
+
+.P02 {
+    left: 13%;
+    width: 20vw;
+}
+
+.P03 {
+    left: 31%;
+    width: 9vw;
+    z-index: 35;
+}
+
+.P04 {
+    left: 38%;
+    width: 17vw;
+    z-index: 25;
+}
+.P05 {
+    left: 51%;
+    width: 10vw;
+    z-index: 35;
+}
+
+.P06 {
+    left: 60%;
+    width: 11vw;
+    z-index: 30;
+}
+
+.P07 {
+    left: 70%;
+    width: 12vw;
+}
+.P08 {
+    left: 82%;
+    width: 15vw;
+}

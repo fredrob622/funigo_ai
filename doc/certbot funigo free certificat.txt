@@ -1,0 +1,58 @@
+
+C:\Windows\System32>certbot certonly
+Saving debug log to C:\Certbot\log\letsencrypt.log
+
+How would you like to authenticate with the ACME CA?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: Runs an HTTP server locally which serves the necessary validation files under
+the /.well-known/acme-challenge/ request path. Suitable if there is no HTTP
+server already running. HTTP challenge only (wildcards not supported).
+(standalone)
+2: Saves the necessary validation files to a .well-known/acme-challenge/
+directory within the nominated webroot path. A seperate HTTP server must be
+running and serving files from the webroot path. HTTP challenge only (wildcards
+not supported). (webroot)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 1
+Please enter the domain name(s) you would like on your certificate (comma and/or
+space separated) (Enter 'c' to cancel): funigo.freeboxos.fr
+Requesting a certificate for funigo.freeboxos.fr
+Problem binding to port 80: [WinError 10013] Une tentative d’accès à un socket de manière interdite par ses autorisations d’accès a été tentée
+Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile C:\Certbot\log\letsencrypt.log or re-run Certbot with -v for more details.
+
+C:\Windows\System32>certbot certonly
+Saving debug log to C:\Certbot\log\letsencrypt.log
+
+How would you like to authenticate with the ACME CA?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+1: Runs an HTTP server locally which serves the necessary validation files under
+the /.well-known/acme-challenge/ request path. Suitable if there is no HTTP
+server already running. HTTP challenge only (wildcards not supported).
+(standalone)
+2: Saves the necessary validation files to a .well-known/acme-challenge/
+directory within the nominated webroot path. A seperate HTTP server must be
+running and serving files from the webroot path. HTTP challenge only (wildcards
+not supported). (webroot)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): funigo.freeboxos.fr
+
+** Invalid input **
+Select the appropriate number [1-2] then [enter] (press 'c' to cancel): 1
+Please enter the domain name(s) you would like on your certificate (comma and/or
+space separated) (Enter 'c' to cancel): funigo.freeboxos.fr
+Requesting a certificate for funigo.freeboxos.fr
+
+Successfully received certificate.
+Certificate is saved at: C:\Certbot\live\funigo.freeboxos.fr\fullchain.pem
+Key is saved at:         C:\Certbot\live\funigo.freeboxos.fr\privkey.pem
+This certificate expires on 2023-11-11.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+C:\Windows\System32>

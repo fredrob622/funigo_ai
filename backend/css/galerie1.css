@@ -1,0 +1,51 @@
+
+
+*, ::before, ::after {
+    /* box-sizing définit la façon dont la hauteur et la largeur totale d'un
+    élément est calculée. border-box indique au navigateur de prendre en compte 
+    la bordure et le remplissage dans la valeur définie pour la largeur et la 
+    hauteur. Autrement dit, si on définit un élément avec une largeur de 100 pixels,
+    ces 100 pixels inclueront la bordure et le remplissage éventuellement ajoutés */
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: #777;
+}
+
+h1 {
+    text-align: center;
+    font-size:40px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 50px 0;
+}
+
+img {
+    width: 300px;
+    /* height: 200px; */
+}
+
+.grille {
+    max-width: 1300px;
+    width: 80%;
+    height: auto;
+    margin: 30px auto;
+    border: 1px solid #777;
+    /* définir une grille qui sera ensuite utilisée pour placer les éléments enfants. */
+    display: grid;
+    /* remplie avec des colonnes de 300px */
+    grid-template-columns: repeat(auto-fill, 300px);
+    /* grille centrée dans les 1300px  */
+    justify-content: center;
+    /* création de l'espace entre les colonnes */
+    grid-gap: 10px;
+    background: #777;
+    align-items: center;
+}
+
+.grille-item {
+    width: 300px;
+    /* height: 200px; */
+    background: #333;
+    
+}

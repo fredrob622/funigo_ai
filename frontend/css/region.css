@@ -1,0 +1,20 @@
+body{
+    margin: 0;   
+    min-height: 100vh;
+    background-image: url("../cartes/dep_region/grand-est.png");
+    background-repeat:  no-repeat ;
+    background-size: 800px auto;
+    background-position: left 100px top 200px ;
+}
+
+#loupe{
+    width: 300px;
+    height: 250px;
+    border: solid 6px black;
+    border-radius: 100px;
+    position: absolute;
+    background-image: url("../cartes/dep_region/grand-est.png");
+    background-size: 800px auto;
+    background-repeat:  no-repeat ;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}

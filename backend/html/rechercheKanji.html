@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">    
+    
+    <link rel="stylesheet" media="screen" type="text/css" href="../css/index_style.css"/>
+    <title>Funigo1</title>
+</head>
+<body>
+
+    <div class="global-container">
+
+        <nav class="side-nav">
+           <div class="nav-logo">
+               <img src="/icones/Drapeau-France_240-gif.gif" alt="Drapeau France">
+               <h1>Funigo</h1>
+               <img src="/icones/Drapeau-Japon_240-gif.gif" alt="Drapeau Japon">
+           </div>
+
+           <a href="/index.html" class="bloc-link">
+                <img src="/icones/globe-earth2.png" alt="Acceuil">
+                <span class="nav-links">Acceuil</span>
+           </a>
+
+           <a href="#" class="bloc-link">
+                <img src="/icones/globe-earth2.png" alt="Géographie">
+                <span class="nav-links">Géographie</span>
+           </a>
+
+           <a href="#" class="bloc-link active">
+               <img src="/icones/langue4.png" alt="Langue">
+               <span class="nav-links">Langue</span>
+           </a>
+
+           <a href="#" class="bloc-link">
+                <img src="/icones/voyage2.png" alt="Voyage">
+                <span class="nav-links">Voyage</span>
+            </a>
+
+            <a href="#" class="bloc-link">
+                <img src="/icones/film1.png" alt="film">
+                <span class="nav-links">Film</span>
+            </a>
+        </nav>
+
+        <main class="main-content">
+
+            <h1>Langue Japonaise</h1>
+            <div class="input-control">
+                <label for="search">
+                    <img src="/icones/loupe.png" alt="Loupe">
+                </label>
+                <input type="text" id="search" placeholder="Search for an user"> 
+            </div>
+
+            <h2 class="main-title">Resultat de la recherche</h2>
+
+            <div class="table">
+                <h3 class="table-title">Niveau</h3>
+                <h3 class="table-title">Kanji</h3>
+                <h3 class="table-title">OnYomi</h3>
+                <h3 class="table-title">KunYomi</h3>
+                <h3 class="table-title">Traduction</h3>
+            </div>
+
+            <div class="table-results">
+
+                <div class="table-item">
+                    <p class="Niveau">Niveau</p>
+                    <div class="container-img">
+                        <img src="./icones/kanji.png" alt="">
+                        <p class="kanji">Kanji</p>
+                    </div>
+                    <p class="OnYomi">OnYomi</p>
+                    <p class="KunYomi">KunYomi</p>
+                    <p class="Traduction">Traduction</p>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    
+    <script src="./js/script.js"></script>
+</body>
+</html>
