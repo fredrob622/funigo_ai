@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/geographie.css">
+    <title>Géographie</title>
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap">
+</head>
+<body>
+    <h1>Géographie 地理 (ちり)</h1>
+
+    <div id="container">
+        <div id="id_departement">
+            <h2>Les départements 都道府県 <br/> とどうふけん  </h2>
+            <img src="../cartes/Regions_and_Prefectures_Japan2.png" alt="Les régions" onclick="affichage_url('./geo/departements_japon.html')" >
+        </div>
+    </div>
+</body>
+<script>				
+    function affichage_url(para_url) {
+    //window.parent.center.location.href = para_url;
+   parent.document.getElementById('contenu').innerHTML = "<object type='text/html' data='" + para_url + "' style='width: 1800px; height:1200px;'></object>"
+
+}
+</script>
+</html>
+
+</html>

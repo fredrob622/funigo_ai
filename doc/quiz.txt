@@ -1,0 +1,164 @@
+
+server.js => import app.js
+
+		=> const dotenv = require("dotenv");  package pour utiliser les variables d'environnement
+		  
+		  => const result = dotenv.config();	La méthode config charge les variables dans le fichier 
+		  process.env.
+			// pas de ; après les définition
+			PORT = 5000
+
+			// Connexion à la base
+			DB_HOST     =   "192.168.99.113"
+			DB_USER     =   "japadmin"
+			DB_PASSWORD =   "jap_2010"
+			DB_DATABASE =   "jap"
+		  
+
+		  => import express Express dans votre fichier, ce qui vous permet de créer des serveurs web 
+		  et de gérer les requêtes HTTP facilement.
+		  
+		  => app.set("port", process.env.PORT); => valide le port 5000 pour l'appli
+		  
+		  => écoute des requettes HTML 
+			app.listen(process.env.PORT, () => {
+			console.log(`Express Application exemple à l'écoute sur le port ${process.env.PORT}!`)
+			
+				|
+				|
+				V
+				
+Fichier app.js est appellé 
+
+			=> // import module mysql console express ejs
+				const mysql = require('mysql');
+				const { clear } = require("console");
+				const express = require("express");
+				const ejs = require('ejs');
+					
+			=> // Import les routes fichiers routes/****.js 
+				const quiz         = require("./routes/quiz");
+				
+			=> // Définition du moteur d'affichage
+				app.set('view engine', 'ejs');
+				// views, le répertoire dans lequel se trouvent les fichiers modèles. 
+				// répertoire où sont les fichiers ejs
+				app.set('views', 'IHM');
+
+				
+			=> La méthode use dans Express.js est utilisée pour monter des middleware dans 
+			votre application Node.js. Un middleware est une fonction qui a accès à l'objet 
+			de requête (req), à l'objet de réponse (res) et à la prochaine fonction middleware 
+			dans le cycle de requête-réponse de l'application.
+					
+				app.use(quiz);
+					|
+					|
+					v
+Appel du fichier ./routes/quiz.js
+
+			=> // Import express , router et de la connexion mysql
+				const express = require("express");
+				const router = express.Router();
+				const db = require("../db/db"); => // Importer le package pour utiliser les variables d'environnement
+													  const dotenv = require("dotenv");
+													  require('dotenv').config();
+													  // Import module mysql
+													  const mysql = require('mysql');
+													  
+													  // récup des infos de connexion à la base
+													  const db = mysql.createConnection({
+														   host: `${process.env.DB_HOST}`,
+														   user: `${process.env.DB_USER}`,
+														   password: `${process.env.DB_PASSWORD}`,
+														   database: `${process.env.DB_DATABASE}`,														  
+														 });
+													   // connexion à la base
+													   db.connect((err)=> {
+															if(!err)
+															console.log('Connection Established Successfully');
+															else
+															console.log('Connection Failed!'+ JSON.stringify(err,undefined,2));
+															});
+														module.exports = db;
+			
+			=> import du body parser const bodyParser = require('body-parser');
+			Le module body-parser est un middleware de Node.js utilisé pour analyser les corps des 
+			requêtes HTTP, permettant ainsi à votre application de traiter les données envoyées dans 
+			une requête.
+			
+			router.use(bodyParser.urlencoded({ extended: false}));
+			Dans un environnement Express.js est utilisée pour ajouter un middleware qui analyse 
+			les données encodées en URL (comme celles envoyées par les formulaires HTML).
+			
+			router fait référence à une instance de routeur dans Express.js. 
+			La méthode use est utilisée pour monter des middleware sur ce routeur.
+			
+			Définir des Middleware : Vous pouvez utiliser router.use() pour ajouter des middleware 
+			spécifiques à ce routeur. Ces middleware seront exécutés pour chaque requête qui passe 
+			par ce routeur.
+			
+			bodyParser.urlencoded :
+
+			bodyParser est un middleware qui permet de parser les corps des requêtes HTTP. Il est 
+			souvent utilisé pour traiter les données de formulaire.
+			urlencoded est une méthode de bodyParser qui parse les corps des requêtes encodées en URL 
+			(par exemple, les données de formulaire soumises via une méthode POST).
+			
+			 extended: false } :
+
+			L'option extended détermine le type de parsing à utiliser.
+			extended: false utilise le module querystring intégré de Node.js pour parser les données 
+			de formulaire. Cela signifie que les données de formulaire seront parsées en utilisant 
+			une syntaxe plus simple et plus limitée.
+
+			les données de formulaire seront parsées par body-parser et disponibles dans req.body.
+			
+			.get('/api/recherchequiz', (req, res, next) => { 
+				res.render(path.join(__dirname + "./../IHM/recherchequiz.ejs"));
+		
+			});
+			
+			
+			router.use(express.static('public')); configure le middleware express.static 
+			pour servir les fichiers statiques à partir du répertoire public. Cela signifie que 
+			tous les fichiers dans le répertoire public seront accessibles via des requêtes HTTP. 
+			Par exemple, si vous avez un fichier index.html dans le répertoire public, 
+			il sera accessible à l'URL http://localhost:3000/index.html.
+			
+			Quand on appelle /api/recherchequiz dans l'adresse HTML il va chercher le fichier
+			./../IHM/recherchequiz.ejs
+			
+			router.post('/api/quiz', function(req, res, next) {
+				
+				let kanjiindex = req.body.kanjiindex
+				let niveau = req.body.Niveau
+				let kanji = req.body.kanji 
+				let onyomi = req.body.onyomi
+				let kunyomi = req.body.kunyomi
+				let traduction = req.body.traduction
+
+				let reqSql =  "select * from kanji_char where";
+				
+				if(kanjiindex !== ""){
+					reqSql = `${reqSql}` + " kanji_index = " + `${kanjiindex}`  
+					console.log(reqSql);
+				}
+			Définir des Routes : Vous pouvez définir des routes spécifiques en utilisant router.get(), 
+			router.post(), etc. Ces routes seront accessibles uniquement via le chemin monté sur le 
+			routeur.
+
+			Monter le Routeur : Utilisez app.use('/api', router); pour monter le routeur sur une route 
+			spécifique de l'application principale. Dans cet exemple, toutes les routes définies dans 
+			router seront accessibles sous le préfixe /api.
+					|
+					|
+					V
+					
+Fichier ./../IHM/recherchequiz.ejs => appelé quand le navigateur HTML contient /api/recherchequiz
+
+			
+				
+			
+				
+			

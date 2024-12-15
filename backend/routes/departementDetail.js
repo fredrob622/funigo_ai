@@ -19,8 +19,7 @@ router.get( '/api/departementDet', (req,res) => {
         const tab_reg = fs.readdirSync(`${dirSrc}` + "/dep_region");
         const tab_pos = fs.readdirSync(`${dirSrc}` + "/dep_position");
 
-        // console.log(tab_agl[63-1], tab_dep[63-1], tab_pos[63-1]);
-        console.log(tab_agl);
+        console.log(tab_agl[63-1], tab_dep[63-1], tab_pos[63-1]);
 
         for (i=0; i < tab_pos.length; i++){
             temp = tab_pos[i];

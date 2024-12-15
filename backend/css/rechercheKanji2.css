@@ -1,0 +1,75 @@
+
+		body {
+			background: #e9ecef;
+			font-family: Montserrat, "sans-serif";
+			color: #303030;
+			margin-left: 100px;
+		}
+
+		h1 {
+			text-align:center;
+			background: white;
+			width: 800px;
+			margin-left: 300px;
+			font-size: 42px;
+			margin-top: 80px;
+			margin-bottom: 40px;
+			text-decoration: underline;
+			padding-bottom: 20px;
+		}
+
+		.formulaire_recherche {
+			width: 1000px;
+			border: 1px solid;
+			border-radius: 8px;
+			padding: 0 50px 0 50px;
+			background: #b2f2bb;
+			margin-left: 100px;
+		}
+
+		.formulaire_recherche > h2 {
+			align-items: center;
+			font-weight: 900;
+			text-decoration : underline;
+		}
+
+		.class_input {
+			display: flex;
+		}
+
+		.class_label {
+			display: flex;
+		}
+
+		input, select {
+			margin-right: 20px;
+			margin-top: 10px;
+			margin-bottom: 30px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 20px;
+			font-weight: 500; 
+		}
+
+		label {
+			margin-right: 20px;
+			margin-top: 10px;
+			margin-bottom: 30px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			font-weight: 700; 
+		}
+
+		form button {
+			width: 450px;
+			max-width: 500px;
+			height: 60px;
+			font-weight: 700;
+			font-size: 28px;
+			background: white;
+			border: rgba(48, 48, 48, 0.5) solid 1px;
+			border-radius: 5px;
+			box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+			color: #303030;
+			margin: 20px;
+		}	 
+ 

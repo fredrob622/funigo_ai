@@ -14,24 +14,18 @@
 
     <div id="container">
         <div id="id_ile">
-            <h2>Les Iles du Japon 日本の島　<br/>（にほん　の　しま)</h2>
+            <h2>Carte du Japon 日本の地図<br/>（にほんのちず)</h2>
             <!-- <img src="../cartes/ilesdujapon.PNG" alt="IlesDuJapon"> -->
-            <img src="../cartes/ilesdujapon.PNG" alt="IlesDuJapon" onclick="affichage_url('./geo/IlesDuJapon.html')" >
+            <img src="../cartes/carte-japon.gif" alt="CarteDuJapon" onclick="affichage_url('./geo/IlesDuJapon.html')" >
         </div>
-        <div id="id_region">
-            <h2>Les régions 地域圏 <br/>（ちいきけん) </h2>
-            <img src="../cartes/LesRegionsDuJapon.png" alt="Les régions">
-        </div>
-        <div id="id_departement">
-            <h2>Les départements 都道府県 <br/>（とどうふけん) </h2>
-            <img src="../cartes/Regions_and_Prefectures_Japan.png" alt="Les régions">
-        </div>
+
     </div>
 </body>
 <script>				
     function affichage_url(para_url) {
     //window.parent.center.location.href = para_url;
-   parent.document.getElementById('contenu').innerHTML = "<object type='text/html' data='" + para_url + "' style='width: 1800px; height:1200px;'></object>"
+    // parent.document.getElementById('contenu').innerHTML = "<object type='text/html' data='" + para_url + "' style='width: 1800px; 
+   parent.document.getElementById('contenu').innerHTML = "<object type='text/html' data='" + para_url " </object>"
 
 }
 </script>

@@ -27,24 +27,25 @@ h1 {
     margin: auto;
     /* display: flex; */
     /* border: 1px solid black; */
+    display: flex;
 
 }
 
 #img_carte > img {
     /* border: 1px solid black; */
-    width: 1100px;
+    width: 400px;
     z-index: 10;
     /* retirer du flux et se positionne par rapport au parent (contener) */
-    position: absolute;
-    left: 550px;
+    /* position: absolute; */
+    left: 10px;
     
 }
 
 #kyushu {
-    position:relative;
+    /* position:relative; */
     background-color: rgb(202, 235, 209);
     width: 300px;
-    left:490px;
+    left:800px;
     top: 570px;
     z-index: 15;
     border: 1px solid black;
@@ -52,7 +53,7 @@ h1 {
 }
 
 #hokkaido {
-    position:relative;
+    /* position:relative; */
     background-color: rgb(202, 235, 209);
     width: 300px;
     left:1240px;
@@ -63,7 +64,7 @@ h1 {
 }
 
 #honshu {
-    position:relative;
+    /* position:relative; */
     background-color: rgb(202, 235, 209);
     width: 300px;
     left:490px;
@@ -74,7 +75,7 @@ h1 {
 }
 
 #shikoku {
-    position:relative;
+    /* position:relative; */
     background-color: rgb(202, 235, 209);
     width: 300px;
     left:1240px;

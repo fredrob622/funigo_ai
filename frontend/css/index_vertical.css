@@ -30,16 +30,43 @@
     /* fixed L'élément est retiré du flux normal et aucun espace n'est laissé pour l'élément. L'élément 
     est positionné relativement au bloc englobant initial formé par la zone d'affichage (viewport) */
     position: fixed;
-    width: 200px;
+    /* width: 200px; */
+    /* display: inline-block; */
     height: auto; /* prend la hauteur du menu pour le fond*/
     /* border-right: 1px solid #e3e8f0; */
-    background-color: #fdfdff;
+    background-color:burlywood;
 }
  
 #menunav ul { 
     list-style-type:none;  /* suppression des puces sur les listes */
+    display: flex;
 }
 
+#menuGeographie ul {
+    display: flex;
+    flex-direction:column ;
+}
+#menuLangue ul {
+    display:flex;
+    flex-direction: column;
+}
+
+#menuLangue > ul > li {
+    display: flex;
+    flex-direction:column ;
+}
+#menuPhoto ul {
+    display:flex;
+    flex-direction: column;
+}
+menuCulture ul {
+    display:flex;
+    flex-direction: column;
+}
+#menuN1 #menuGeographie  #Geo {
+    display: flex;
+    flex-direction:column ;
+}
 .buttonN1 {
 	width:200px;
 	background-color:#5a9216;
@@ -53,7 +80,7 @@
 }
 
 .buttonN2 {
-	width:200px;
+	width:180px;
 	background-color:#9fa8da;
 	color:black;
 	border-width: 1px;
@@ -65,7 +92,7 @@
 }
 
 .buttonN3 {
-	width:170px;
+	width:130px;
 	background-color:#d0d8ff;
 	color:black;
 	border-width: 1px;
@@ -73,26 +100,12 @@
 	padding-bottom:10px;
 	text-align: left;
 	font-weight: 500;
-	margin-left: -10px;	
+	margin-left: 10px;	
     padding-left: 10px;
 }
 
-.linkN1 {
-    display: block;
-    width:200px;
-	background-color:#5a9216;
-	color:black;
-	border-width: 1px;
-	border-color: white;
-	padding-bottom:10px;
-	text-align: left;
-	font-weight: 500;
-    height: auto;
-}
-
-.linkN2 {
-    display: block;
-    width:200px;
+.buttonN4 {
+	width:200px;
 	background-color:#9fa8da;
 	color:black;
 	border-width: 1px;
@@ -103,6 +116,8 @@
 	margin-left: -20px;	
 }
 
+
+
 img {
     margin-top: 10px;
     margin-right: 5px;
@@ -111,15 +126,6 @@ img {
     height: 30px;
 }
 
-.buttonN2 >  img {
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-left: 10px;
-    width: 15px;
-    height: 15px;
-}
-
-
 .linkN2 >  img {
     margin-top: 5px;
     margin-right: 5px;
@@ -127,8 +133,6 @@ img {
     width: 15px;
     height: 15px;
 }
-
-
 
 .seeMenu {
     display: block;

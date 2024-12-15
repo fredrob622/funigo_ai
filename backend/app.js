@@ -2,28 +2,27 @@
 const mysql = require('mysql');
 
 // Import les routes fichiers routes/****.js 
+const kanjiN5         = require("./routes/kanjiN5");
+const choisirKanjiNiv = require("./routes/choisirKanjiNiv");
 const rechercheKanji2  = require("./routes/rechercheKanji2");
+const rechercheKanji3  = require("./routes/rechercheKanji3");
 const rechercheVocab   = require("./routes/rechercheVocab");
 const rechercheDep     = require("./routes/rechercheDepartement");
 const departementDet   = require("./routes/departementDetail");
-
-//const creationRepThumb = require("./routes/creationRepThumb");
-//const visuRepthumb = require("./routes/visuRepthumb");
-// const kanjiN5         = require("./routes/kanjiN5");
-// const choisirKanjiNiv = require("./archive/choisirKanjiNiv");
-// const rechercheKanji3  = require("./archive/rechercheKanji3");
+const quiz             = require("./routes/quiz");
 
 // import des routes pour les photos
+const diaporama     = require("./routes/diaporama");
+const diaporama2    = require("./routes/diaporama2");
+const affPhotoSharp = require("./routes/affPhotoSharp");
 const galerie1      = require("./routes/galerie1");
 const galerie2      = require("./routes/galerie2");
-// const diaporama     = require("./routes/diaporama");
-// const diaporama2    = require("./routes/diaporama2");
-// const affPhotoSharp = require("./routes/affPhotoSharp");
 
 // import du module express pour utiliser les méthodes
 const { clear } = require("console");
 const express = require("express");
 const ejs = require('ejs');
+const { constants } = require('fs/promises');
 
 // creation d'une instance express serveur web et la place dans la variable APP
 const app = express();
@@ -36,24 +35,23 @@ app.set('views', 'IHM');
 
 
 // Définition des routes 
-
+app.use(kanjiN5);
+app.use(choisirKanjiNiv);
 app.use(rechercheKanji2);
+app.use(rechercheKanji3);
 app.use(rechercheVocab);
 app.use(rechercheDep);
 app.use(departementDet);
-// app.use(kanjiN5);
-// app.use(choisirKanjiNiv);
-// app.use(rechercheKanji3);
+app.use(quiz);
+
 
 // Définition des routes 
-
+app.use(diaporama);
+app.use(diaporama2);
 app.use(galerie1);
 app.use(galerie2);
-//app.use(creationRepThumb);
-//app.use(visuRepthumb);
-// app.use(affPhotoSharp);
-// app.use(diaporama);
-// app.use(diaporama2);
+app.use(affPhotoSharp);
+
 
 // export de app.js pour pouvoir être accèder à partir d'un autre fichier
 module.exports = app;

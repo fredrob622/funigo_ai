@@ -11,7 +11,7 @@ router.use(bodyParser.urlencoded({ extended: false}));
 router.use(express.static('public'));
 router.use(express.static('css'));
 router.use(express.static('js'));
-router.use(express.static('cartes'));
+router.use(express.static('carte'));
 
 
 const path = require('path');

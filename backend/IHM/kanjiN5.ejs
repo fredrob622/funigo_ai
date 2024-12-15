@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau des kanjis </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" media="screen"   src="style.css" />
+</head>
+<body>
+    <section>
+          
+        <h2 style="color:blue; font-size:14px;">Liste des kanjis</h2>
+        <table style="border-collapse: collapse; background-color: darksalmon;">
+            <caption style="color:darkblue; font-size:24px;">Tableau des kanjis </caption>
+            <!-- Boucle pour lire le tableau -->
+            <% for(i=0; i<result.length; i++) { %>
+                <tr>
+                     <td width=5% align=center style="border: 1px solid black;"><%= result[i].kanji_index %></td>
+                     <td width=5% align=center style="border: 1px solid black;"><%= result[i].niveau %></td>
+                     <td width=5% align=center style="border: 1px solid black;"><%= result[i].kanji %></td>
+                     <td style="border: 1px solid black;"><%= result[i].onyomi %></td>
+                     <td style="border: 1px solid black;"><%= result[i].kunyomi %></td> 
+                     <td style="border: 1px solid black;"><%= result[i].francais %></td> 
+                  </tr>  
+            <% } %>
+        </table> 
+    </section>
+</body>
+</html>
