@@ -372,6 +372,7 @@ a {
     display: flex;
     justify-content: space-between;
   }
+
   .nav__toggle {
     display: none;
   }
@@ -392,10 +393,7 @@ a {
     font-weight: 400;
   }
 
-  /* .nav__menu {
-    margin-left: -300px;
-    text-align: left;
-  }   */
+
   .nav__link img {
     width: 40px;
     margin-left: 30px;

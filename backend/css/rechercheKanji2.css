@@ -1,9 +1,10 @@
 
 		body {
-			background: #e9ecef;
+			/* background: #e9ecef; */
 			font-family: Montserrat, "sans-serif";
 			color: #303030;
 			margin-left: 100px;
+			background-image: url(../images/pp3.webp);
 		}
 
 		h1 {

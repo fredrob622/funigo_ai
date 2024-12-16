@@ -11,13 +11,14 @@ body {
     height: 100vh;
     /* overflow-x: hidden; */
 }
-
+body{
+    background-image: url(../../images/pp3.webp);
+}
 
 .container {
     position: relative;
     height: 100vh;
     width: 100vw;
-    
 }
 
 h1 {
@@ -25,11 +26,10 @@ h1 {
     font-family:'Lato', Arial, sans-serif;
     letter-spacing: 5px;
     text-align: center;
-    padding-top: 2vh;
-    font-size: 2vw;
+    padding-top: 1vh;
+    font-size: 1vw;
     color: #333;
     font-weight: 400;
-    width: 50vw;
 }
 
 .cercle {
@@ -49,10 +49,12 @@ h1 {
 }
 
 img {
-    position: absolute; 
+    position: absolute;
     transform: translate(0%, -50%) scale(0);
-    top: 40vh;
-    height: 100px;
+    top: 35vh;
+    max-height: 450px ;
+    max-width: 300px;
+    margin-left: -100px;
 }
 
 .P01 {
@@ -62,66 +64,38 @@ img {
 }
 
 .P02 {
-    left: 13%;
+    left: 10%;
     width: 20vw;
 }
 
 .P03 {
-    left: 31%;
+    left: 19%;
     width: 9vw;
     z-index: 35;
 }
 
 .P04 {
-    left: 38%;
+    left: 28%;
     width: 17vw;
     z-index: 25;
 }
 .P05 {
-    left: 51%;
+    left: 37%;
     width: 10vw;
     z-index: 35;
 }
 
 .P06 {
-    left: 60%;
+    left: 46%;
     width: 11vw;
     z-index: 30;
 }
 
 .P07 {
-    left: 70%;
+    left: 55%;
     width: 12vw;
 }
 .P08 {
-    left: 82%;
+    left: 63%;
     width: 15vw;
 }
-
-/* Jusqu'à 600px on cache les onglets */
-/* @media (max-width: 600px) {
-
-    .container {   
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        flex-direction: column
-    };
-    h1 {
-        font-family:'Lato', Arial, sans-serif;
-        font-weight: 400;
-        font-size: 2vw;
-        letter-spacing: 5px;
-        text-align: center;
-        padding-top: 2vh;
-        color: #333;
-        width: 60vw;
-    };
-    img {
-        position: relative;
-        margin-top: 40px;
-        position: relative;
-        transform: translate(0%, -50%) scale(0);
-        top: 40vh;
-    };
-} ; */
