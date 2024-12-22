@@ -157,6 +157,10 @@ Appel du fichier ./routes/quiz.js
 					
 Fichier ./../IHM/recherchequiz.ejs => appelé quand le navigateur HTML contient /api/recherchequiz
 
+			<link rel="stylesheet" href="/general.css">
+			<link rel="stylesheet" href="/recherche.css">
+			<script type="text/javascript" src="/fonction.js"></script>
+
 			
 				
 			

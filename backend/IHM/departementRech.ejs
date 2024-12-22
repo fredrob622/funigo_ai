@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RechercheDepartement</title>
 	<link rel="stylesheet" href="/general.css">
-	<link rel="stylesheet" href="/recherche.css">
+	<link rel="stylesheet" href="/departement.css">
 	<link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap">
-    <!-- <style <%- include('../css/recherche.css') %> </style>  -->
 	<script type="text/javascript" src="/fonction.js"></script>
 </head>
 
@@ -18,46 +17,46 @@
 
     <section>
 	<div class="formulaire_recherche">
-	    <h2>Recherche de département</h2>
+			<h2>Recherche de département</h2>
 
-			<form action="/API/rechercheDep" method="post">
+				<form action="/API/rechercheDep" method="post">
 
-			<div class="class_Label">
+				<div class="class_Label">
 
-				<label for="num_dep">&emsp;N°</label>
-				<label for="nom_dep">&emsp;&emsp;&emsp;&emsp;&emsp;Nom du Département</label>
-				<label for="nom_reg">&emsp;&emsp;&emsp;&emsp;&emsp;Nom De la Région</label>
-				<label for="nom_pref">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Nom de la Préfecture</label>		
+					<label for="num_dep">&emsp;N°</label>
+					<label for="nom_dep">&emsp;&emsp;&emsp;&emsp;&emsp;Nom du Département</label>
+					<label for="nom_reg">&emsp;&emsp;&emsp;&emsp;&emsp;Nom De la Région</label>
+					<label for="nom_pref">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Nom de la Préfecture</label>		
 
-			</div>
-			
-			<div class="class_input">
-
-				<select name="num_dep" id="num_dep_id">
-					<option value="" > </option>
-				</select>
-
-				<select name="nom_dep" id="nom_dep_id" >
-					<option value="" > </option>
-				</select>
+				</div>
 				
-				<select name="nom_reg" id="nom_reg_id" >
-					<option value="" > </option>
-				</select>
+				<div class="class_input">
 
-				<select name="nom_pref" id="nom_pref_id" >
-					<option value="" > </option>
-				</select>
+					<select name="num_dep" id="num_dep_id">
+						<option value="" > </option>
+					</select>
+
+					<select name="nom_dep" id="nom_dep_id" >
+						<option value="" > </option>
+					</select>
+					
+					<select name="nom_reg" id="nom_reg_id" >
+						<option value="" > </option>
+					</select>
+
+					<select name="nom_pref" id="nom_pref_id" >
+						<option value="" > </option>
+					</select>
+					
+				</div>
 				
-			</div>
-			
-			<div>
-				<button type="submit" >lancer la recherche</button>
-			</div>
-	
-	    </form>
-	</div>
-	
+				<div>
+					<button type="submit" >lancer la recherche</button>
+				</div>
+		
+			</form>
+		</div>
+		
 	</section>
 </body>
 </html>

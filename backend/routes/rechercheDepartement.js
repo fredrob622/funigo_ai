@@ -2,9 +2,9 @@
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-// var LocalStorage = require('node-localstorage').LocalStorage;
-// // constructor function to create a storage directory inside our project for all our localStorage setItem.
-// localStorage = new LocalStorage('./scratch');
+var LocalStorage = require('node-localstorage').LocalStorage;
+// constructor function to create a storage directory inside our project for all our localStorage setItem.
+localStorage = new LocalStorage('./scratch');
 
 router.use(bodyParser.urlencoded({ extended: false}));
 
@@ -19,8 +19,7 @@ console.log(__dirname);
 // Import de la connexion mysql 
 const db = require("../db/db");
 
-router
-.get('/api/rechercheDep', (req, res, next) => { 
+router.get('/api/rechercheDep', (req, res, next) => { 
    res.render(path.join(__dirname + "./../IHM/departementRech.ejs"));
 });
 
@@ -73,7 +72,6 @@ router.post('/api/rechercheDep', function(req, res, next) {
             // { result } est un tableau contenant les données récupérées par la requête envoyé à la partie cliente
             //  departementAff => fichier departementAff.ejs
             res.status(200).render('departementAff', { result }); // pour ejs
-            
         }
     });
     

@@ -11,7 +11,7 @@ const express = require('express');
 // configurer le port avec la methode set de express. Attribut la valeur process.env.PORT (3000) à port
 app.set("port", process.env.PORT);
 
-//  URL http://localhost:3000/ renvoie   "Hello world"
+//  URL http://localhost:5000/ renvoie   "Hello world"
 app.get('/', (req, res) => {
   res.send(`Hello World! vous êtes sur localhost et le port ${process.env.PORT} => URL http://localhost:3000/ !`)
 });
