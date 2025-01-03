@@ -12,7 +12,6 @@ router.use(express.static('public'));
 router.use(express.static('css'));
 router.use(express.static('js'));
 router.use(express.static('carte'));
-router.use(express.static('asset'));
 
 
 const path = require('path');
@@ -20,12 +19,12 @@ console.log(__dirname);
 // Import de la connexion mysql 
 const db = require("../db/db");
 
-router.get('/api/rechercheDep', (req, res, next) => { 
-   res.render(path.join(__dirname + "./../IHM/departementRech.ejs"));
+router.get('/api/rechercheReg', (req, res, next) => { 
+   res.render(path.join(__dirname + "./../IHM/regionRech.ejs"));
 });
 
 
-router.post('/api/rechercheDep', function(req, res, next) {
+router.post('/api/rechercheReg', function(req, res, next) {
 
     let num_dep  = req.body.num_dep
     let nom_dep  = req.body.nom_dep 

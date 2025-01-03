@@ -5,7 +5,7 @@ const mysql = require('mysql');
 const rechercheKanji2  = require("./routes/rechercheKanji2");
 const rechercheVocab   = require("./routes/rechercheVocab");
 const rechercheDep     = require("./routes/rechercheDepartement");
-const departementDet   = require("./routes/departementDetail");
+const rechercheReg   = require("./routes/rechercheRegion");
 const quiz             = require("./routes/quiz");
 
 // import des routes pour les photos
@@ -35,7 +35,7 @@ app.set('views', 'IHM');
 app.use(rechercheKanji2);
 app.use(rechercheVocab);
 app.use(rechercheDep);
-app.use(departementDet);
+app.use(rechercheReg );
 app.use(quiz);
 
 

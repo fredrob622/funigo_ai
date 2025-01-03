@@ -74,3 +74,76 @@
 			margin: 20px;
 		}	 
  
+		/*******************************************************************************************************/
+		/* 				For small devices 					*/
+		/*******************************************************************************************************/
+		@media screen and (max-width: 570px) {
+
+			body {
+				/* background: #e9ecef; */
+				font-family: Montserrat, "sans-serif";
+				color: #303030;
+				margin-left: -80px;
+				background-image: url(../images/pp3.webp);
+			}
+
+			/* #contenu{
+				background-color: #b2f2bb;
+			}; */
+			
+			h1 {
+				text-align:left;
+				background: white;
+				width: 250px;
+				margin-left: 130px;
+				margin-right: 10px;
+				font-size: 22px;
+				margin-top: 40px;
+				margin-bottom: 80px;
+				padding-left: 30px;
+				text-decoration: underline;
+				padding-bottom: 20px;
+			};	
+
+			section {
+				width: auto;
+			};
+
+			.formulaire_recherche {
+				width: auto;
+				border: 1px solid;
+				border-radius: 8px;
+				padding: 0 50px 0 50px;
+				background: #b2f2bb;
+				/* margin-left: -520px; */
+			}
+
+			/* .class_input {
+				display: inline-flex;
+			}
+	
+			.class_label {
+				display: inline-flex;
+			} */
+
+			input, select {
+				display: block;
+				margin-right: 20px;
+				margin-top: 10px;
+				margin-bottom: 30px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 20px;
+				font-weight: 500; 
+			}
+	
+			label {
+				display: block;
+				margin-right: 20px;
+				margin-top: 10px;
+				margin-bottom: 30px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 16px;
+				font-weight: 700; 
+			}
+
+		}

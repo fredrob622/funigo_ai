@@ -8,43 +8,33 @@
 	<link rel="stylesheet" href="/general.css">
 	<!-- <link rel="stylesheet" href="/recherche.css"> -->
 	<link rel="stylesheet" href="/departement.css">
-    <link rel="stylesheet" href="/assets/css/styles_sas.css">
-  
     
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"> -->
-    <!-- <style <%- include('../css/recherche.css') %> </style>  -->
-	<script type="text/javascript" src="../js/fonction.js"></script>
+
+	<!-- <script type="text/javascript" src="../js/fonction.js"></script> -->
 
 </head>
 <body onload="fonctStorageInputDep(), fonctStorageSetDep('<%= result %>');">
+       
+        <h1>Les départements français</h1>
 
+        <div id="container">
 
-        <!-- <h1>Les départements français</h1> -->
-        <br><br>
-        <div id="container">     
-
-                <!-- <div id="container1"> -->
-        
                     <div id="char_pos">
                         <div id="dep_char"></div>
+                        <!-- <br> -->
                         <div id="dep_pos"></div>
                     </div>
+                    <br>
                     <div id="loupe">
                         <div id="carte_dep"></div>
-                        <br>
-                        <div id="aglo_dep"></div>
-                    </div>
-        
-                <!-- <div id="container2"> -->
-        
-                    <!-- <div id="aglo_dep"></div> -->
-        
-                    <!-- <div id="carte_reg"></div> -->
-                <!-- </div>  -->
-           
-            
+                        <br>   
+                        <div id="carte_aglo"></div>
+                        <br> 
+                        <!-- <div id="carte_reg"></div> -->
+                    </div> 
+                     
         </div>
-      
+
         <script>
             
                 var dep_num      =    localStorage.getItem('Dep_numero');
@@ -64,16 +54,16 @@
                  console.log(dep_nom); 
                  console.log("<img src='/dep_carte/" + dep_num + "-" + dep_nom + ".jpg' width='550' height=auto>");
                  console.log("<img src='/dep_aglomeration/" + dep_num + "-" + dep_nom + ".jpg' width='350' height=auto>");
-                 console.log("<img src='/dep_position/" + dep_num + "-" + dep_nom + ".png' width='550' height=auto>");
+                 console.log("<img src='/dep_pos/" + dep_num + "-" + dep_nom + ".png' width='550' height=auto>");
                  console.log("<img src='/dep_region/" + dep_reg + ".png' width='300' height=auto>");
     
                var dep_img1 = document.getElementById('dep_pos');
-               dep_img1.innerHTML = "<img src='/dep_position/" + dep_num + "-" + dep_nom + ".png' alt=france  width='200' height=auto>";
+               dep_img1.innerHTML = "<img src='/dep_position/" + dep_num + "-" + dep_nom + ".png' width='200' height=auto>";
     
                var dep_img2 = document.getElementById('carte_dep');
                dep_img2.innerHTML = "<img src='/dep_carte/" + dep_num + "-" + dep_nom + ".jpg' width='550' height=auto>";
     
-               var dep_img3 = document.getElementById('aglo_dep');
+               var dep_img3 = document.getElementById('carte_aglo');
                dep_img3.innerHTML = "<img src='/dep_aglomeration/" + dep_num + "-" + dep_nom + ".jpg' width='550' height=auto>";
     
             //    var dep_img4 = document.getElementById('carte_reg');
@@ -90,7 +80,7 @@
                                   +  "Préfecture       : " + dep_pref + "<br>"
                                   +  "Population Pref  : " + dep_prefpop + "<br>"
                                   +  "Sous-Préfecture  : " + dep_souspref + "</p>"; 
-
+                                  
         </script>
         
 </body>
