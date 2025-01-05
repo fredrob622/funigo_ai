@@ -15,12 +15,12 @@ const db = require("../db/db");
 
 router
 //.use(express.static('./funigo3nodejs/IHM'))
-.get('/api/rechercheKanji2', (req, res, next) => { 
-    res.render(path.join(__dirname + "./../IHM/rechercheKanji2.ejs"));
+.get('/api/rechercheKanji3', (req, res, next) => { 
+    res.render(path.join(__dirname + "./../IHM/rechercheKanji3.ejs"));
 });
 
 
-router.post('/api/rechercheKanji2', function(req, res, next) {
+router.post('/api/rechercheKanji3', function(req, res, next) {
     
     let kanjiindex = req.body.kanjiindex
     let niveau = req.body.Niveau

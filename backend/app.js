@@ -2,7 +2,8 @@
 const mysql = require('mysql');
 
 // Import les routes fichiers routes/****.js 
-const rechercheKanji2  = require("./routes/rechercheKanji2");
+const rechercheKanji  = require("./routes/rechercheKanji");
+const rechercheKanji3  = require("./routes/rechercheKanji3");
 const rechercheVocab   = require("./routes/rechercheVocab");
 const rechercheDep     = require("./routes/rechercheDepartement");
 const rechercheReg   = require("./routes/rechercheRegion");
@@ -32,7 +33,8 @@ app.set('views', 'IHM');
 
 
 // Définition des routes 
-app.use(rechercheKanji2);
+app.use(rechercheKanji);
+app.use(rechercheKanji3);
 app.use(rechercheVocab);
 app.use(rechercheDep);
 app.use(rechercheReg );
