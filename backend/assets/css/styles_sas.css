@@ -265,11 +265,13 @@ a {
   width: 40px;
   margin-right: 10px;
 }
-.dropdown__link i{
+
+.dropdown__link i {
   font-size: 1.25rem;
   font-weight: initial;
   padding-left: 10px;
 } 
+
 .dropdown__sublink i {
   font-size: 1.25rem;
   font-weight: initial;
@@ -283,14 +285,12 @@ a {
   color: var(--white-color);
 }
 
-.dropdown__link a{
+.dropdown__link a {
   color: var(--white-color);
-
-  
 }
-.dropdown__link a img{
-  color: var(--white-color);
 
+.dropdown__link a img {
+  color: var(--white-color);
 }
 
 .dropdown__menu, 
@@ -323,7 +323,7 @@ a {
 }
 
 /*******************************************************************************************************/
-/* For small devices */
+/***********            For small devices                                         **********************/
 /*******************************************************************************************************/
 @media screen and (max-width: 370px) {
   .container {
@@ -361,11 +361,13 @@ a {
     width: 10px;
     margin-left: 10px;
   }
-  .dropdown__link i{
+  .dropdown__link i {
     font-size: 1rem;
     font-weight: initial;
     padding-left: 10px;
   } 
+
+ 
 }
 /*******************************************************************************************************/
 /* For large devices */

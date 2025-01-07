@@ -6,61 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RechercheKanji</title>
 	<link rel="stylesheet" href="/general.css">
-	<link rel="stylesheet" href="/rechercheKanji.css">
+	<link rel="stylesheet" href="/rechercheKanji3.css">
 	<script type="text/javascript" src="/fonction.js"></script>
 	<!-- <style <%- include('../css/rechercheKanji.css') %> </style>  -->
 	<!-- <script src="../css/rechercheKanji.css"></script> -->
 </head>
 
 <body>
-	<h1>Le dictionnaire des Kanjis</h1>
+	<div class="formulaire_recherche ">
+	<h2>Le dictionnaire des Kanjis</h2>
 
     <section>
-	<div class="formulaire_recherche">
-		
-	    <h2>Recherche Kanji dans la base de données</h2>
-
-			<form action="/API/rechercheKanji3" method="post">
-
-			<div class="class_Label">
-
+	    
+		<form action="/API/rechercheKanji3" method="post">
+	
+			<div>
 				<label for="kanjiindex">Index   </label>
-				<label for="niveau">&nbsp;&emsp;&emsp;&emsp;Niveau</label>
-				<label for="kanji">&emsp;Kanji</label>
-				<label for="onyomi">&nbsp;&nbsp;&nbsp;&emsp;Lecture Onyomi  </label>
-				<label for="kunyomi">&emsp;&emsp;&emsp;&emsp;&nbsp;Lecture Kunyomi</label>
-				<label for="traduction">&nbsp;&emsp;&emsp;&emsp;Traduction Française</label>
-
-			</div>
-
-			<div class="class_input">
-
 				<input type="text" id="kanjiindex" name="kanjiindex" placeholder="" size="4">
-
-				<select name="Niveau" id="Niveau" >
-					<option value="" > </option>
+			</div>
+			
+			<div>
+				<label for="niveau">Niveau</label>
+				<select name="Niveau" id="Niveau" size="5">
+					<option selected value=""> </option>
 					<option value="N5">N5</option>
 					<option value="N4">N4</option>
 					<option value="N3">N3</option>
 					<option value="N2">N2</option>
 					<option value="N1">N1</option>
 				</select>
-				
-				<input type="text" id="kanji" name="kanji" placeholder=""  size="3" >
-			
-				<input type="text" id="onyomi" name="onyomi"  placeholder=""  size="14">
-
-				<input type="text" id="kunyomi" name="kunyomi" placeholder=""  size="14">
-
-				<input type="text" id="traduction" name="traduction" placeholder="" size="20" >
 			</div>
 			
 			<div>
-				<!-- <button onclick="fonctStorageSetKanji()" >stocker la recherche</button> -->
-				<button type="submit", onclick="fonctStorageSetKanji()" >lancer la recherche</button>
+				<label for="kanji">Kanji</label>
+				<input type="text" id="kanji" name="kanji" placeholder=""  size="3" >
 			</div>
-	
-	    </form>
+			
+			
+			<div>
+				<label for="onyomi">Onyomi  </label>
+				<input type="text" id="onyomi" name="onyomi"  placeholder=""  size="14">
+			</div>
+			
+			
+			<div>
+				<label for="kunyomi">Kunyomi</label>
+				<input type="text" id="kunyomi" name="kunyomi" placeholder=""  size="14">
+			</div>
+			
+			
+			<div>
+				<label for="traduction">Traduction Française</label>
+				<input type="text" id="traduction" name="traduction" placeholder="" size="20" >
+			</div>
+			
+		 
+			<div>
+				<input type="submit" name="bouton" value="Envoyer"/>
+			</div>
+			
+		 </form>
 	</div>
 	
 	</section>
