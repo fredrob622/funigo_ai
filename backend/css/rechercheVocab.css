@@ -25,7 +25,7 @@
 			border-radius: 8px;
 			padding: 0 50px 0 50px;
 			background: #b2f2bb;
-			margin-left: 0;
+			margin-left: -40px;
 		}
 
 		.formulaire_recherche > h1 {
@@ -135,7 +135,7 @@
 				/* background: #e9ecef; */
 				font-family: Montserrat, "sans-serif";
 				color: #303030;
-				margin-left: -80px;
+				/* margin-left: 80px; */
 				/* top: -1000px;  */
 				background-image: url(/images/pp3.webp);
 				z-index: 10;
@@ -145,14 +145,16 @@
 				top: -500px;
 			}
 
+			/* section {
+				margin-left: -100px;
+			} */
 			.formulaire_recherche {
-				width: 3000px;
+				width: 320px;
 				border: 1px solid;
-				border-radius: 15px;
-				padding: 0 40px 0 40px;
+				border-radius: 8px;
+				padding: 0 50px 0 50px;
 				background: #b2f2bb;
-				z-index: 15;
-				margin-left: 80px;	
+				margin-left: -40px;
 			}
 
 			form div {

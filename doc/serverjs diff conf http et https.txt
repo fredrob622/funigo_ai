@@ -1,5 +1,4 @@
 // importer l'application app.js
-const https = require('https');
 const app = require("./app");
 const fs = require('fs');
 const cors = require('cors');
@@ -34,11 +33,37 @@ app.get('/', (req, res) => {
   res.send(`Hello World! vous êtes sur localhost et le port ${process.env.PORT} => URL http://localhost:5000/ !`)
 });
 
-// app.listen(process.env.PORT, () => {
-//   console.log(`Express Application exemple à l'écoute sur le port ${process.env.PORT}!`)
-// });
+app.listen(process.env.PORT, () => {
+  console.log(`Express Application exemple à l'écoute sur le port ${process.env.PORT}!`)
+});
+
+
+
+**********************************************************************************
+
+const https = require('https');
+const fs = require('fs');
+const express = require('express');
+const app = express();
+
+// Chemins vers vos fichiers de certificat
+const options = {
+  key: fs.readFileSync('D:/funigo/cert-funigo/funigofr/privkey.pem'),
+  cert: fs.readFileSync('D:/funigo/cert-funigo/funigofr/fullchain.pem'),
+  ca: fs.readFileSync('D:/funigo/cert-funigo/funigofr/chain.pem')
+};
+
+// Définir une route de base
+app.get('/', (req, res) => {
+  res.send('Hello, HTTPS!');
+});
+
+// Exemple de route API
+app.get('/api/rechercheVocab', (req, res) => {
+  res.json({ message: 'Réponse de l\'API rechercheVocab' });
+});
+
 // Créer le serveur HTTPS
 https.createServer(options, app).listen(5000, () => {
   console.log('Serveur HTTPS en écoute sur le port 5000');
 });
-

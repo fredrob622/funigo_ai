@@ -9,7 +9,7 @@
 body {
     /* background-image: radial-gradient(circle at center center, rgba(217, 217, 217,0.05) 0%, rgba(217, 217, 217,0.05) 15%,rgba(197, 197, 197,0.05) 15%, rgba(197, 197, 197,0.05) 34%,rgba(178, 178, 178,0.05) 34%, rgba(178, 178, 178,0.05) 51%,rgba(237, 237, 237,0.05) 51%, rgba(237, 237, 237,0.05) 75%,rgba(138, 138, 138,0.05) 75%, rgba(138, 138, 138,0.05) 89%,rgba(158, 158, 158,0.05) 89%, rgba(158, 158, 158,0.05) 100%),radial-gradient(circle at center center, rgb(255,255,255) 0%, rgb(255,255,255) 6%,rgb(255,255,255) 6%, rgb(255,255,255) 12%,rgb(255,255,255) 12%, rgb(255,255,255) 31%,rgb(255,255,255) 31%, rgb(255,255,255) 92%,rgb(255,255,255) 92%, rgb(255,255,255) 97%,rgb(255,255,255) 97%, rgb(255,255,255) 100%); background-size: 42px 42px; */
     height: 100vh;
-    ackground-image: url(../../images/pp3.webp);
+    background-image: url(../../images/pp3.webp);
     /* overflow-x: hidden; */
 }
 
@@ -28,6 +28,7 @@ h1 {
     font-size: 1vw;
     color: #333;
     font-weight: 400;
+    width: 300px;
 }
 
 .cercle {
@@ -77,6 +78,7 @@ img {
     width: 17vw;
     z-index: 25;
 }
+
 .P05 {
     left: 37%;
     width: 10vw;
@@ -93,7 +95,32 @@ img {
     left: 55%;
     width: 12vw;
 }
+
 .P08 {
     left: 63%;
     width: 15vw;
+}
+
+@media screen and (max-width: 1118px) {
+
+    h1 {
+        /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+        font-family:'Lato', Arial, sans-serif;
+        letter-spacing: 5px;
+        text-align: center;
+        padding-top: 1vh;
+        font-size: 4vw;
+        width: 10px;
+        color: #333;
+        font-weight: 600;
+        margin-left: -160px;
+        
+    }
+
+    .container {
+        /* position: relative; */
+        height: 100vh;
+        width: 100vw;
+        margin-top: -450px;
+    }
 }

@@ -1,50 +1,371 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funigo_SAS</title>
-    <!-- <link rel="stylesheet" href="./css/index.css"> -->
-    <link rel="stylesheet" href="assets/css/styles_sas.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
       <!--=============== REMIXICONS ===============-->
-      <!-- <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet"> -->
-</head>
-<body>
-    <div id="container" style="display:box;  ">
-        <div id="menu" >
-            <object type="text/html" data="./index_sas.html"
-                width="100%"
-                height="630">
+      <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+
+      <!--=============== CSS ==============================================================-->
+      <link href="assets/css/styles_sas.css" rel="stylesheet">
+
+      <title>Funigo Res</title>
+   </head>
+   <body>
+      <!--=============== HEADER ============================================================-->
+      <header class="header">
+         <div class="banniere">
+            <img src="./icones/Drapeau-France_240-gif.gif" alt="Drapeau France" width="40px">
+            <h1>Funigo</h1>
+            <img src="./icones/Drapeau-Japon_240-gif.gif" alt="Drapeau Japon" width="40px"> 
+         </div>
+         <nav class="nav container">
+            <div class="nav__data">
+               <div class="nav__toggle" id="nav-toggle">
+                  <i class="ri-menu-line nav__burger"></i>
+                  <i class="ri-close-line nav__close"></i>
+               </div>
+            </div>
+
+            <!--=============== NAV MENU ===============-->
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <!--=============== NAV MENU Japon ===============-->
+                  <li class="dropdown__item">
+                     <div class="nav__link">
+                        <img src="./icones/japon3.jpg" alt="japon">
+                        <span class="nav-span">Japon 日本</span> 
+                     </div>
+                     <ul class="dropdown__menu">
+                        <li class="dropdown__subitem">
+                           <div class="dropdown__link">
+                              <img src="./icones/icone_honshu4.jpg" alt="honshu"  >
+									   <span class="nav-span">Honshu 本州</span></i>
+                           </div>
+
+                           <ul class="dropdown__submenu">
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-file-list-line"></i> Tokyo
+                                 </a>
+                              </li>
+      
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-cash-line"></i> Osaka
+                                 </a>
+                              </li>
+      
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-refund-2-line"></i> Okayama
+                                 </a>
+                              </li>
+                           </ul>
+                        </li>
+
+                        <li class="dropdown__subitem">
+                           <div class="dropdown__link">
+                              <img src="./icones/icone_kyushu.jpg" alt="kyushu">
+									   <span class="nav-span">Kyushu 九州</span>
+                           </div>
+
+                           <ul class="dropdown__submenu">
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-file-list-line"></i> Fukuoka
+                                 </a>
+                              </li>
+      
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-cash-line"></i> Nagazaki
+                                 </a>
+                              </li>
+      
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-refund-2-line"></i> Kagoshima
+                                 </a>
+                              </li>
+                           </ul>
+                        </li>
+
+                        <!--=============== DROPDOWN SUBMENU ===============-->
+                        <li class="dropdown__subitem">
+                           <div class="dropdown__link">
+                              <img src="./icones/icone_shikoku5.jpg" alt="shikoku">
+                              <span class="nav-span">Shikoku 四国</span>	
+                           </div>
+
+                           <ul class="dropdown__submenu">
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-file-list-line"></i> Takamatsu
+                                 </a>
+                              </li>
+      
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-cash-line"></i> Koshi
+                                 </a>
+                              </li>
+      
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-refund-2-line"></i>Matsuyama
+                                 </a>
+                              </li>
+                           </ul>
+                        </li>
+                        <li class="dropdown__subitem">
+                           <div class="dropdown__link">
+                              <img src="./icones/icone_hokkaido6.jpg" alt="hokkaido">
+									   <span class="nav-span">Hokkaido 北海道</span>	
+                           </div>
+
+                           <ul class="dropdown__submenu">
+                              <li>
+                                    <a href="#" class="dropdown__sublink">
+                                       <i class="ri-cash-line"></i> Sapporo
+                                    </a>
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-cash-line"></i> Otaru
+                                 </a>
+                              </li>    
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-refund-2-line"></i> Hakodate
+                                 </a>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <!--=============== Menu France ===============-->
+                  <li class="dropdown__item">
+                     <div class="nav__link">
+                        <img src="./icones/france3.jpg" alt=france">
+                        <span class="nav-span">France フランス</span>
+                     </div>
+
+                     <ul class="dropdown__menu">
+                        <li> 
+                           <div class="dropdown__link">
+                              <img src="./icones/departement_fr.gif" alt="Département">
+                              <a href="./html/index_departement.html" target="_self">Département</a>       
+                           </div>               
+                        </li>
+
+                        <li>
+                           <div class="dropdown__link">
+                              <img src="./icones/region_fr.jpg" alt="Région">
+                              <a href="./html/index_region.html" target="_self">Région</a>        
+                           </div>  
+                        </li>
+                     </ul>
+                  </li>
+
+                  <!--=============== Menu Langue ===============-->
+                  <li class="dropdown__item">
+                     <div class="nav__link">
+                        <img src="./icones/langue4.png" alt="langue">
+                        <span class="nav-span">Langue  語</span>
+                     </div>
+                     <ul class="dropdown__menu">
+                        <li class="dropdown__subitem">
+                           <div class="dropdown__link">
+                              <img src="./icones/kanji1.png" alt="kanji">
+                              <a href="html/index_kanji.html" target="_self">Kanji 字</a>
+                           </div>
+                        </li>
+                        <li  class="dropdown__subitem">
+                           <div class="dropdown__link">
+                              <img src="./icones/vocabulaire2.jpg" alt="vocabulaire">
+                              <a href="html/index_voca.html" target="_self">Vocabulaire 単語</a>
+                           </div>                   
+                        </li>
+                        <!--=============== DROPDOWN SUBMENU Grammaire  ===============-->
+                        <li class="dropdown__subitem">
+                           <div class="dropdown__link">
+                              <img src="./icones/grammaire2.png" alt="grammaire">
+                              <a href="./index_gram.html" target="_self">Grammaire 文法</a>
+                           </div>
+
+                           <ul class="dropdown__submenu">
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-file-list-line"></i> Conjugaison
+                                 </a>
+                              </li>
+      
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-cash-line"></i>Suffixes Verbaux
+                                 </a>
+                              </li>
+      
+                              <li>
+                                 <a href="#" class="dropdown__sublink">
+                                    <i class="ri-refund-2-line"></i> Keigo
+                                 </a>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+                  <!--=============== Menu Langue ===============--> 
+                  <li class="dropdown__item">
+                     <div class="nav__link">
+                        <img src="./icones/icone_photo19.png" alt="photo">
+                        <span class="nav-span">Photo  写真</span>
+                     </div>
+                        <ul class="dropdown__menu">
+                           <!-------- Honshu--------->
+                           <li class="dropdown__subitem">
+                              <div class="dropdown__link">
+                                 <img src="./icones/icone_honshu4.jpg" alt="honshu"  >
+									      <span class="nav-span">Honshu 本州</span>
+                              </div>
+                              <ul class="dropdown__submenu">
+                                 <li>
+                                    <a href="#" class="dropdown__sublink">
+                                       <i class="ri-file-list-line"></i> Tokyo
+                                    </a>
+                                 </li>
+                                 <li>
+                                    <a href="#" class="dropdown__sublink">
+                                       <i class="ri-cash-line"></i> Osaka
+                                    </a>
+                                 </li>
+                                 <li>
+                                    <a href="#" class="dropdown__sublink">
+                                       <i class="ri-refund-2-line"></i> Okayama
+                                    </a>
+                                 </li>
+                              </ul>
+                              </li>
+                              <!-------- kyushu--------->
+                              <li class="dropdown__subitem">
+                              <div class="dropdown__link">
+                                 <img src="./icones/icone_kyushu.jpg" alt="kyushu">
+									      <span class="nav-span">Kyushu 九州</span>
+                              </div>
+                                 <ul class="dropdown__submenu">
+                                    <li>
+                                       <a href="#" class="dropdown__sublink">
+                                       <i class="ri-file-list-line"></i> Fukuok   </a>
+                                    </li>
+                                    <li>
+                                       <a href="#" class="dropdown__sublink">
+                                          <i class="ri-cash-line"></i> Nagazaki
+                                       </a>
+                                    </li>          
+                                    <li>
+                                       <a href="#" class="dropdown__sublink">
+                                          <i class="ri-refund-2-line"></i> Kagoshima
+                                       </a>
+                                    </li>
+                                 </ul>
+                              </li>
+                              <!-------- Shikoku --------->
+                              <li class="dropdown__subitem">
+                                 <div class="dropdown__link">
+                                    <img src="./icones/icone_shikoku5.jpg" alt="shikoku">
+                                    <span class="nav-span">Shikoku 四国</span>
+                                 </div>
+      
+                                 <ul class="dropdown__submenu">
+                                    <li>
+                                       <a href="#" class="dropdown__sublink">
+                                          <i class="ri-file-list-line"></i> Takamatsu
+                                       </a>
+                                    </li>
+            
+                                    <li>
+                                       <a href="#" class="dropdown__sublink">
+                                          <i class="ri-cash-line"></i> Koshi
+                                       </a>
+                                    </li>
+            
+                                    <li>
+                                       <a href="#" class="dropdown__sublink">
+                                          <i class="ri-refund-2-line"></i>Matsuyama
+                                       </a>
+                                    </li>
+                                 </ul>
+                              </li>
+                              <!-------- Hokkaido --------->
+                              <li class="dropdown__subitem">
+                                 <div class="dropdown__link">
+                                    <img src="./icones/icone_hokkaido6.jpg" alt="hokkaido">
+                                    <span class="nav-span">Hokkaido 北海道</span>
+                                 </div>
+                                 <ul class="dropdown__submenu">
+                                    <li>
+                                       <a href="#" class="dropdown__sublink">
+                                          <i class="ri-file-list-line"></i> Sapporo
+                                       </a>
+                                    </li>
+                                    <li>
+                                       <a href="#" class="dropdown__sublink">
+                                          <i class="ri-cash-line"></i> Otaru
+                                       </a>
+                                    </li>         
+                                    <li>
+                                       <a href="#" class="dropdown__sublink">
+                                          <i class="ri-refund-2-line"></i> Hakodate
+                                       </a>
+                                    </li>
+                                 </ul>
+                              </li> 
+                        </ul> 
+                     
+                     <!--=============== DROPDOWN 2 ===============-->
+                     <li class="dropdown__item">
+                        <div class="nav__link">
+                           <img src="./icones/user1.jpg" alt="users">
+                           <span class="nav-span">Users</span>
+                        </div>
+                        <ul class="dropdown__menu">
+                           <li>
+                              <a href="#" class="dropdown__link">
+                                 <i class="ri-user-line"></i> Profiles
+                              </a>                          
+                           </li>
+                           <li>
+                              <a href="#" class="dropdown__link">
+                                 <i class="ri-lock-line"></i> Accounts
+                              </a>
+                           </li>
+                           <li>
+                              <a href="#" class="dropdown__link">
+                                 <i class="ri-message-3-line"></i> Messages
+                              </a>
+                           </li>
+                        </ul>
+                     </li>
+
+                  <li class="dropdown__item">
+                     <div class="nav__link">
+                        <img src="./icones/url1.png" alt="lien">
+                        <span class="nav-span">Lien</span>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </nav>
+      </header>
+      <div id="container" style="display:box; margin-top: 300px; ">
+         <div id="contenu" >
+             <object type="text/html" data="../html/acceuil.html"           
+                 width="120%"
+                 height="1500">             
             </object>
-        </div>
-        <div id="contenu" >
-            <object type="text/html" data="../frontend/html/acceuil.html"
-                width="100%"
-                height="1300">             
-           </object>
-        </div>
-    </div>
-</body>
-
-<script>
-    $(document).ready(function() {
-    // Lorsqu'on clique sur un onglet du menu, on bascule l'affichage du sous-menu
-    $('#menu .menu-item > a').click(function(e) {
-        e.preventDefault(); // Empêche le lien de naviguer (si c'est un lien)
-        
-        // Trouver le sous-menu lié à l'élément cliqué
-        var submenu = $(this).next('.submenu');
-        
-        // Si le sous-menu est déjà visible, on le cache, sinon on l'affiche
-        submenu.slideToggle(300);
-        
-        // On ferme tous les autres sous-menus (si on veut un comportement "accordion")
-        $('#menu .submenu').not(submenu).slideUp(300);
-    });
-});
-</script>
+         </div>
+      <!--=============== MAIN JS ===============-->
+      <script src="assets/js/main.js"></script>
+   </body>
 </html>
-
-

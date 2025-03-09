@@ -4,22 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AffichageRechercheKanji</title>
+    <title>AffichageRechercheVocab</title>
 	<!-- <style <%- include('../css/affichageRechercheKanji.css')   %> 	</style> -->
-	<link rel="stylesheet" href="/affichageRechercheKanji.css">
+	<link rel="stylesheet" href="/general.css">
+	<link rel="stylesheet" href="/affichageRechercheVocab.css">
 </head>
 
 <body>
 	<section>   
 		
-	    <%- include('../IHM/rechercheVocab') %>
         <div class="affichage_resultat">  
 			<h2>Dictionnaire Japonais/Francais </h2>
 			<table>
 				<caption>Resultat de la recherche </caption>	
 				<tr>
-					<th>Index</th>
-					<th>Niveau</th>
 					<th>Kana</th>
 					<th>Kanji</th>
 					<th>Français</th>
@@ -27,9 +25,6 @@
 
 				<!-- Boucle pour lire le tableau -->
 				<% for(i=0; i<result.length; i++) { %>
-					<tr>
-						 <td width=5% align=center ><%= result[i].voca_index %></td>
-						 <td width=5% align=center ><%= result[i].niveau %></td>
 						 <td width=20% align=center ><%= result[i].kana %></td>
 						 <td width=25% align=center ><%= result[i].kanji %></td>
 						 <td><%= result[i].francais %></td> 

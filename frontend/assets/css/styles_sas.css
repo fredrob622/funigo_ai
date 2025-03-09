@@ -209,7 +209,7 @@ a {
   }
 
   .nav-span {
-    margin-left: 170px;
+    margin-left: 165px;
     /* margin-right: 10px; */
   }
 
@@ -264,6 +264,7 @@ a {
   .dropdown__link img {
     width: 20px;
     margin-right: 10px;
+    margin-left: 20px;
   }
 
   .dropdown__link i {
