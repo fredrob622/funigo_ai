@@ -1,0 +1,148 @@
+Les directives de redirection pour Apache, telles que RewriteEngine On, RewriteCond, et RewriteRule, sont généralement placées dans le fichier de configuration du serveur Apache ou dans un fichier .htaccess situé dans le répertoire racine de votre site web. Voici comment procéder pour chaque cas :
+
+LoadModule rewrite_module modules/mod_rewrite.soLes directives de redirection pour Apache, telles que RewriteEngine On, RewriteCond, et RewriteRule, 
+sont généralement placées dans le fichier de configuration du serveur Apache ou dans un fichier .htaccess situé dans le répertoire racine de votre site web.
+
+fichier httpd.conf 
+
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+LoadModule rewrite_module modules/mod_rewrite.so
+
+fichier httpd-vhost.conf
+
+
+<VirtualHost *:80>
+	DocumentRoot "D:/funigo/frontend/"
+	ServerName funigo.fr
+	ServerAdmin admin@example.com
+	ServerAlias www.funigo.fr
+	ErrorLog "${SRVROOT}/logs/funigo-error.log"
+	TransferLog "${SRVROOT}/logs/funigo-access.log"
+	
+	 # Activer le proxy
+    ProxyPreserveHost On
+    ProxyPass /api http://localhost:5000/
+    ProxyPassReverse /api http://localhost:5000/
+	
+		
+	RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+	
+    # Configurer les en-têtes CORS si nécessaire
+    <Location /api>
+        Header set Access-Control-Allow-Origin "https://funigo.fr"
+        Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+        Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+    </Location>
+	
+	<Directory D:/funigo/frontend/>
+			Options Indexes FollowSymLinks
+			AllowOverride None
+			Require all granted
+	</Directory>
+</VirtualHost>
+
+
+si on écrit http://www.funigo.fr   on a https://www.funigo.fr
+
+en testant le seo Home page has no HTTP Strict-Transport-Security response header (often abbreviated as HSTS). This header informs browsers 
+that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS.
+
+LoadModule headers_module modules/mod_headers.so
+
+ # Activer HSTS
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+	
+Explication des paramètres HSTS
+max-age=31536000 : Indique aux navigateurs de se souvenir que le site doit être accessible via HTTPS pendant un an (31 536 000 secondes).
+includeSubDomains : Applique la politique HSTS à tous les sous-domaines du domaine principal.
+preload : (Optionnel) Indique que le site peut être ajouté à la liste de préchargement HSTS des navigateurs. Cela nécessite que votre site soit 
+soumis à la liste de préchargement HSTS de Google Chrome.
+
+
+test avec https://securityheaders.com/
+
+Headers:	
+Strict-Transport-Security Content-Security-Policy X-Frame-Options X-Content-Type-Options Referrer-Policy Permissions-Policy
+
+
+Content-Security-Policy	Content Security Policy is an effective measure to protect your site from XSS attacks. By whitelisting sources of approved content, 
+you can prevent the browser from loading malicious assets.
+
+X-Frame-Options	X-Frame-Options tells the browser whether you want to allow your site to be framed or not. By preventing a browser from framing your site 
+you can defend against attacks like clickjacking. Recommended value "X-Frame-Options: SAMEORIGIN".
+
+X-Content-Type-Options	X-Content-Type-Options stops a browser from trying to MIME-sniff the content type and forces it to stick with the declared content-type. 
+The only valid value for this header is "X-Content-Type-Options: nosniff".
+
+Referrer-Policy	Referrer Policy is a new header that allows a site to control how much information the browser includes with navigations away from a document 
+and should be set by all sites.
+
+Permissions-Policy	Permissions Policy is a new header that allows a site to control which features and APIs can be used in the browser.
+*************************************************************************
+Content-Security-Policy (CSP)
+Objectif : Protéger votre site contre les attaques XSS (Cross-Site Scripting) en spécifiant les sources de contenu approuvées.
+
+Solution :
+
+Définir une politique CSP : Créez une politique CSP qui spécifie les sources de contenu autorisées.
+
+
+Définir une politique CSP : Créez une politique CSP qui spécifie les sources de contenu autorisées.
+Content-Security-Policy: default-src 'self'; script-src 'self' https://trusted.cdn.com; style-src 'self' https://trusted.cdn.com;
+
+*************************************************************************
+ X-Frame-Options
+Objectif : Empêcher votre site d'être intégré dans des iframes pour se protéger contre les attaques de clickjacking.
+
+Solution :
+
+Ajouter l'en-tête X-Frame-Options :
+
+X-Frame-Options: SAMEORIGIN
+Cela permet à votre site d'être intégré uniquement dans des iframes du même domaine.
+***************************************************************************
+X-Content-Type-Options
+Objectif : Empêcher le navigateur de deviner le type MIME du contenu et forcer l'utilisation du type de contenu déclaré.
+
+Solution :
+
+Ajouter l'en-tête X-Content-Type-Options :
+
+X-Content-Type-Options: nosniff
+
+*****************************************************************************
+Referrer-Policy
+
+Objectif : Contrôler la quantité d'informations envoyées avec les navigations à partir de votre site.
+
+Solution :
+
+Définir une politique de référent :
+
+Referrer-Policy: no-referrer-when-downgrade
+Cela empêche l'envoi de l'URL complète lorsque l'utilisateur navigue vers un site moins sécurisé.
+
+******************************************************************************
+Permissions-Policy
+Objectif : Contrôler quelles fonctionnalités et API peuvent être utilisées dans le navigateur.
+
+Solution :
+
+Définir une politique de permissions :
+
+Permissions-Policy: geolocation=(self), microphone=()
+Cela permet l'utilisation de la géolocalisation uniquement pour le même domaine et désactive l'accès au microphone.
+
+		Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://trusted.cdn.com; style-src 'self' https://trusted.cdn.com;"
+
+
+<IfModule mod_headers.c>
+    Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://trusted.cdn.com; style-src 'self' https://trusted.cdn.com;"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "no-referrer-when-downgrade"
+    Header set Permissions-Policy "geolocation=(self), microphone=()"
+</IfModule>

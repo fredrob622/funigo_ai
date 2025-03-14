@@ -1,158 +1,148 @@
 
-		body {
-			/* background: #e9ecef; */
-			font-family: Montserrat, "sans-serif";
-			color: #303030;
-			margin-left: 100px;
-			background-image: url(../images/pp3.webp);
-		}
+body {
+	/* background: #e9ecef; */
+	font-family: Montserrat, "sans-serif";
+	color: #303030;
+	margin-left: 100px;
+	margin-top: 150px;
+	background-image: url(../images/pp3.webp);
+}
 
-		h1 {
-			text-align:left;
-			background: white;
-			width: 800px;
-			margin-left: 300px;
-			font-size: 42px;
-			margin-top: 80px;
-			margin-bottom: 40px;
-			text-decoration: underline;
-			padding-bottom: 20px;
-		}
+h1 {
+	text-align:left;
+	background: white;
+	width: 800px;
+	margin-left: 300px;
+	font-size: 42px;
+	margin-top: 80px;
+	margin-bottom: 40px;
+	text-decoration: underline;
+	padding-bottom: 20px;
+}
 
-		.formulaire_recherche {
-			width: 320px;
-			border: 1px solid;
-			border-radius: 8px;
-			padding: 0 50px 0 50px;
-			background: #b2f2bb;
-			margin-left: -40px;
-		}
+.formulaire_recherche {
+	width: 320px;
+	border: 1px solid;
+	border-radius: 8px;
+	padding: 0 50px 0 50px;
+	background: #b2f2bb;
+	margin-left: -40px;
+}
 
-		.formulaire_recherche > h1 {
-			align-items: left;
-			font-weight: 500;
-			text-decoration : underline;
-		}
+.formulaire_recherche > h1 {
+	align-items: left;
+	font-weight: 500;
+	text-decoration : underline;
+}
 
-		.formulaire_recherche > h2 {
-			align-items: left;
-			font-weight: 600;
-			text-decoration : underline;
-		}
+.formulaire_recherche > h2 {
+	align-items: left;
+	font-weight: 600;
+	text-decoration : underline;
+}
 
-		/* .class_input {
-			display: flex;
-		}
+form div {
+	width: 100%;
+	display: row;
+	flex-direction: column;
+	min-height: 43px;
+	margin-top: 0px;
+	background: #b2f2bb;
+	}
 
-		.class_label {
-			display: flex;
-		} */
+form div > label {
+	display: block;
+	margin-bottom: 7px;
+	font-weight: 900;
+	width:40px;
+	float: left;
+	font-size: 20px;
+	font-weight: 500; 
+	}	
 
-		form div {
-			width: 100%;
-			display: row;
-			flex-direction: column;
-			min-height: 43px;
-			margin-top: 0px;
-			background: #b2f2bb;
-			}
+form div > input, form div > select, form div > textarea {
+	background: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: 500;
+	font-family: Montserrat, "sans-serif";
+	box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
+	margin-left:50px;
+	}
 		
-		form div > label {
-			display: block;
-			margin-bottom: 7px;
-			font-weight: 900;
-			width:40px;
-			float: left;
-			font-size: 20px;
-			font-weight: 500; 
-			}	
-
-		form div > input, form div > select, form div > textarea {
-			background: white;
-			border: none;
-			border-radius: 5px;
-			font-size: 16px;
-			font-weight: 500;
-			font-family: Montserrat, "sans-serif";
-			box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
-			margin-left:50px;
-			}
-				
-		form div > input, form div > select {
-			height: 20px;
-			padding-left: 10px;
-			}
-				
-		form div > select {
-			appearance: none;
-			background-size: 15px;
-			background-position: right 10px top 50%;
-			background-repeat: no-repeat;
-			}
-				
-		form div > textarea {
-			height: 195px;
-			padding: 15px 0px 0px 10px;
-			}
-				
-		form div > input::placeholder, form div > textarea::placeholder {
-			color: white;
-			}
-				
-		form div > select:invalid {
-			color: white;
-			}
-				
-		form div > select option {
-			background: white;
-			color: #303030;
-			}
-				
-		form div:last-child {
-			align-items:center;
-			margin-top: 20px;
-			}
-				
-		form button {
-			width: 450px;
-			max-width: 500px;
-			height: 80px;
-			font-weight: 700;
-			font-size: 28px;
-			background: white;
-			border: rgba(48, 48, 48, 0.5) solid 1px;
-			border-radius: 5px;
-			box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
-			color: #303030;
-			}
+form div > input, form div > select {
+	height: 20px;
+	padding-left: 10px;
+	}
+		
+form div > select {
+	appearance: none;
+	background-size: 15px;
+	background-position: right 10px top 50%;
+	background-repeat: no-repeat;
+	}
+		
+form div > textarea {
+	height: 195px;
+	padding: 15px 0px 0px 10px;
+	}
+		
+form div > input::placeholder, form div > textarea::placeholder {
+	color: white;
+	}
+		
+form div > select:invalid {
+	color: white;
+	}
+		
+form div > select option {
+	background: white;
+	color: #303030;
+	}
+		
+form div:last-child {
+	align-items:center;
+	margin-top: 20px;
+	}
+		
+form button {
+	width: 450px;
+	max-width: 500px;
+	height: 80px;
+	font-weight: 700;
+	font-size: 28px;
+	background: white;
+	border: rgba(48, 48, 48, 0.5) solid 1px;
+	border-radius: 5px;
+	box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+	color: #303030;
+	}
 
 		/*******************************************************************************************************/
 		/* 				For small devices 					*/
 		/*******************************************************************************************************/
-		@media screen and (max-width: 570px) {
+		@media screen and (max-width: 660px) {
 
 			body {
-				/* background: #e9ecef; */
 				font-family: Montserrat, "sans-serif";
 				color: #303030;
-				/* margin-left: 80px; */
-				/* top: -1000px;  */
+				margin-left: 10px;
+				margin-top: -20px;  
 				background-image: url(/images/pp3.webp);
 				z-index: 10;
 			}	
 			
 			#contenu{
-				top: -500px;
+				top: -100px;
 			}
 
-			/* section {
-				margin-left: -100px;
-			} */
 			.formulaire_recherche {
-				width: 320px;
+				 /* width: 320px; */
+				width: 100%;
 				border: 1px solid;
 				border-radius: 8px;
-				padding: 0 50px 0 50px;
+				padding: 0 40px 0 40px;
 				background: #b2f2bb;
 				margin-left: -40px;
 			}
@@ -164,11 +154,14 @@
 				min-height: 30px;
 				margin-top: 0px;
 				background: #b2f2bb;
-				
-				}
+			}
 			
+			#classinput{
+				display:inline-block
+			}
+	
 			form div > label {
-				display: block;
+				/* display: block; */
 				margin-bottom: 7px;
 				font-weight: 900;
 				width:40px;
@@ -191,37 +184,37 @@
 				form div > input, form div > select {
 					height: 20px;
 					padding-left: 10px;
-					}
+				}
 						
 				form div > select {
 					appearance: none;
 					background-size: 15px;
 					background-position: right 10px top 50%;
 					background-repeat: no-repeat;
-					}
+				}
 						
 				form div > textarea {
 					height: 195px;
 					padding: 15px 0px 0px 10px;
-					}
+				}
 						
 				form div > input::placeholder, form div > textarea::placeholder {
 					color: white;
-					}
+				}
 						
 				form div > select:invalid {
 					color: white;
-					}
+				}
 						
 				form div > select option {
 					background: white;
 					color: #303030;
-					}
+				}
 						
 				form div:last-child {
 					align-items:center;
 					margin-top: 20px;
-					}
+				}
 						
 				form button {
 					width: 450px;
@@ -234,6 +227,5 @@
 					border-radius: 5px;
 					box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
 					color: #303030;
-					}
-		
+				}
 		}

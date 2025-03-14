@@ -1,0 +1,107 @@
+Pour configurer le serveur Apache afin de rediriger les requêtes entre https://www.funigo.fr et https://funigo.fr, vous pouvez utiliser le module mod_rewrite d'Apache. Voici comment procéder :
+
+LoadModule rewrite_module modules/mod_rewrite.so
+
+
+dans hostinguer ajouter un enregistrement A www   91.175.202.78
+
+C:\Certbot>nslookup www.funigo.fr
+Serveur :   UnKnown
+Address:  192.168.1.254
+
+Réponse ne faisant pas autorité :
+Nom :    www.funigo.fr
+Address:  91.175.202.78
+
+
+C:\Certbot>nslookup funigo.fr
+Serveur :   UnKnown
+Address:  192.168.1.254
+
+Réponse ne faisant pas autorité :
+Nom :    funigo.fr
+Address:  91.175.202.78
+
+
+
+
+
+
+C:\Certbot>ls -ltr live/funigo.fr
+total 1
+-rw-r--r-- 1 fred 197121 706 Apr 24  2024 README
+lrwxrwxrwx 1 fred 197121  36 Feb 25 21:35 privkey.pem -> ../../archive/funigo.fr/privkey4.pem
+lrwxrwxrwx 1 fred 197121  33 Feb 25 21:35 cert.pem -> ../../archive/funigo.fr/cert4.pem
+lrwxrwxrwx 1 fred 197121  38 Feb 25 21:35 fullchain.pem -> ../../archive/funigo.fr/fullchain4.pem
+lrwxrwxrwx 1 fred 197121  34 Feb 25 21:35 chain.pem -> ../../archive/funigo.fr/chain4.pem
+
+
+lire le certificat 
+
+C:\Certbot\archive\funigo.fr>openssl x509 -text -in cert4.pem | grep DNS
+                DNS:funigo.fr, DNS:www.funigo.fr
+				
+				
+				
+. Activer le Module SSL dans Apache
+Avant de modifier la configuration, assurez-vous que le module SSL est activé.
+
+Sur Windows :
+
+Ouvrez httpd.conf (dans C:\Apache24\conf\httpd.conf ou autre répertoire selon votre installation).
+Vérifiez que cette ligne n'est pas commentée (pas de # au début) :
+
+LoadModule ssl_module modules/mod_ssl.so
+
+Activez le fichier de configuration SSL :
+
+Include conf/extra/httpd-ssl.conf
+
+0uvrez httpd-ssl.conf (situé dans C:\Apache24\conf\extra\httpd-ssl.conf) et modifiez ces lignes :
+
+apache
+Copier
+Modifier
+<VirtualHost _default_:443>
+    DocumentRoot "C:/Apache24/htdocs"
+    ServerName funigo.fr
+    ServerAlias www.funigo.fr
+    ErrorLog "C:/Apache24/logs/error.log"
+    TransferLog "C:/Apache24/logs/access.log"
+
+    SSLEngine on
+
+    SSLCertificateFile "D:/funigo/cert-funigo/funigofr/fullchain.pem"
+    SSLCertificateKeyFile "D:/funigo/cert-funigo/funigofr/privkey.pem"
+    SSLCertificateChainFile "D:/funigo/cert-funigo/funigofr/chain.pem"
+
+    <Directory "C:/Apache24/htdocs">
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    # Sécurisation SSL (facultatif mais recommandé)
+    SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
+    SSLCipherSuite HIGH:!aNULL:!MD5
+    SSLHonorCipherOrder on
+</VirtualHost>
+➡ Assurez-vous que les chemins des certificats sont corrects !
+Utilisez / au lieu de \ dans les chemins (Apache préfère / sur Windows).
+
+🔹 3. Redémarrer Apache
+Après avoir enregistré httpd-ssl.conf, redémarrez Apache :
+
+Ouvrez Invite de commandes en mode administrateur.
+Exécutez :
+cmd
+Copier
+Modifier
+httpd -t
+✅ Si tout est correct, vous verrez Syntax OK.
+Ensuite, redémarrez Apache :
+c
+Copier
+Modifier
+net stop Apache2.4
+net start Apache2.4
+(Remplacez Apache24 par le nom de votre service si différent)

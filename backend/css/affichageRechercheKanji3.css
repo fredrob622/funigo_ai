@@ -33,7 +33,6 @@
 			background-color: #e4f0f5;	
 		}
 
-
 		.affichage_resultat  td, th {
 			border: 1px solid black;	
 			font-size: 18px;
@@ -46,3 +45,187 @@
 		.affichage_resultat tr:nth-child(odd)  {
 			background-color: rgb(240, 240, 240);
 		}
+
+	/************************************************************************/
+	/* 				For small devices 	(max-width: 380px)       			*/
+	/************************************************************************/
+	@media screen and (max-width: 330px) {
+
+		body {
+			font-family: Montserrat, "sans-serif";
+			color: #303030;
+			margin-left: -65px;
+			background-image: url(/images/pp3.webp);
+			background-color: aqua;
+			z-index: 10;
+		}	
+
+		.affichage_resultat {
+			width:330px;
+			border: rgba(48, 48, 48, 0.5) solid 1px;
+			border-radius: 8px;
+			padding: 0 50px 0 50px;
+			background: #b2f2bb;
+			margin-left: -100px;
+			margin-top: 40px;
+			padding-bottom: 20px;
+		}
+		.affichage_resultat > table {
+			/* width: 260px; */
+			border-collapse: collapse; 
+			background-color: darksalmon;
+			margin-left: -150px;
+			margin-top: 40px;
+		}
+	}
+
+
+	/************************************************************************/
+	/* 				For small devices 	(max-width: 660px)       			*/
+	/************************************************************************/
+		@media screen and (min-width:380px)  and (max-width: 660px) {
+
+			body {
+				font-family: Montserrat, "sans-serif";
+				color: #303030;
+				margin-left: -60px;
+				background-image: url(/images/pp3.webp);
+				z-index: 10;
+			}	
+			
+			#contenu{
+				top: -100px;
+			}
+
+			.formulaire_recherche {
+				width: 400px;
+				border: 1px solid;
+				border-radius: 15px;
+				padding: 0 40px 0 40px;
+				background: #b2f2bb;
+				z-index: 15;
+				margin-left: -70px;	
+			}
+
+			form div {
+				width: 100%;
+				display: row;
+				flex-direction: column;
+				min-height: 30px;
+				margin-top: 0px;
+				background: #b2f2bb;	
+			}
+			
+			form div > label {
+				display: block;
+				margin-bottom: 7px;
+				font-weight: 900;
+				width:40px;
+				float: left;
+				font-size: 20px;
+				font-weight: 500; 
+			}	
+	
+			form div > input, form div > select, form div > textarea {
+				background: white;
+				border: none;
+				border-radius: 5px;
+				font-size: 16px;
+				font-weight: 500;
+				font-family: Montserrat, "sans-serif";
+				box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
+				margin-left:50px;
+			}
+			
+			form div > input, form div > select {
+				height: 20px;
+				padding-left: 10px;
+			}
+						
+			form div > select {
+				appearance: none;
+				background-size: 15px;
+				background-position: right 10px top 50%;
+				background-repeat: no-repeat;
+			}
+						
+			form div > textarea {
+				height: 195px;
+				padding: 15px 0px 0px 10px;
+			}
+						
+			form div > input::placeholder, form div > textarea::placeholder {
+				color: white;
+			}
+						
+			form div > select:invalid {
+				color: white;
+			}
+						
+			form div > select option {
+				background: white;
+				color: #303030;
+			}
+						
+			form div:last-child {
+				align-items:center;
+				margin-top: 20px;
+			}
+						
+			form button {
+				width: 450px;
+				max-width: 500px;
+				height: 80px;
+				font-weight: 700;
+				font-size: 28px;
+				background: white;
+				border: rgba(48, 48, 48, 0.5) solid 1px;
+				border-radius: 5px;
+				box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+				color: #303030;
+			}
+
+			.affichage_resultat {
+				width:380px;
+				border: rgba(48, 48, 48, 0.5) solid 1px;
+				border-radius: 8px;
+				padding: 0 50px 0 50px;
+				background: #b2f2bb;
+				margin-left: 48px;
+				margin-top: 40px;
+				padding-bottom: 20px;
+			}
+			
+			.affichage_resultat > h2 {
+				align-items: center;
+				font-weight: 900;
+				text-decoration : underline;
+			}
+					
+			.affichage_resultat > table {
+				border-collapse: collapse; 
+				background-color: darksalmon;
+				margin-left: -40px;
+				margin-top: 40px;
+			}
+					
+			.affichage_resultat  tbody {
+				background-color: #e4f0f5;	
+				width:400px;
+			}
+			
+			.affichage_resultat  td, th {
+				border: 1px solid black;	
+				font-size: 12px;
+			}
+			
+			.affichage_resultat tr:nth-child(even)  {
+				background-color: rgb(250, 250, 250);
+			}
+			
+			.affichage_resultat tr:nth-child(odd)  {
+				background-color: rgb(240, 240, 240);
+			}
+		}
+
+	

@@ -308,3 +308,5 @@ SSLCertificateFile "${SRVROOT}/conf/certificat/funigo.fr/fullchain.pem"
 #   both in parallel (to also allow the use of DSA ciphers, etc.)
 #   ECC keys, when in use, can also be configured in parallel
 SSLCertificateKeyFile "${SRVROOT}/conf/certificat/funigo.fr/privkey.pem"
+
+

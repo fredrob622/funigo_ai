@@ -337,13 +337,27 @@ a {
 /*******************************************************************************************************/
 /* For small devices */
 /*******************************************************************************************************/
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 680px) {
   .container {
     margin-inline: 1rem;
   }
- 
+
+  .nav__list {
+    width: 100%;
+  }
+
+  .nav-span {
+    margin-left: 34vw;
+    
+  }
+
+  .dropdown__menu {
+    background-color: var(--black-total-color);
+    z-index: 5;
+  }
   .dropdown_item {
     width: 100vw;
+    z-index: 4;
   }
 
   .nav__link {
@@ -353,9 +367,22 @@ a {
 
   .nav__link img {
     width: 20px;
-    margin-left: 30px;
+    margin-left: 2vw;
     margin-right: 10px;
   }  
+
+ .dropdown__subitem {
+    z-index: 6;
+    margin-top: 10px;
+    /* height: 50px; */
+    
+ }
+
+.dropdown__submenu > li  {
+   background-color: var(--violet-clair-color);
+    height: 50px;
+   z-index: 10;
+ }
 }
 /*******************************************************************************************************/
 /* For large devices */

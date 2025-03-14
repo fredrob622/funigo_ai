@@ -12,15 +12,13 @@
 <body>
 	<section>   
 		
-	    <%- include('../IHM/rechercheKanji3') %>
+	    <!-- <%- include('../IHM/rechercheKanji3') %> -->
         <div class="affichage_resultat">  
 			
-			<h2>Liste des kanjis </h2>
+			<h2>Liste des kanjis</h2>
 			<table>
 				<caption>Resultat de la recherche 	</caption>
 				<tr>
-					<th>Index</th>
-					<th>Niveau</th>
 					<th>Kanji</th>
 					<th>Onyomi</th>
 					<th>Kunyomi</th>
@@ -30,8 +28,6 @@
 				<!-- Boucle pour lire le tableau -->
 				<% for(i=0; i<result.length; i++) { %>
 					<tr>
-						 <td width=5% align=center ><%= result[i].kanji_index %></td>
-						 <td width=5% align=center ><%= result[i].niveau %></td>
 						 <td width=5% align=center ><%= result[i].kanji %></td>
 						 <td><%= result[i].onyomi %></td>
 						 <td><%= result[i].kunyomi %></td> 
