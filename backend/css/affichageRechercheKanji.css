@@ -1,48 +1,106 @@
-		caption{
-			color:#303030; 
-			font-size:24px;
-			margin-bottom: 20px;
-			text-decoration: underline;
-		}
+body {
+    font-family: Montserrat, "sans-serif";
+    color: #303030;
+    margin: 5%; /* Utilisation de marges relatives */
+    background-image: url(../images/pp3.webp);
+}
+caption {
+    color: #303030;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+	color: white;
+}
 
-		.affichage_resultat {
-			width: 1000px;
-			border: rgba(48, 48, 48, 0.5) solid 1px;
-			border-radius: 8px;
-			padding: 0 50px 0 50px;
-			background: #b2f2bb;
-			margin-left: 100px;
-			margin-top: 40px;
-			padding-bottom: 20px;
-		}
+.affichage_resultat {
+    width: 90%; /* Utilisation de pourcentage pour plus de flexibilité */
+    max-width: 50%; /* Limite la largeur maximale */
+    border: rgba(48, 48, 48, 0.5) solid 1px;
+    border-radius: 8px;
+    padding: 0 1% 0px 1%; /* Utilisation de pourcentage pour le padding */
+    background: #027e13;
+}
 
-		.affichage_resultat > h2 {
-			align-items: center;
-			font-weight: 900;
-			text-decoration : underline;
-		}
+.affichage_resultat > h2 {
+    text-align: center; /* Centre le texte */
+    font-weight: 900;
+    text-decoration: underline;
+	color: white;
+}
+
+.affichage_resultat > table {
+    border-collapse: collapse;
+    background-color: darksalmon;
+    margin: 40px auto 0; /* Centre la table horizontalement
+    width: 100%; /* Assurez-vous que la table prend toute la largeur disponible */
+}
+
+.affichage_resultat tbody {
+    background-color: #e4f0f5;
+}
+
+.affichage_resultat td, th {
+    border: 1px solid black;
+    font-size: 18px;
+    padding: 10px; /* Ajout de padding pour un meilleur espacement */
+}
+
+.affichage_resultat tr:nth-child(even) {
+    background-color: rgb(180, 175, 175);
+}
+
+.affichage_resultat tr:nth-child(odd) {
+    background-color: rgb(240, 240, 240);
+}
+/*********************************************************************************************************************/
+/* Media Queries pour les petits écrans																				 */
+/*********************************************************************************************************************/
+@media screen and (max-width: 580px) {
+	body {
+		font-family: Montserrat, "sans-serif";
+		color: #303030;
+		margin: 0px; /*Utilisation de marges relatives */
+		background-image: url(../images/pp3.webp);
+	}
+    .affichage_resultat {
+        width: 100%; /* Prend presque toute la largeur de l'écran */
+        padding: 0 2% 20px 2%; /* Réduit le padding */
+		max-width: 90%;
+		margin-left: -20px;
+    }
+
+    .affichage_resultat > h2 {
+        font-size: 20px; /* Réduit la taille de la police */
 		
-		.affichage_resultat > table {
-			border-collapse: collapse; 
-			background-color: darksalmon;
-			margin-left: 10px;
-			margin-top:40px;
-		}
-		
-		.affichage_resultat  tbody {
-			background-color: #e4f0f5;	
-		}
+    }
 
+    .affichage_resultat td, th {
+        font-size: 14px; /* Réduit la taille de la police */
+    }
+}
+/*********************************************************************************************************************/
+/* Media Queries pour les petits écrans																				 */
+/*********************************************************************************************************************/
+@media screen and (min-width: 580px) and (max-width: 1024px) {
+	body {
+		font-family: Montserrat, "sans-serif";
+		color: #303030;
+		margin: 0px; /*Utilisation de marges relatives */
+		background-image: url(../images/pp3.webp);
+	}
+    .affichage_resultat {
+		display: block;
+        width: 100%; /* Prend presque toute la largeur de l'écran */
+    	padding: 0 3% 20px 3%; /*Réduit le padding */
+		/* max-width: 90%; */
+		margin-left: 10%;
+    }
 
-		.affichage_resultat  td, th {
-			border: 1px solid black;	
-			font-size: 18px;
-		}
+    .affichage_resultat > h2 {
+        font-size: 22px; /* Réduit la taille de la police */
+    }
 
-		.affichage_resultat tr:nth-child(even)  {
-			background-color: rgb(250, 250, 250);
-		}
-
-		.affichage_resultat tr:nth-child(odd)  {
-			background-color: rgb(240, 240, 240);
-		}
+    .affichage_resultat td, th {
+        font-size: 14px; /* Réduit la taille de la police */
+    }
+}

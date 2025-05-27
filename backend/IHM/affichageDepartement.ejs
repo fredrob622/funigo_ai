@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affichage Département</title>
+
+	<link rel="stylesheet" href="/rechercheDepartement.css">
+	<link rel="stylesheet" href="/asset/css/styles_sas.css">
+
+	<script type="text/javascript" src="/fonction.js"></script>
+</head>
+
+<body onload="fonctStorageInputDep(), fonctStorageSetDep('<%= result %>');">
+	
+	<section>   
+		
+	    <!-- <h1>Les départements français</h1> -->
+		
+		<div class="affichage_resultat">
+
+			<% for(i=0; i<result.length; i++) { %>
+				<div class="department-row">
+					<div class="table-cell">
+						<div class="table-header">nb</div>
+						<div class="table-data"><%= result[i].num_dep %></div>
+					</div>
+					<div class="table-cell">
+						<div class="table-header">Département</div>
+						<div class="table-data"><%= result[i].nom_dep %></div>
+					</div>
+					<div class="table-cell">
+						<div class="table-header">Région</div>
+						<div class="table-data"><%= result[i].nom_reg %></div>
+					</div>
+					<div class="table-cell">
+						<div class="table-header">Superficie en km²</div>
+						<div class="table-data"><%= result[i].superficie %></div>
+					</div>
+					<div class="table-cell">
+						<div class="table-header">Population</div>
+						<div class="table-data"><%= result[i].pop_dep %></div>
+					</div>
+					<div class="table-cell">
+						<div class="table-header">Densité</div>
+						<div class="table-data"><%= result[i].densite %></div>
+					</div>
+					<div class="table-cell">
+						<div class="table-header">Préfecture</div>
+						<div class="table-data"><%= result[i].nom_pref %></div>
+					</div>
+					<div class="table-cell">
+						<div class="table-header">Population</div>
+						<div class="table-data"><%= result[i].pop_pref %></div>
+					</div>
+					<div class="table-cell">
+						<div class="table-header">Sous-Préfecture</div>
+						<div class="table-data"><%= result[i].sousprefecture %></div>
+					</div>
+				</div>
+			<% } %>
+		</div>
+
+	</section>
+
+	<script>
+
+		localStorage.clear();
+
+		function fonctStorageSetDep(result){
+
+		var Dep_numero = document.getElementById("dep_numero");
+		var Dep_nom = document.getElementById("dep_nom");
+		var Dep_region = document.getElementById("dep_region");
+		var Dep_superficie = document.getElementById("dep_superficie");
+		var Dep_pop = document.getElementById("dep_pop");
+		var Dep_densite = document.getElementById("dep_densite");
+		var Dep_prefecture = document.getElementById("dep_prefecture");
+		var Dep_prefecturepop = document.getElementById("dep_prefecturepop");
+		var Dep_sousprefecture = document.getElementById("dep_sousprefecture");
+
+		localStorage.setItem('Dep_numero','<%= result[0].num_dep %>');
+		localStorage.setItem('Dep_nom','<%= result[0].nom_dep%>');
+		localStorage.setItem("Dep_region",'<%= result[0].nom_reg%>');
+		localStorage.setItem("Dep_superficie",'<%= result[0].superficie%>');
+		localStorage.setItem("Dep_pop",'<%= result[0].pop_dep%>%>');
+		localStorage.setItem("Dep_densite",'<%= result[0].densite%>');
+		localStorage.setItem("Dep_prefecture",'<%= result[0].nom_pref%>');
+		localStorage.setItem("Dep_prefecturepop",'<%= result[0].pop_pref%>');
+		localStorage.setItem("Dep_sousprefecture",'<%= result[0].sousprefecture%>');
+
+		};
+        fonctStorageSetDep('<%= result %>');
+
+		function pause(milliseconds) {
+			var dt = new Date();
+		while ((new Date()) - dt <= milliseconds) { /* Do nothing */ }
+		};
+		pause(500);
+	</script>
+	<%- include('../IHM/affichageDepartementCarte') %>
+</body>
+</html>

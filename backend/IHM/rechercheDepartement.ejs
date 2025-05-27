@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RechercheDepartement</title>
+	<link rel="stylesheet" href="/RechercheKanji.css">
+	<script type="text/javascript" src="/fonction.js"></script>
+</head>
+
+<body onload="fonctStorageInputDep()">
+
+    <section>
+		<div class="formulaire_recherche">
+
+			<h2>Recherche de département</h2>
+
+			<form action="/API/rechercheDep" method="post">
+				
+				<div id="classinput">
+					<label for="num_dep">N°</label>
+					<select name="num_dep" id="num_dep_id"><option value="" > </option></select>
+				</div>
+
+				<div id="classinput">
+					<label for="nom_dep">Département</label>
+					<select name="nom_dep" id="nom_dep_id" ><option value="" > </option></select>
+				</div>
+					
+				<div id="classinput">
+					<label for="nom_reg">Région</label>
+					<select name="nom_reg" id="nom_reg_id" ><option value="" > </option></select>
+				</div>
+
+				<div id="classinput">
+					<label for="nom_pref">Préfecture</label>
+					<select name="nom_pref" id="nom_pref_id" ><option value="" > </option></select>
+				</div>
+				<br><br>
+				<div>
+					<button type="submit" >lancer la recherche</button>
+				</div>
+				<br>
+		
+			</form>
+		</div>
+	</section>
+	
+		
+</body>
+</html>

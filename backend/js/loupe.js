@@ -1,4 +1,4 @@
-zoom=2;
+zoom=4;
 espaceloupe=document.getElementById("container");
 espaceloupe.onmousemove=fonctloupe();
 

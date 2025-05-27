@@ -1,0 +1,104 @@
+https://slproweb.com/products/Win32OpenSSL.html
+
+C:\Program Files\OpenSSL-Win64\bin>openssl x509 -text -in  C:\Certbot\archive\funigo.fr\cert4.pem
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            03:dd:98:da:0f:7b:34:d9:af:3c:2a:13:5b:dc:60:b6:93:cb
+        Signature Algorithm: ecdsa-with-SHA384
+        Issuer: C=US, O=Let's Encrypt, CN=E5
+        Validity
+            Not Before: Feb 25 19:36:53 2025 GMT
+            Not After : May 26 19:36:52 2025 GMT
+        Subject: CN=funigo.fr
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                pub:
+                    04:db:e4:5f:6f:f0:74:99:6a:ae:a4:cc:da:cb:cb:
+                    bd:7a:00:89:3b:df:47:84:51:93:ba:81:0d:74:61:
+                    e4:9f:3d:22:d9:40:fb:cc:64:e1:c6:29:97:80:06:
+                    28:36:ea:58:be:6a:e2:38:99:b4:45:76:2d:90:42:
+                    8e:4d:81:47:34
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+        X509v3 extensions:
+            X509v3 Key Usage: critical
+                Digital Signature
+            X509v3 Extended Key Usage:
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            X509v3 Subject Key Identifier:
+                B8:52:6E:72:8D:17:CE:FE:2A:90:1B:3B:E9:1F:C8:37:DB:BE:61:17
+            X509v3 Authority Key Identifier:
+                9F:2B:5F:CF:3C:21:4F:9D:04:B7:ED:2B:2C:C4:C6:70:8B:D2:D7:0D
+            Authority Information Access:
+                OCSP - URI:http://e5.o.lencr.org
+                CA Issuers - URI:http://e5.i.lencr.org/
+            X509v3 Subject Alternative Name:
+                DNS:funigo.fr, DNS:www.funigo.fr
+            X509v3 Certificate Policies:
+                Policy: 2.23.140.1.2.1
+            CT Precertificate SCTs:
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : A2:E3:0A:E4:45:EF:BD:AD:9B:7E:38:ED:47:67:77:53:
+                                D7:82:5B:84:94:D7:2B:5E:1B:2C:C4:B9:50:A4:47:E7
+                    Timestamp : Feb 25 20:35:24.049 2025 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:45:02:21:00:A3:DB:5D:7A:7A:E8:A1:BA:4F:09:8A:
+                                1C:48:43:73:71:73:CE:6D:86:9C:3E:02:3E:78:18:48:
+                                33:4F:30:E7:53:02:20:2C:0A:FC:50:1D:BB:68:90:8B:
+                                2A:34:EB:95:2E:2D:47:26:82:90:B2:8C:D0:C2:67:DD:
+                                0E:57:09:AD:64:82:7D
+                Signed Certificate Timestamp:
+                    Version   : v1 (0x0)
+                    Log ID    : E0:92:B3:FC:0C:1D:C8:E7:68:36:1F:DE:61:B9:96:4D:
+                                0A:52:78:19:8A:72:D6:72:C4:B0:4D:A5:6D:6F:54:04
+                    Timestamp : Feb 25 20:35:24.058 2025 GMT
+                    Extensions: none
+                    Signature : ecdsa-with-SHA256
+                                30:45:02:21:00:85:9C:6A:B4:FF:77:45:72:68:B7:B7:
+                                97:44:3B:62:1F:68:60:08:EC:05:86:22:19:C1:9F:70:
+                                9E:F4:C1:BE:AF:02:20:35:02:1D:3D:07:52:29:E9:A4:
+                                9C:E7:C9:14:55:E1:97:4E:DF:D1:B7:1E:DB:B2:A7:32:
+                                9D:FE:79:3B:03:EA:1E
+    Signature Algorithm: ecdsa-with-SHA384
+    Signature Value:
+        30:65:02:30:79:0f:b5:cd:27:73:93:8d:c6:44:09:8b:84:c1:
+        94:92:62:05:88:12:ab:d2:95:58:2b:24:21:e3:e1:3f:2f:f1:
+        9e:1e:22:fc:0a:9a:81:0d:f8:4c:22:d4:0d:63:0b:dc:02:31:
+        00:ce:75:4e:e6:75:77:5c:ba:ef:cd:38:2f:f7:45:39:99:50:
+        e7:dc:9b:96:23:3d:39:3c:12:32:e1:cc:b4:71:66:92:f4:fe:
+        c1:71:a5:2b:e2:c5:b5:f7:71:5c:d6:07:8c
+-----BEGIN CERTIFICATE-----
+MIIDgjCCAwigAwIBAgISA92Y2g97NNmvPCoTW9xgtpPLMAoGCCqGSM49BAMDMDIx
+CzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQDEwJF
+NTAeFw0yNTAyMjUxOTM2NTNaFw0yNTA1MjYxOTM2NTJaMBQxEjAQBgNVBAMTCWZ1
+bmlnby5mcjBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABNvkX2/wdJlqrqTM2svL
+vXoAiTvfR4RRk7qBDXRh5J89ItlA+8xk4cYpl4AGKDbqWL5q4jiZtEV2LZBCjk2B
+RzSjggIaMIICFjAOBgNVHQ8BAf8EBAMCB4AwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+CCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFLhSbnKNF87+KpAbO+kf
+yDfbvmEXMB8GA1UdIwQYMBaAFJ8rX888IU+dBLftKyzExnCL0tcNMFUGCCsGAQUF
+BwEBBEkwRzAhBggrBgEFBQcwAYYVaHR0cDovL2U1Lm8ubGVuY3Iub3JnMCIGCCsG
+AQUFBzAChhZodHRwOi8vZTUuaS5sZW5jci5vcmcvMCMGA1UdEQQcMBqCCWZ1bmln
+by5mcoINd3d3LmZ1bmlnby5mcjATBgNVHSAEDDAKMAgGBmeBDAECATCCAQQGCisG
+AQQB1nkCBAIEgfUEgfIA8AB2AKLjCuRF772tm3447Udnd1PXgluElNcrXhssxLlQ
+pEfnAAABlT7SSxEAAAQDAEcwRQIhAKPbXXp66KG6TwmKHEhDc3Fzzm2GnD4CPngY
+SDNPMOdTAiAsCvxQHbtokIsqNOuVLi1HJoKQsozQwmfdDlcJrWSCfQB2AOCSs/wM
+HcjnaDYf3mG5lk0KUngZinLWcsSwTaVtb1QEAAABlT7SSxoAAAQDAEcwRQIhAIWc
+arT/d0VyaLe3l0Q7Yh9oYAjsBYYiGcGfcJ70wb6vAiA1Ah09B1Ip6aSc58kUVeGX
+Tt/Rtx7bsqcynf55OwPqHjAKBggqhkjOPQQDAwNoADBlAjB5D7XNJ3OTjcZECYuE
+wZSSYgWIEqvSlVgrJCHj4T8v8Z4eIvwKmoEN+Ewi1A1jC9wCMQDOdU7mdXdcuu/N
+OC/3RTmZUOfcm5YjPTk8EjLhzLRxZpL0/sFxpSvixbX3cVzWB4w=
+-----END CERTIFICATE-----
+
+C:\Program Files\OpenSSL-Win64\bin>
+
+PS C:\Program Files\OpenSSL-Win64\bin> .\openssl x509 -text -in C:\Certbot\archive\funigo.fr\cert4.pem | Select-String "Not"
+
+            Not Before: Feb 25 19:36:53 2025 GMT
+            Not After : May 26 19:36:52 2025 GMT

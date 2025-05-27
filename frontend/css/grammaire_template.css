@@ -1,0 +1,176 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+/* Cela s’applique à tous les éléments (*). */
+* {
+    /* signifie que la taille totale d’un élément (largeur/hauteur) inclut les bordures et le padding. */
+    box-sizing: border-box; 
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    font-weight: 0;
+    font-style: normal;
+    font-size: 13px;
+    margin-top: 210px;    
+    margin-left: 5px;
+    margin-right: 5px;
+    overflow-y: auto;
+}
+
+h2 {
+    text-decoration: underline;
+    font-size:1.5em;
+}
+
+#container2 {
+    /* #container est l’élément principal, centré horizontalement (margin: 0 auto), avec une largeur max de 940px.*/
+    display: grid;
+    /* crée 3 colonnes égales (1fr = fraction de l’espace dispo). */
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: 0.5fr 1fr 1fr ;
+    /* ajoute un espacement de 10px entre les cellules (colonnes + lignes). */
+    grid-gap: 2px;
+    /* chaque ligne a une hauteur minimale de 100px, mais peut grandir si nécessaire. */
+    grid-auto-rows: minmax(100px, auto);
+  }
+  
+#container2 > div {
+    /* Les lignes grid-template-columns et grid-auto-rows n'ont pas d'effet à cet endroit, 
+    car #container > div n’est pas lui-même un conteneur grid. */
+    /* grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(100px, auto); */
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 1em;
+    /* color: rgb(7, 7, 7); */
+    color: white;
+    line-height: 1.6;
+
+}
+
+#titre {
+    grid-column: 1;
+    grid-row: 1;
+    background-color: #596ee0;
+}
+
+#contruction {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    background-color: #596ee0;
+}
+
+#regle {
+    grid-column: 2 / 4;
+    grid-row: 2;
+    background-color: #596ee0;
+    /* font-weight: 100; */
+    /* font-size: 1.05em; */
+}
+
+#exemple {
+    grid-column: 2 / 4;
+    grid-row: 3;
+    background-color: #596ee0;
+}
+#index {
+    grid-column: 1;
+    grid-row: 2 / 4;
+    background-color: black;
+}
+
+/*******************************************************************************************************/
+/* 				For small devices 					                                                   */
+/*******************************************************************************************************/
+@media screen and (max-width: 400px) {
+    body {
+        font-family: Montserrat, "sans-serif";
+        color: #303030;
+        /* margin-left: 10px; */
+        margin-top: -20px;  
+        background-image: url(/images/pp3.webp);
+       
+    }
+    #container {
+        /* #container est l’élément principal, centré horizontalement (margin: 0 auto), avec une largeur max de 940px.*/
+        max-width: 86%;
+        margin-top: 20px;
+    }
+}
+
+/*************************************************************************************************************************************/
+
+@media screen and (min-width: 410px) and (max-width: 500px) {
+    body {
+        font-family: Montserrat, "sans-serif";
+        color: #303030;
+        /* margin-left: 10px; */
+        margin-top: -20px;  
+        background-image: url(/images/pp3.webp);
+       
+    }
+    #container {
+        /* #container est l’élément principal, centré horizontalement (margin: 0 auto), avec une largeur max de 940px.*/
+        max-width: 87%;
+        margin-top: 20px;
+        margin-left: -3px;
+    }
+}  
+
+/*************************************************************************************************************************************/
+
+@media screen and (min-width: 510px) and (max-width: 900px) {
+    body {
+        font-family: Montserrat, "sans-serif";
+        color: #303030;
+        /* margin-left: 10px; */
+        margin-top: -20px;  
+        background-image: url(/images/pp3.webp);
+       
+    }
+    #container {
+        /* #container est l’élément principal, centré horizontalement (margin: 0 auto), avec une largeur max de 940px.*/
+        max-width: 84%;
+        margin-top: 20px;
+        margin-left: -3px;
+    }
+}  
+
+/*************************************************************************************************************************************/
+@media screen and (min-width: 900px) and (max-width: 1024px) {
+    body {
+        font-family: Montserrat, "sans-serif";
+        color: #303030;
+        /* margin-left: 10px; */
+        margin-top: -20px;  
+        background-image: url(/images/pp3.webp);
+       
+    }
+    #container {
+        /* #container est l’élément principal, centré horizontalement (margin: 0 auto), avec une largeur max de 940px.*/
+        max-width: 84%;
+        margin-top: 20px;
+        margin-left: -3px;
+    }
+}  
+
+/************************************************************************************************************************************* */
+@media screen and (min-width: 1024px) {
+    body {
+        font-family: Montserrat, "sans-serif";
+        color: #303030;
+        /* margin-left: 10px; */
+        margin-top: -5px;  
+        background-image: url(/images/pp3.webp);
+        
+       
+    }
+    #container {
+        /* #container est l’élément principal, centré horizontalement (margin: 0 auto), avec une largeur max de 940px.*/
+        max-width: 83%;
+        margin-top: 20px;
+        margin-left: 0px;
+        grid-gap: 10px;
+    }
+}  

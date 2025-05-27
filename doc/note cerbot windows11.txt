@@ -1,0 +1,416 @@
+certbot-beta-installer-win_amd64_signed.exe sur https://wingetgui.com/apps/EFF-Certbot
+
+"C:\Program Files\Certbot\bin\certbot" certonly --standalone -d funigo.fr -d www.funigo.fr
+Indiquez si vous souhaitez recevoir des emails de la part de Certbot.
+
+Après l’obtention du certificat
+
+Les certificats sont stockés dans le dossier :
+
+text
+C:\Certbot\live\[nom_certificat]
+où [nom_certificat] correspond généralement à votre domaine principal.
+
+Installation manuelle sur le serveur web :
+
+Certbot pour Windows n’automatise pas encore l’installation du certificat sur Apache ou Nginx. Vous devrez donc configurer manuellement votre serveur web pour utiliser les fichiers générés.
+
+Renouvellement automatique
+
+Pour renouveler les certificats, vous pouvez planifier une tâche Windows qui exécute :
+
+text
+certbot renew
+À faire idéalement tous les 60 jours pour éviter l’expiration.
+
+Remarques complémentaires
+
+Si vous préférez une installation via Python, il est possible d’installer Certbot avec pip :
+
+text
+python -m pip install certbot
+Cette méthode permet également d’installer des plugins supplémentaires.
+
+Pour les utilisateurs avancés, il existe d’autres clients comme Win-acme, qui peuvent être plus adaptés à certains scénarios spécifiques.
+
+Résumé
+
+Télécharger et installer Certbot
+
+Ouvrir une console administrateur
+
+Générer un certificat avec la commande adaptée
+
+Installer manuellement le certificat sur votre serveur web
+
+Mettre en place le renouvellement automatique
+
+Cette procédure vous permettra d’obtenir et de gérer des certificats SSL Let’s Encrypt sur Windows avec Certbot.
+
+C:\>C:"Program Files\Certbot"\bin\certbot certonly --standalone -d funigo.fr -d www.funigo.fr
+usage:
+certbot [SUBCOMMAND] [options] [-d DOMAIN] [-d DOMAIN] ...
+
+Certbot can obtain and install HTTPS/TLS/SSL certificates. By default,
+it will attempt to use a webserver both for obtaining and installing the
+certificate.
+certbot: error: unrecognized arguments: Files\Certbot\bin\certbot certonly --standalone -d funigo.fr -d www.funigo.fr
+Afficher plus
+C:\>C:"Program Files\Certbot"\bin\certbot certonly --standalone -d funigo.fr -d www.funigo.fr usage: certbot [SUBCOMMAND] [options] [-d DOMAIN] [-d DOMAIN] ... Certbot can obtain and install HTTPS/TLS/SSL certificates. By default, it will attempt to use a webserver both for obtaining and installing the certificate. certbot: error: unrecognized arguments: Files\Certbot\bin\certbot certonly --standalone -d funigo.fr -d www.funigo.fr
+
+Réponse
+
+Sources
+20
+Votre commande rencontre une erreur car l’interpréteur de commandes Windows ne gère pas correctement les chemins contenant des espaces sans guillemets, et la syntaxe utilisée est incorrecte. Voici comment corriger et exécuter la commande Certbot sur Windows :
+
+Correction de la commande
+Problème :
+
+Le chemin "Program Files\Certbot\bin\certbot" contient des espaces et doit être entouré de guillemets.
+
+Sous Windows, il n’est pas nécessaire de préfixer le chemin par C: dans la commande si vous spécifiez le chemin complet.
+
+En général, après installation via l’installeur, Certbot est accessible directement avec la commande certbot si le chemin a été ajouté à la variable d’environnement PATH.
+
+Commandes correctes :
+
+1. Si Certbot est dans le PATH (cas le plus courant après installation) :
+text
+certbot certonly --standalone -d funigo.fr -d www.funigo.fr
+Lancez cette commande dans une fenêtre CMD ou PowerShell ouverte en tant qu’administrateur.
+
+2. Si vous devez spécifier le chemin complet :
+text
+"C:\Program Files\Certbot\bin\certbot" certonly --standalone -d funigo.fr -d www.funigo.fr
+Notez bien les guillemets autour du chemin complet.
+
+Rappels importants
+Ouvrez le terminal en mode administrateur : faites un clic droit sur cmd ou PowerShell et choisissez « Exécuter en tant qu’administrateur ».
+
+Arrêtez temporairement tout serveur web (Apache, Nginx, IIS, etc.) qui utilise le port 80, car Certbot en mode --standalone a besoin de ce port libre pour valider le domaine.
+
+Vérifiez l’installation : Tapez certbot --help pour vous assurer que Certbot est bien accessible.
+
+Exemple complet
+text
+"C:\Program Files\Certbot\bin\certbot" certonly --standalone -d funigo.fr -d www.funigo.fr
+ou simplement :
+
+text
+certbot certonly --standalone -d funigo.fr -d www.funigo.fr
+(si Certbot est dans le PATH)
+
+Résumé
+Utilisez des guillemets pour tout chemin contenant des espaces.
+
+Exécutez la commande dans un terminal administrateur.
+
+Assurez-vous que le port 80 est libre.
+
+Utilisez la syntaxe correcte pour Certbot sous Windows.
+
+Cela devrait résoudre l’erreur « unrecognized arguments » et permettre l’émission de votre certificat.
+
+C:\Program Files\Certbot\bin> certbot certonly --standalone -d funigo.fr -d www.funigo.fr
+Saving debug log to C:\Certbot\log\letsencrypt.log
+Requesting a certificate for funigo.fr and www.funigo.fr
+
+Certbot failed to authenticate some domains (authenticator: standalone). The Certificate Authority reported these problems:
+Domain: funigo.fr
+Type: connection
+Detail: 91.175.202.78: Fetching http://funigo.fr/.well-known/acme-challenge/sUaE9DqUUzhfs6wmmBX2GUwGAo5YdFeJRQ2ep5buJQ8: Timeout during connect (likely firewall problem)
+
+Domain: www.funigo.fr
+Type: connection
+Detail: 91.175.202.78: Fetching http://www.funigo.fr/.well-known/acme-challenge/1gt3E5N1dC6lNRCPjBeuB2iKfovJ5j-6epBzWH2-WPg: Timeout during connect (likely firewall problem)
+
+Hint: The Certificate Authority failed to download the challenge files from the temporary standalone webserver started by Certbot on port 80. Ensure that the listed domains point to this machine and that it can accept inbound connections from the internet.
+
+Some challenges have failed.
+Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile C:\Certbot\log\letsencrypt.log or re-run Certbot with -v for more details.
+Afficher plus
+C:\Program Files\Certbot\bin> certbot certonly --standalone -d funigo.fr -d www.funigo.fr Saving debug log to C:\Certbot\log\letsencrypt.log Requesting a certificate for funigo.fr and www.funigo.fr Certbot failed to authenticate some domains (authenticator: standalone). The Certificate Authority reported these problems: Domain: funigo.fr Type: connection Detail: 91.175.202.78: Fetching http://funigo.fr/.well-known/acme-challenge/sUaE9DqUUzhfs6wmmBX2GUwGAo5YdFeJRQ2ep5buJQ8: Timeout during connect (likely firewall problem) Domain: www.funigo.fr Type: connection Detail: 91.175.202.78: Fetching http://www.funigo.fr/.well-known/acme-challenge/1gt3E5N1dC6lNRCPjBeuB2iKfovJ5j-6epBzWH2-WPg: Timeout during connect (likely firewall problem) Hint: The Certificate Authority failed to download the challenge files from the temporary standalone webserver started by Certbot on port 80. Ensure that the listed domains point to this machine and that it can accept inbound connections from the internet. Some challenges have failed. Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile C:\Certbot\log\letsencrypt.log or re-run Certbot with -v for more details.
+
+Réponse
+
+Sources
+20
+L’erreur que vous rencontrez - “Timeout during connect (likely firewall problem)” - signifie que Let’s Encrypt n’a pas pu accéder à votre serveur sur le port 80 pour valider le challenge HTTP-01. Voici les causes possibles et les étapes pour résoudre ce problème :
+
+Causes fréquentes
+Port 80 bloqué par un pare-feu local ou réseau (Windows Firewall, box/routeur, pare-feu cloud, etc.).
+
+Redirection de port absente ou incorrecte si vous êtes derrière un routeur/NAT.
+
+Le domaine ne pointe pas vers la bonne adresse IP publique (mauvais enregistrement DNS A/AAAA).
+
+Un autre service occupe déjà le port 80 (IIS, Apache, Nginx, etc.).
+
+Votre serveur n’est pas accessible publiquement sur Internet.
+
+Étapes de résolution
+Vérifier le DNS
+
+Assurez-vous que funigo.fr et www.funigo.fr pointent bien vers l’adresse IP publique de votre serveur Windows (91.175.202.78).
+
+Vérifier l’ouverture du port 80
+
+Sur Windows : Ouvrez le port 80 dans le pare-feu Windows Defender.
+
+Sur votre box/routeur : Redirigez le port 80 externe vers le port 80 de votre machine Windows locale.
+
+Pare-feu réseau/cloud : Ouvrez le port 80 pour les connexions entrantes.
+
+Vérifier qu’aucun autre service n’utilise le port 80
+
+Dans l’invite de commandes, tapez :
+
+text
+netstat -ano | findstr :80
+Si un processus utilise déjà le port 80, arrêtez-le avant de relancer Certbot.
+
+Tester l’accessibilité depuis l’extérieur
+
+Lancez un serveur web temporaire :
+
+text
+python -m http.server 80
+Essayez d’accéder à http://funigo.fr depuis un autre réseau (4G, proxy, etc.). Si la page n’est pas accessible, le port 80 est bloqué quelque part sur le chemin.
+
+Relancer Certbot
+
+Une fois le port 80 accessible, relancez la commande :
+
+text
+certbot certonly --standalone -d funigo.fr -d www.funigo.fr
+Résumé
+Let’s Encrypt doit pouvoir accéder à votre serveur sur le port 80 pour valider le certificat. Vérifiez :
+
+Que le DNS pointe vers la bonne IP.
+
+Que le port 80 est ouvert et accessible depuis Internet.
+
+Qu’aucun autre service n’occupe le port 80.
+
+Corrigez ces points, puis relancez Certbot. Si le problème persiste, consultez le fichier de log mentionné pour plus de détails.
+*****************************************************************************************************************************************
+power shell faire un grep
+power shell faire un grep
+
+Réponse
+
+Sources
+8
+Voici comment effectuer des recherches de chaînes de caractères dans PowerShell (équivalent de grep) avec Select-String :
+
+Recherche basique
+powershell
+# Rechercher "motif" dans un fichier spécifique
+Select-String -Path "C:\fichier.txt" -Pattern "motif"
+
+# Rechercher dans plusieurs fichiers (ex: tous les .log d'un dossier)
+Select-String -Path "C:\Logs\*.log" -Pattern "erreur"
+Options fréquentes
+Recherche récursive dans une arborescence :
+
+powershell
+Get-ChildItem -Recurse -Include *.txt | Select-String "motif"
+Respecter la casse :
+
+powershell
+Select-String -Pattern "Motif" -CaseSensitive
+Afficher les lignes avant/apès la correspondance :
+
+powershell
+Select-String -Pattern "motif" -Context 2,3  # 2 lignes avant, 3 après
+Extraire uniquement les noms de fichiers contenant le motif :
+
+powershell
+Select-String -Path "*.config" -Pattern "debug" -List | Select-Object Path
+Exemples avancés
+Recherche avec expressions régulières (ex: numéro de téléphone) :
+
+powershell
+"Mon numéro: 01-23-45-67-89" | Select-String "\d{2}-\d{2}-\d{2}-\d{2}-\d{2}"
+Chercher dans la sortie d'une commande :
+
+powershell
+Get-Process | Out-String | Select-String "chrome"
+Rechercher plusieurs motifs simultanément :
+
+powershell
+Select-String -Path "*.log" -Pattern "erreur", "avertissement", "critical"
+Alias pratique
+Vous pouvez utiliser sls comme alias de Select-String :
+
+powershell
+# Version raccourcie
+sls -Path "*.ps1" -Pattern "Write-Host"
+
+# Combinaison avec Get-ChildItem
+dir -Recurse *.txt | sls "motif" -CaseSensitive
+Comparaison vs grep
+Fonctionnalité	PowerShell (Select-String)	Grep (Linux)
+Recherche récursive	Requiert -Recurse avec Get-ChildItem	-r natif
+Expressions régulières	Support complet (.NET regex)	Support étendu
+Sortie formatée	Objets PowerShell (manipulables)	Texte brut
+Sensibilité à la casse	-CaseSensitive	-i pour ignorer
+Bonnes pratiques
+Pour les logs : Combinez avec Out-File pour exporter les résultats
+
+powershell
+Select-String -Path "*.log" -Pattern "500 Internal Server Error" | Out-File "errors.txt"
+Optimisation : Utilisez -SimpleMatch pour des motifs sans regex
+
+powershell
+Select-String -Pattern "FATAL" -SimpleMatch
+Pour une recherche dans des fichiers encodés spécifiques (UTF-8, etc.), ajoutez -Encoding UTF8.
+
+.\openssl x509 -text -in C:\Certbot\archive\funigo.fr\cert4.pem | grep Not corrigé
+.\openssl x509 -text -in C:\Certbot\archive\funigo.fr\cert4.pem | grep Not corrigé
+
+Réponse
+
+Sources
+8
+Voici comment corriger la commande pour afficher les dates de validité du certificat avec PowerShell :
+
+Commande corrigée :
+
+powershell
+.\openssl x509 -text -in C:\Certbot\archive\funigo.fr\cert4.pem | Select-String "Not"
+Explication :
+
+Remplacement de grep : PowerShell utilise Select-String comme équivalent de grep
+
+Syntaxe exacte :
+
+L'opérateur | (pipe) fonctionne de la même manière
+
+Le motif "Not" correspond aux lignes contenant Not Before et Not After
+
+Pour une sortie plus précise (dates de validité uniquement) :
+
+powershell
+.\openssl x509 -text -in C:\Certbot\archive\funigo.fr\cert4.pem | 
+    Select-String -Pattern "Not (Before|After)"
+Résultat attendu :
+
+text
+        Not Before: [date]
+        Not After : [date]
+Version avec alias (si vous avez configuré grep comme alias) :
+
+powershell
+# Configuration temporaire de l'alias
+Set-Alias grep Select-String
+
+# Utilisation
+.\openssl x509 -text -in C:\Certbot\archive\funigo.fr\cert4.pem | grep "Not"
+Alternative avec openssl natif (sans PowerShell) :
+
+text
+:: Dans une console CMD standard
+openssl x509 -text -in C:\Certbot\archive\funigo.fr\cert4.pem | findstr /i "Not"
+Bonus : Affichage formaté des dates (avec PowerShell avancé) :
+
+powershell
+$certText = .\openssl x509 -text -in C:\Certbot\archive\funigo.fr\cert4.pem
+$dates = $certText | Select-String "Not (Before|After)" | ForEach-Object {
+    if($_ -match "Not Before:\s*(.+)") { [PSCustomObject]@{Type="Début"; Date=$matches[1]} }
+    if($_ -match "Not After\s*:\s*(.+)") { [PSCustomObject]@{Type="Fin"; Date=$matches[1]} }
+}
+
+$dates | Format-Table -AutoSize
+windows 1 comment resoudre 'openssl' n’est pas reconnu en tant que commande interne
+ou externe, un programme exécutable ou un fichier de commandes.
+Vous avez atteint votre limite Pro
+Mettez à niveau vers Perplexity Pro pour augmenter votre limite quotidienne
+windows 1 comment resoudre 'openssl' n’est pas reconnu en tant que commande interne ou externe, un programme exécutable ou un fichier de commandes.
+
+Réponse
+
+Sources
+8
+Voici les solutions pour résoudre l'erreur 'openssl' n’est pas reconnu sous Windows :
+
+1. Vérifier l'installation d'OpenSSL
+Télécharger l'installateur officiel (version recommandée : Win64 OpenSSL v3.x Light) depuis [slproweb.com]
+
+Installer avec les paramètres par défaut :
+
+Chemin d'installation typique : C:\Program Files\OpenSSL-Win64\
+
+Cocher "Copy OpenSSL DLLs to The OpenSSL binaries directory" pendant l'installation
+
+2. Ajouter OpenSSL au PATH système
+Méthode manuelle
+Copier le chemin des binaires :
+
+text
+C:\Program Files\OpenSSL-Win64\bin
+Modifier les variables d'environnement :
+
+⊞ Win + R → sysdm.cpl → Onglet Avancé → Variables d'environnement
+
+Dans Path → Modifier → Nouveau → Coller le chemin
+
+Méthode PowerShell (admin)
+powershell
+[Environment]::SetEnvironmentVariable(
+    "Path", 
+    [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine) + ";C:\Program Files\OpenSSL-Win64\bin", 
+    [EnvironmentVariableTarget]::Machine
+)
+3. Installer via Winget (Windows 10/11)
+text
+winget install openssl
+Recommandé pour une installation automatisée
+
+4. Vérifications post-installation
+Tester dans une nouvelle console :
+
+text
+openssl version
+→ Doit afficher la version (ex: OpenSSL 3.0.7)
+
+Si l'erreur persiste :
+
+text
+"C:\Program Files\OpenSSL-Win64\bin\openssl.exe" version
+(Utiliser le chemin complet pour confirmer le bon fonctionnement)
+
+5. Solutions alternatives
+Réinstaller les Redistribuables Visual C++ (2008/2015/2022) si erreur de DLL manquante
+
+Désinstaller les versions conflictuelles via Ajout/Suppression de programmes
+
+Exécuter en admin :
+
+text
+"C:\Program Files\OpenSSL-Win64\bin\openssl.exe" [command]
+Cas spécifiques
+Pour les environnements WAMP :
+
+text
+set OPENSSL_CONF=C:\wamp\bin\apache\Apache2.4.51\conf\openssl.cnf
+(Ajuster le chemin selon votre installation)
+
+Schéma récapitulatif
+
+text
+graph TD
+    A[Erreur 'openssl non reconnu'] --> B{OpenSSL installé?}
+    B -->|Non| C[Télécharger/Installer depuis slproweb.com]
+    B -->|Oui| D{PATH configuré?}
+    D -->|Non| E[Ajouter chemin bin au PATH]
+    D -->|Oui| F[Tester avec chemin complet]
+    F --> G{Problème résolu?}
+    G -->|Non| H[Vérifier DLL/Redistribuables]
+Questions liées
+Quelle est la meilleure méthode pour installer OpenSSL sur Windows 10
+Est-il nécessaire d'installer des composants supplémentaires après l'installation d'OpenSSL
+Comment vérifier si OpenSSL est correctement installé sur mon système
+Quelle est la différence entre Win64 OpenSSL et Win32 OpenSSL
+Comment configurer OpenSSL pour qu'il soit accessible via l'invite de commandes

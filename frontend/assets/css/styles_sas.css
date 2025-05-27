@@ -71,7 +71,7 @@ a {
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
-  max-width: 1120px;
+  max-width: 100;
   margin-inline: 1.5rem;
 }
 
@@ -149,7 +149,7 @@ a {
   opacity: 0;
 }
 /************************************************************************************************/
-/* Navigation for mobile devices */
+/* Navigation for mobile devices                                                                */
 /************************************************************************************************/
 @media screen and (max-width: 1118px) {
   .banniere{
@@ -188,13 +188,12 @@ a {
 
   .nav__list {
     background-color: var(--green-color);
-    padding-top: 1rem;
   }
 
   .nav__link {
     color: var(--white-color);
     font-weight: var(--font-regular);
-    padding: 10px 10px 10px 10px;
+    padding: 50px 10px 10px 10px;
     display: block;
     justify-content: space-between;
     align-items: center;
@@ -207,12 +206,6 @@ a {
   .nav__link > img {
     width: 20px;
   }
-
-  .nav-span {
-    margin-left: 165px;
-    /* margin-right: 10px; */
-  }
-
 
   .nav__link:hover {
     background-color: var(--black-color-light);
@@ -287,7 +280,6 @@ a {
 
   .dropdown__sublink {
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    /* padding: 1.25rem 1.25rem 1.25rem 2.5rem; */
     color: var(--white-color);
     background-color: var(--violet-clair-color);
     display: flex;
@@ -331,11 +323,12 @@ a {
   .dropdown__item:hover .dropdown__arrow {
     transform: rotate(180deg);
   }
+
 }
 
 
 /*******************************************************************************************************/
-/* For small devices */
+/* For small devices                                                                                   */
 /*******************************************************************************************************/
 @media screen and (max-width: 680px) {
   .container {
@@ -383,19 +376,26 @@ a {
     height: 50px;
    z-index: 10;
  }
+
 }
 /*******************************************************************************************************/
-/* For large devices */
+/* For large devices                                                                                   */
 /*******************************************************************************************************/
 @media screen and (min-width: 1118px) {
+
   .header{
-    width: 100vw;
+    width: auto; 
+    background-image: url(../../images/pp3.webp);
   }
 
   .container {
-    margin-left: 0;
-   
+    margin-left: 0; 
+    padding-top: 7px;
+    padding-left: 13px;
+    width: 100%;
+
   }
+  
   .banniere{
     background-color: black;
     display: flex;
@@ -404,7 +404,6 @@ a {
     padding-left: 20px;
     padding-right: 20px;
     align-items: center;
-
   }
 
   .banniere img{
@@ -416,22 +415,30 @@ a {
   .nav {
     height: calc(var(--header-height) + 2rem);
     display: flex;
-    justify-content: space-between;
+    /* justify-content:left; */
+    width: 100vw;
+  }
+
+  .nav__menu {
+    margin: 0 2% 0 0;
   }
 
   .nav__toggle {
     display: none;
   }
 
+  .nav-span {
+    padding-top: -28px;
+  }
   .nav__list {
     height: 100%;
     display: flex;
-    /* column-gap: 3rem; */
+    background-image: url(/images/pp3.webp);
   }
 
   .nav__link {
     height: 100%;
-    width: 250px;
+    width: 240px;
     padding: 0;
     justify-content: initial;
     column-gap: .25rem;
@@ -471,12 +478,15 @@ a {
   .nav__link:hover {
     background-color: var(--black-color-light);
   }
-  .dropdown__item, 
-  .dropdown__subitem {
+  .dropdown__item {
     position: relative;
   }
+  .dropdown__subitem {
+    position: relative;
+    margin-left: 5px;
+  }
 
-  .dropdown__menu, 
+  .dropdown__menu , 
   .dropdown__submenu {
     max-height: initial;
     overflow: initial;
@@ -553,6 +563,7 @@ a {
   .dropdown__subitem img {
     width: 40px;
   }
+
   .dropdown__submenu {
     position: absolute;
     left: 100%;
@@ -562,7 +573,7 @@ a {
   /* Show dropdown menu */
   .dropdown__item:hover .dropdown__menu {
     opacity: 1;
-    top: 5.5rem;
+    top: 5.0rem;
     pointer-events: initial;
     transition: top .3s;
   }
@@ -574,4 +585,5 @@ a {
     pointer-events: initial;
     transition: top .3s;
   }
+
 }

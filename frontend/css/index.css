@@ -23,6 +23,6 @@
   position:relative; /* Pour gérer correctement les éléments à l'intérieur du conteneur */
   z-index: 5; /* Le contenu doit être derrière le menu */
   width: 100%;
- padding-top: 205px; /* Décalage initial pour le contenu (correspond à la hauteur du menu initial) 
+  padding-top: 205px; /* Décalage initial pour le contenu (correspond à la hauteur du menu initial) 
   /* transition: padding-top 0.5s ease-out; */
 };

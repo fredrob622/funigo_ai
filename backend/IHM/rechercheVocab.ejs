@@ -5,62 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RechercheKanji</title>
-	<link rel="stylesheet" href="/general.css">
 	<link rel="stylesheet" href="/rechercheVocab.css">
-	<!-- <link rel="stylesheet" href="/recherche.css"> -->
-	<!-- <link rel="stylesheet" href="/rechercheKanji.css"> -->
-	<!-- <style <%- include('../css/recherche.css') %> </style> -->
 </head>
 
 <body>
 
     <section>
+
 		<div class="formulaire_recherche">
-			<h2>Traduction dans la base</h2>
 
-				<form action="/API/rechercheVocab" method="post">
+		<h2>Traduction dans la base</h2>
 
-				
-					<div id="classinput">
-						<label for="kanjiindex">Index    </label>
-						<input type="text" id="voca_index" name="voca_index" placeholder="" size="4">
-					</div>
-					
-					<div id="classinput">			
-						<label for="niveau">Niveau</label>
-						<select name="Niveau" id="Niveau" size="5">
-							<option selected value=""> </option>
-							<option value="N5">N5</option>
-							<option value="N4">N4</option>
-							<option value="N3">N3</option>
-							<option value="N2">N2</option>
-							<option value="N1">N1</option>
-						</select>
-					</div>
-					
-					<div id="classinput">
-						<label for="kana">Kana</label>
-						<input type="text" id="kana" name="kana" placeholder=""  size="4" >
-					</div>
-
-					<div id="classinput">
-						<label for="kanji">Kanji</label>
-						<input type="text" id="kanji" name="kanji" placeholder=""  size="4" >
-					</div>
-					
-					<div>
-						<label for="traduction">Francais</label>
-						<input type="text" id="traduction" name="traduction" placeholder="" size="17" style="text-transform: lowercase;">
-					</div>
-
-				
-					<div>
-						<input type="submit" name="bouton" value="Envoyer"/>
-					</div>
+		<form action="/API/rechercheVocab" method="post">
 		
-				</form>
+			<div id="classinput">
+				<label for="kanjiindex">Index    </label>
+				<input type="text" id="voca_index" name="voca_index" placeholder="" size="4">
+			</div>
+							
+			<div id="classinput">			
+				<label for="niveau">Niveau</label>
+				<select name="Niveau" id="Niveau" size="5">
+					<option selected value=""> </option>
+					<option value="N5">N5</option>
+					<option value="N4">N4</option>
+					<option value="N3">N3</option>
+					<option value="N2">N2</option>
+					<option value="N1">N1</option>
+				</select>
+			</div>
+					
+			<div id="classinput">
+				<label for="kana">Kana</label>
+				<input type="text" id="kana" name="kana" placeholder=""  size="4" >
+			</div>
+
+			<div id="classinput">
+				<label for="kanji">Kanji</label>
+				<input type="text" id="kanji" name="kanji" placeholder=""  size="4" >
+			</div>
+					
+			<div id="classinput">
+				<label for="traduction">Francais</label>
+				<input type="text" id="traduction" name="traduction" placeholder="" size="20" style="text-transform: lowercase;" onblur="trimInput(event)" >
+			</div>
+
+			<div id="classinput">
+				<input type="submit" name="bouton" value="Envoyer"/>
+			</div>
+		
+		</form>
 		</div>
 	
+		<script>
+			function trimInput(event) {
+				const input = event.target;
+				input.value = input.value.trim();
+			}
+		</script>
+
 	</section>
 </body>
 </html>

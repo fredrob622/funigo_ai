@@ -21,7 +21,7 @@ console.log(__dirname);
 const db = require("../db/db");
 
 router.get('/api/rechercheDep', (req, res, next) => { 
-   res.render(path.join(__dirname + "./../IHM/departementRech.ejs"));
+   res.render(path.join(__dirname + "./../IHM/rechercheDepartement.ejs"));
 });
 
 
@@ -72,7 +72,7 @@ router.post('/api/rechercheDep', function(req, res, next) {
           
             // { result } est un tableau contenant les données récupérées par la requête envoyé à la partie cliente
             //  departementAff => fichier departementAff.ejs
-            res.status(200).render('departementAff', { result }); // pour ejs
+            res.status(200).render('affichageDepartement', { result }); // pour ejs
         }
     });
     

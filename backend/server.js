@@ -13,9 +13,10 @@ const result = dotenv.config();
 const express = require('express');
 
 const options = {
-  key: fs.readFileSync('D:/funigo/cert-funigo/funigofr/privkey.pem'),
-  cert: fs.readFileSync('D:/funigo/cert-funigo/funigofr/fullchain.pem'),
-  ca: fs.readFileSync('D:/funigo/cert-funigo/funigofr/chain.pem')
+  key: fs.readFileSync('C:\\Certbot\\live\\funigo.fr\\privkey.pem'),
+  cert: fs.readFileSync('C:\\Certbot\\live\\funigo.fr\\fullchain.pem'),
+  ca: fs.readFileSync('C:\\Certbot\\live\\funigo.fr\\chain.pem')
+  
 };
 
 app.use(cors({

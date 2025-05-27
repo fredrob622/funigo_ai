@@ -7,6 +7,7 @@ router.use(bodyParser.urlencoded({ extended: false}));
 
 router.use(express.static('public'));
 router.use(express.static('css'));
+router.use(express.static('images'));
 
 const path = require('path');
 console.log(__dirname);
@@ -15,12 +16,12 @@ const db = require("../db/db");
 
 router
 //.use(express.static('./funigo3nodejs/IHM'))
-.get('/api/rechercheKanji2', (req, res, next) => { 
+.get('/api/rechercheKanji', (req, res, next) => { 
     res.render(path.join(__dirname + "./../IHM/rechercheKanji.ejs"));
 });
 
 
-router.post('/api/rechercheKanji2', function(req, res, next) {
+router.post('/api/rechercheKanji', function(req, res, next) {
     
     let kanjiindex = req.body.kanjiindex
     let niveau = req.body.Niveau
@@ -40,7 +41,7 @@ router.post('/api/rechercheKanji2', function(req, res, next) {
         reqSql = `${reqSql}` + " niveau = '" + `${niveau}` + "'" 
         console.log(reqSql);
     }else{
-        reqSql = `${reqSql}` + " niveau like 'N%'" 
+        reqSql = `${reqSql}` + " niveau like '%'" 
     }
 
 
@@ -72,7 +73,7 @@ router.post('/api/rechercheKanji2', function(req, res, next) {
         if (err) {
         console.log(err);
         }else{
-
+        console.log(result)
         // { result } est un tableau contenant les données récupérées par la requête envoyé à la partie cliente
         // affichageRechercheKanji => fichier affichageRechercheKanji.ejs
         res.status(200).render('affichageRechercheKanji', { result }); // pour ejs

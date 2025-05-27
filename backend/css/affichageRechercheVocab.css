@@ -1,362 +1,106 @@
-		caption{
-			color:#303030; 
-			font-size:24px;
-			margin-bottom: 20px;
-			text-decoration: underline;
-		}
+body {
+    font-family: Montserrat, "sans-serif";
+    color: #303030;
+    margin: 5%; /* Utilisation de marges relatives */
+    background-image: url(../images/pp3.webp);
+}
+caption {
+    color: #303030;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+	color: white;
+}
 
-		.affichage_resultat {
-			width: 800px;
-			border: rgba(48, 48, 48, 0.5) solid 1px;
-			border-radius: 8px;
-			padding: 0 50px 0 50px;
-			background: #b2f2bb;
-			margin-left: 50px;
-			margin-top: 40px;
-			padding-bottom: 20px;
-		}
+.affichage_resultat {
+    width: 90%; /* Utilisation de pourcentage pour plus de flexibilité */
+    max-width: 50%; /* Limite la largeur maximale */
+    border: rgba(48, 48, 48, 0.5) solid 1px;
+    border-radius: 8px;
+    padding: 0 1% 0px 1%; /* Utilisation de pourcentage pour le padding */
+    background: #027e13;
+}
 
-		.affichage_resultat > h2 {
-			align-items: center;
-			font-weight: 900;
-			text-decoration : underline;
-		}
+.affichage_resultat > h2 {
+    text-align: center; /* Centre le texte */
+    font-weight: 900;
+    text-decoration: underline;
+	color: white;
+}
+
+.affichage_resultat > table {
+    border-collapse: collapse;
+    background-color: darksalmon;
+    margin: 40px auto 0; /* Centre la table horizontalement
+    width: 100%; /* Assurez-vous que la table prend toute la largeur disponible */
+}
+
+.affichage_resultat tbody {
+    background-color: #e4f0f5;
+}
+
+.affichage_resultat td, th {
+    border: 1px solid black;
+    font-size: 18px;
+    padding: 10px; /* Ajout de padding pour un meilleur espacement */
+}
+
+.affichage_resultat tr:nth-child(even) {
+    background-color: rgb(180, 175, 175);
+}
+
+.affichage_resultat tr:nth-child(odd) {
+    background-color: rgb(240, 240, 240);
+}
+/*********************************************************************************************************************/
+/* Media Queries pour les petits écrans																				 */
+/*********************************************************************************************************************/
+@media screen and (max-width: 580px) {
+	body {
+		font-family: Montserrat, "sans-serif";
+		color: #303030;
+		margin: 0px; /*Utilisation de marges relatives */
+		background-image: url(../images/pp3.webp);
+	}
+    .affichage_resultat {
+        width: 100%; /* Prend presque toute la largeur de l'écran */
+        padding: 0 2% 20px 2%; /* Réduit le padding */
+		max-width: 90%;
+		margin-left: -20px;
+    }
+
+    .affichage_resultat > h2 {
+        font-size: 20px; /* Réduit la taille de la police */
 		
-		.affichage_resultat > table {
-			border-collapse: collapse; 
-			background-color: darksalmon;
-			margin-left: 10px;
-			margin-top:40px;
-		}
-		
-		.affichage_resultat  tbody {
-			background-color: #e4f0f5;	
-		}
+    }
 
+    .affichage_resultat td, th {
+        font-size: 14px; /* Réduit la taille de la police */
+    }
+}
+/*********************************************************************************************************************/
+/* Media Queries pour les petits écrans																				 */
+/*********************************************************************************************************************/
+@media screen and (min-width: 580px) and (max-width: 1024px) {
+	body {
+		font-family: Montserrat, "sans-serif";
+		color: #303030;
+		margin: 0px; /*Utilisation de marges relatives */
+		background-image: url(../images/pp3.webp);
+	}
+    .affichage_resultat {
+		display: block;
+        width: 100%; /* Prend presque toute la largeur de l'écran */
+    	padding: 0 3% 20px 3%; /*Réduit le padding */
+		/* max-width: 90%; */
+		margin-left: 10%;
+    }
 
-		.affichage_resultat  td, th {
-			border: 1px solid black;	
-			font-size: 18px;
-		}
+    .affichage_resultat > h2 {
+        font-size: 22px; /* Réduit la taille de la police */
+    }
 
-		.affichage_resultat tr:nth-child(even)  {
-			background-color: rgb(250, 250, 250);
-		}
-
-		.affichage_resultat tr:nth-child(odd)  {
-			background-color: rgb(240, 240, 240);
-		}
-		
-		
-		
-		/************************************************************************/
-		/* 				For small devices 					                    */
-		/************************************************************************/
-		@media screen and (max-width: 400px) {
-
-			body {
-				font-family: Montserrat, "sans-serif";
-				color: #303030;
-				margin-left: -60px;
-				background-image: url(/images/pp3.webp);
-				z-index: 10;
-			}	
-			
-			caption{
-				color:#303030; 
-				font-size:24px;
-				margin-bottom: 20px;
-				margin-left: -50px;
-				text-decoration: underline;
-			}
-
-			.formulaire_recherche {
-				width: 320px;
-				border: 1px solid;
-				border-radius: 15px;
-				padding: 0 40px 0 40px;
-				background: #b2f2bb;
-				z-index: 15;
-				margin-left: -70px;	
-			}
-
-			form div {
-				width: 100%;
-				display: row;
-				flex-direction: column;
-				min-height: 30px;
-				margin-top: 0px;
-				background: #b2f2bb;
-				
-				}
-			
-			form div > label {
-				display: block;
-				margin-bottom: 7px;
-				font-weight: 900;
-				width:40px;
-				float: left;
-				font-size: 20px;
-				font-weight: 500; 
-				}	
-	
-			form div > input, form div > select, form div > textarea {
-				background: white;
-				border: none;
-				border-radius: 5px;
-				font-size: 16px;
-				font-weight: 500;
-				font-family: Montserrat, "sans-serif";
-				box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
-				margin-left:50px;
-				}
-			
-			form div > input, form div > select {
-				height: 20px;
-				padding-left: 10px;
-				}
-						
-			form div > select {
-				appearance: none;
-				background-size: 15px;
-				background-position: right 10px top 50%;
-				background-repeat: no-repeat;
-				}
-						
-			form div > textarea {
-				height: 195px;
-				padding: 15px 0px 0px 10px;
-				}
-						
-			form div > input::placeholder, form div > textarea::placeholder {
-				color: white;
-				}
-						
-			form div > select:invalid {
-				color: white;
-				}
-						
-			form div > select option {
-				background: white;
-				color: #303030;
-				}
-						
-			form div:last-child {
-				align-items:center;
-				margin-top: 20px;
-				}
-						
-			form button {
-				width: 450px;
-				max-width: 500px;
-				height: 80px;
-				font-weight: 700;
-				font-size: 28px;
-				background: white;
-				border: rgba(48, 48, 48, 0.5) solid 1px;
-				border-radius: 5px;
-				box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
-				color: #303030;
-				}
-
-				.affichage_resultat {
-					width:320px;
-					border: rgba(48, 48, 48, 0.5) solid 1px;
-					border-radius: 8px;
-					padding: 0 50px 0 50px;
-					background: #b2f2bb;
-					/* margin-left: 28px; */
-					margin-top: 40px;
-					padding-bottom: 20px;
-				}
-				
-				.affichage_resultat > h2 {
-					align-items: center;
-					font-weight: 900;
-					text-decoration : underline;
-				}
-						
-				.affichage_resultat > table {
-					border-collapse: collapse; 
-					background-color: darksalmon;
-					margin-left: -40px;
-					margin-top: 40px;
-				}
-						
-				.affichage_resultat  tbody {
-					background-color: #e4f0f5;	
-					width:320px;
-				}
-				
-				.affichage_resultat  td, th {
-					border: 1px solid black;	
-					font-size: 12px;
-					height: 2.8em;
-					max-width: 62px;
-					white-space: normal; /* Permet le retour à la ligne */
-			
-				}
-				
-				.affichage_resultat tr:nth-child(even)  {
-					background-color: rgb(250, 250, 250);
-				}
-				
-				.affichage_resultat tr:nth-child(odd)  {
-					background-color: rgb(240, 240, 240);
-				}
-
-		}
-		@media screen and (min-width: 410px) and (max-width:1024px) {
-
-			body {
-				font-family: Montserrat, "sans-serif";
-				color: #303030;
-				margin-left: -60px;
-				background-image: url(/images/pp3.webp);
-				z-index: 10;
-			}	
-			
-			caption{
-				color:#303030; 
-				font-size:24px;
-				margin-bottom: 20px;
-				margin-left: -50px;
-				text-decoration: underline;
-			}
-
-			.formulaire_recherche {
-				width: 320px;
-				border: 1px solid;
-				border-radius: 15px;
-				padding: 0 40px 0 40px;
-				background: #b2f2bb;
-				z-index: 15;
-				margin-left: -70px;	
-			}
-
-			form div {
-				width: 100%;
-				display: row;
-				flex-direction: column;
-				min-height: 30px;
-				margin-top: 0px;
-				background: #b2f2bb;
-				
-				}
-			
-			form div > label {
-				display: block;
-				margin-bottom: 7px;
-				font-weight: 900;
-				width:40px;
-				float: left;
-				font-size: 20px;
-				font-weight: 500; 
-				}	
-	
-			form div > input, form div > select, form div > textarea {
-				background: white;
-				border: none;
-				border-radius: 5px;
-				font-size: 16px;
-				font-weight: 500;
-				font-family: Montserrat, "sans-serif";
-				box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
-				margin-left:50px;
-				}
-			
-			form div > input, form div > select {
-				height: 20px;
-				padding-left: 10px;
-				}
-						
-			form div > select {
-				appearance: none;
-				background-size: 15px;
-				background-position: right 10px top 50%;
-				background-repeat: no-repeat;
-				}
-						
-			form div > textarea {
-				height: 195px;
-				padding: 15px 0px 0px 10px;
-				}
-						
-			form div > input::placeholder, form div > textarea::placeholder {
-				color: white;
-				}
-						
-			form div > select:invalid {
-				color: white;
-				}
-						
-			form div > select option {
-				background: white;
-				color: #303030;
-				}
-						
-			form div:last-child {
-				align-items:center;
-				margin-top: 20px;
-				}
-						
-			form button {
-				width: 450px;
-				max-width: 500px;
-				height: 80px;
-				font-weight: 700;
-				font-size: 28px;
-				background: white;
-				border: rgba(48, 48, 48, 0.5) solid 1px;
-				border-radius: 5px;
-				box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
-				color: #303030;
-				}
-
-				.affichage_resultat {
-					width:320px;
-					border: rgba(48, 48, 48, 0.5) solid 1px;
-					border-radius: 8px;
-					padding: 0 50px 0 50px;
-					background: #b2f2bb;
-					/* margin-left: 28px; */
-					margin-top: 40px;
-					padding-bottom: 20px;
-				}
-				
-				.affichage_resultat > h2 {
-					align-items: center;
-					font-weight: 900;
-					text-decoration : underline;
-				}
-						
-				.affichage_resultat > table {
-					border-collapse: collapse; 
-					background-color: darksalmon;
-					margin-left: -40px;
-					margin-top: 40px;
-				}
-						
-				.affichage_resultat  tbody {
-					background-color: #e4f0f5;	
-					width:320px;
-				}
-				
-				.affichage_resultat  td, th {
-					border: 1px solid black;	
-					font-size: 12px;
-					height: 2.8em;
-					max-width: 82px;
-					white-space: normal; /* Permet le retour à la ligne */
-			
-				}
-				
-				.affichage_resultat tr:nth-child(even)  {
-					background-color: rgb(250, 250, 250);
-				}
-				
-				.affichage_resultat tr:nth-child(odd)  {
-					background-color: rgb(240, 240, 240);
-				}
-
-		}
+    .affichage_resultat td, th {
+        font-size: 14px; /* Réduit la taille de la police */
+    }
+}
