@@ -1,0 +1,585 @@
+body {
+	font-family: Montserrat, "sans-serif";
+	color: #303030;
+	margin-left: 100px;
+	/* margin-top: 150px; */
+	background-image: url(../images/pp3.webp);
+}
+
+
+.formulaire_recherche {
+	margin-top: 10px;
+	width: 520px;
+	border: 1px solid;
+	border-radius: 8px;
+	padding: 0 50px 0 50px;
+	background: #027e13;
+	margin-left: -40px;
+}
+
+.formulaire_recherche > h1 {
+	align-items: left;
+	font-weight: 500;
+	text-decoration : underline;
+}
+
+
+form div {
+	width: 100%;
+	display: row;
+	flex-direction: column;
+	min-height: 43px;
+	margin-top: 0px;
+	background: #027e13;
+}
+
+form div > label {
+	display: block;
+	margin-bottom: 7px;
+	font-weight: 900;
+	width: 40px;
+	float: left;
+	font-size: 20px;
+	font-weight: 500; 
+	color: white;
+	margin-right: 30px;
+}	
+
+form div > input, form div > select, form div > textarea {
+	background: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: 500;
+	font-family: Montserrat, "sans-serif";
+	box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
+	margin-left:50px;
+	}
+		
+form div > input, form div > select {
+	height: 20px;
+	padding-left: 10px;
+	}
+		
+form div > select {
+	appearance: none;
+	background-size: 15px;
+	background-position: right 10px top 50%;
+	background-repeat: no-repeat;
+	}
+		
+form div > textarea {
+	height: 195px;
+	padding: 15px 0px 0px 10px;
+	}
+		
+form div > input::placeholder, form div > textarea::placeholder {
+	color: white;
+	}
+		
+form div > select:invalid {
+	color: white;
+	}
+		
+form div > select option {
+	background: white;
+	color: #303030;
+	}
+		
+form div:last-child {
+	align-items:center;
+	margin-top: 20px;
+	}
+		
+form button {
+	width: 450px;
+	max-width: 500px;
+	height: 80px;
+	font-weight: 700;
+	font-size: 28px;
+	background: white;
+	border: rgba(48, 48, 48, 0.5) solid 1px;
+	border-radius: 5px;
+	box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+	color: #303030;
+	}
+
+/*******************************************************************************************************/
+/* 				For small devices 	860px														    	*/
+/*******************************************************************************************************/
+@media screen and (max-width: 860px) {
+	body {
+		font-family: Montserrat, "sans-serif";
+		color: #303030;
+		margin-left: 10px;
+		margin-top: -20px;  
+		background-image: url(/images/pp3.webp);
+	}	
+
+	.formulaire_recherche {
+		width: 100%;
+		border: 1px solid;
+		border-radius: 8px;
+		padding: 0 40px 0 40px;
+		background: #027e13;
+		margin:auto;
+		margin-top: 30px;
+	}
+
+	.formulaire_recherche > h1 {
+		align-items: left;
+		font-weight: 500;
+		text-decoration : underline;
+		font-size: 32px;
+	}
+	
+
+	form div {
+		width: 100%;
+		display: row;
+		flex-direction: column;
+		min-height: 30px;
+		margin-top: 0px;
+		background: #027e13;
+	}
+	
+	#classinput{
+		display:inline-block
+	}
+
+	form div > label {
+		display: block;
+		margin-bottom: 7px;
+		font-weight: 900;
+		width: 40px;
+		float: left;
+		font-size: 16px;
+		font-weight: 500; 
+		color: white;
+		padding-right: 10px;
+	}	
+
+	form div > input, form div > select, form div > textarea {
+		background: white;
+		border: none;
+		border-radius: 5px;
+		font-size: 16px;
+		font-weight: 500;
+		font-family: Montserrat, "sans-serif";
+		box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
+		margin-left:50px;
+	}
+	
+	form div > input, form div > select {
+		height: 20px;
+		padding-left: 10px;
+	}
+			
+	form div > select {
+		appearance: none;
+		background-size: 15px;
+		background-position: right 10px top 50%;
+		background-repeat: no-repeat;
+	}
+			
+	form div > textarea {
+		height: 195px;
+		padding: 15px 0px 0px 10px;
+	}
+			
+	form div > input::placeholder, form div > textarea::placeholder {
+		color: white;
+	}
+			
+	form div > select:invalid {
+		color: white;
+	}
+			
+	form div > select option {
+		background: white;
+		color: #303030;
+	}
+			
+	form div:last-child {
+		align-items:center;
+		margin-top: 20px;
+	}
+			
+	form button {
+		width: 450px;
+		max-width: 500px;
+		height: 80px;
+		font-weight: 700;
+		font-size: 28px;
+		background: white;
+		border: rgba(48, 48, 48, 0.5) solid 1px;
+		border-radius: 5px;
+		box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+		color: #303030;
+	}
+}
+
+/*******************************************************************************************************/
+/* 				For small devices 	480px														    	*/
+/*******************************************************************************************************/
+@media screen and (max-width: 480px) {
+	body {
+		font-family: Montserrat, "sans-serif";
+		color: #303030;
+		margin-left: 10px;
+		margin-top: -20px;  
+		background-image: url(/images/pp3.webp);
+	}	
+
+	.formulaire_recherche {
+		width: 130%;
+		border: 1px solid;
+		border-radius: 8px;
+		padding: 0 40px 0 40px;
+		background: #027e13;
+		margin:auto;
+		margin-top: 30px;
+		margin-left: -30px;
+	}
+
+	.formulaire_recherche > h1 {
+		align-items: left;
+		font-weight: 500;
+		text-decoration : underline;
+		font-size: 22px;
+		margin-left: -20px;
+		width: 90%;
+	}
+	
+
+	form div {
+		width: 130%;
+		display: row;
+		flex-direction: column;
+		min-height: 30px;
+		margin-top: 0px;
+		background: black;
+		padding-left: 10px;
+		padding-top: 10px;
+		padding-right: 10px;
+		padding-bottom: 5px;
+		margin-left: -40px;
+	}
+	
+	#classinput{
+		display:inline-block
+	}
+
+	form div > label {
+		display: block;
+		margin-bottom: 7px;
+		font-weight: 900;
+		width: 40px;
+		float: left;
+		font-size: 16px;
+		font-weight: 500; 
+		color: white;
+		padding-right: 3px;
+	}	
+
+	form div > input, form div > select, form div > textarea {
+		background: white;
+		border: none;
+		border-radius: 5px;
+		font-size: 16px;
+		font-weight: 500;
+		font-family: Montserrat, "sans-serif";
+		box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
+		margin-left:20px;
+	}
+	
+	form div > input, form div > select {
+		height: 20px;
+		padding-left: 10px;
+	}
+			
+	form div > select {
+		appearance: none;
+		background-size: 15px;
+		background-position: right 10px top 50%;
+		background-repeat: no-repeat;
+	}
+			
+	form div > textarea {
+		height: 195px;
+		padding: 15px 0px 0px 10px;
+	}
+			
+	form div > input::placeholder, form div > textarea::placeholder {
+		color: white;
+	}
+			
+	form div > select:invalid {
+		color: white;
+	}
+			
+	form div > select option {
+		background: white;
+		color: #303030;
+	}
+			
+	form div:last-child {
+		align-items:center;
+		margin-top: 20px;
+	}
+			
+	form button {
+		width: 450px;
+		max-width: 500px;
+		height: 80px;
+		font-weight: 700;
+		font-size: 28px;
+		background: white;
+		border: rgba(48, 48, 48, 0.5) solid 1px;
+		border-radius: 5px;
+		box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+		color: #303030;
+	}
+}
+
+/*******************************************************************************************************/
+/* 				For small devices 	400px														    	*/
+/*******************************************************************************************************/
+@media screen and (max-width: 400px) {
+	body {
+		font-family: Montserrat, "sans-serif";
+		color: #303030;
+		margin-left: 10px;
+		margin-top: -20px;  
+		background-image: url(/images/pp3.webp);
+	}	
+
+	.formulaire_recherche {
+		width: 130%;
+		border: 1px solid;
+		border-radius: 8px;
+		padding: 0 40px 0 40px;
+		background: #027e13;
+		margin:auto;
+		margin-top: 30px;
+		margin-left: -30px;
+	}
+
+	.formulaire_recherche > h1 {
+		align-items: left;
+		font-weight: 500;
+		text-decoration : underline;
+		font-size: 22px;
+		margin-left: -30px;
+	}
+	
+
+	form div {
+		width: 150%;
+		display: row;
+		flex-direction: column;
+		min-height: 30px;
+		margin-top: 0px;
+		background: black;
+		padding-left: 10px;
+		padding-top: 10px;
+		padding-right: 10px;
+		padding-bottom: 5px;
+		margin-left: -40px;
+	}
+	
+	#classinput{
+		display:inline-block
+	}
+
+	form div > label {
+		display: block;
+		margin-bottom: 7px;
+		font-weight: 900;
+		width: 40px;
+		float: left;
+		font-size: 16px;
+		font-weight: 500; 
+		color: white;
+		padding-right: 3px;
+	}	
+
+	form div > input, form div > select, form div > textarea {
+		background: white;
+		border: none;
+		border-radius: 5px;
+		font-size: 16px;
+		font-weight: 500;
+		font-family: Montserrat, "sans-serif";
+		box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
+		margin-left:20px;
+	}
+	
+	form div > input, form div > select {
+		height: 20px;
+		padding-left: 10px;
+	}
+			
+	form div > select {
+		appearance: none;
+		background-size: 15px;
+		background-position: right 10px top 50%;
+		background-repeat: no-repeat;
+	}
+			
+	form div > textarea {
+		height: 195px;
+		padding: 15px 0px 0px 10px;
+	}
+			
+	form div > input::placeholder, form div > textarea::placeholder {
+		color: white;
+	}
+			
+	form div > select:invalid {
+		color: white;
+	}
+			
+	form div > select option {
+		background: white;
+		color: #303030;
+	}
+			
+	form div:last-child {
+		align-items:center;
+		margin-top: 20px;
+	}
+			
+	form button {
+		width: 450px;
+		max-width: 500px;
+		height: 80px;
+		font-weight: 700;
+		font-size: 28px;
+		background: white;
+		border: rgba(48, 48, 48, 0.5) solid 1px;
+		border-radius: 5px;
+		box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+		color: #303030;
+	}
+}
+
+/*******************************************************************************************************/
+/* 				For small devices 	0px														    	*/
+/*******************************************************************************************************/
+@media screen and (max-width: 360px) {
+	body {
+		font-family: Montserrat, "sans-serif";
+		color: #303030;
+		margin-left: 10px;
+		margin-top: -20px;  
+		background-image: url(/images/pp3.webp);
+	}	
+
+	.formulaire_recherche {
+		width: 100%;
+		border: 1px solid;
+		border-radius: 8px;
+		padding: 0 40px 0 40px;
+		background: #027e13;
+		margin:auto;
+		margin-top: 30px;
+	}
+
+	.formulaire_recherche > h1 {
+		align-items: left;
+		font-weight: 500;
+		text-decoration : underline;
+		font-size: 32px;
+	}
+	
+
+	form div {
+		width: 130%;
+		display: row;
+		flex-direction: column;
+		min-height: 30px;
+		margin-top: 0px;
+		background: black;
+		padding-left: 10px;
+		padding-top: 10px;
+		padding-right: 10px;
+		padding-bottom: 5px;
+		margin-left: -40px;
+	}
+	
+	#classinput{
+		display:inline-block
+	}
+
+	form div > label {
+		display: block;
+		margin-bottom: 7px;
+		font-weight: 900;
+		width: 40px;
+		float: left;
+		font-size: 16px;
+		font-weight: 500; 
+		color: white;
+		padding-right: 3px;
+	}	
+
+	form div > input, form div > select, form div > textarea {
+		background: white;
+		border: none;
+		border-radius: 5px;
+		font-size: 16px;
+		font-weight: 500;
+		font-family: Montserrat, "sans-serif";
+		box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25);
+		margin-left:20px;
+	}
+	
+	form div > input, form div > select {
+		height: 20px;
+		padding-left: 10px;
+	}
+			
+	form div > select {
+		appearance: none;
+		background-size: 15px;
+		background-position: right 10px top 50%;
+		background-repeat: no-repeat;
+	}
+			
+	form div > textarea {
+		height: 195px;
+		padding: 15px 0px 0px 10px;
+	}
+			
+	form div > input::placeholder, form div > textarea::placeholder {
+		color: white;
+	}
+			
+	form div > select:invalid {
+		color: white;
+	}
+			
+	form div > select option {
+		background: white;
+		color: #303030;
+	}
+			
+	form div:last-child {
+		align-items:center;
+		margin-top: 20px;
+	}
+			
+	form button {
+		width: 450px;
+		max-width: 500px;
+		height: 80px;
+		font-weight: 700;
+		font-size: 28px;
+		background: white;
+		border: rgba(48, 48, 48, 0.5) solid 1px;
+		border-radius: 5px;
+		box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+		color: #303030;
+	}
+}

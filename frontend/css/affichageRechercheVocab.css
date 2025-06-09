@@ -1,0 +1,324 @@
+/* --- Styles Généraux (Appliqués par défaut, pour les grands écrans et comme base) --- */
+
+body {
+    font-family: Montserrat, "sans-serif";
+    color: #303030;
+    /* margin-left: 100px; */ /* Si ce CSS est spécifiquement pour la page d'affichage des résultats,
+                                /* vous voudrez peut-être le centrer également sur desktop. */
+    background-image: url(../images/pp3.webp);
+    background-size: cover; /* Assure que l'image couvre tout le fond */
+    background-attachment: fixed; /* L'image reste fixe lors du défilement */
+    min-height: 100vh; /* Assure que le body prend au moins toute la hauteur de la vue */
+    display: flex; /* Utilise flexbox pour centrer le contenu principal */
+    flex-direction: column; /* Organise le contenu en colonne */
+    align-items: center; /* Centre horizontalement le contenu principal */
+    justify-content: flex-start; /* Aligne le contenu en haut par défaut */
+    padding-top: 20px; /* Ajoute un peu d'espace en haut de la page */
+    margin: 0 auto; /* Ajouté pour centrer le body lui-même sur l'écran si sa largeur est limitée */
+    max-width: 100vw; /* Empêche le défilement horizontal dû au body */
+    overflow-x: hidden; /* Cache le défilement horizontal potentiel du body */
+}
+
+.affichage_resultat {
+    background-color: black ;/* Un fond clair pour le tableau pour la lisibilité */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px; /* Padding interne */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* Pour centrer et définir une largeur maximale sur grand écran                 */
+    max-width: 800px; /* Ajustez cette valeur pour la largeur maximale souhaitée sur desktop */
+    width: 90%; /* Prend 90% de la largeur du parent */
+    margin: 20px auto; /* Centre horizontalement avec des marges égales en haut/bas et auto gauche/droite */
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+    display: flex; /* Active flexbox pour le contenu interne (titre, tableau) */
+    flex-direction: column;
+    align-items: center; /* Centre le titre h2 et le tableau */
+    /* overflow-x: auto;  Déplacé dans la media query pour ne s'appliquer qu'aux petits écrans */
+}
+
+.affichage_resultat > h2 {
+    font-size: 28px;
+    margin-bottom: 15px; /* Espace sous le titre */
+    color: white; /* Couleur verte pour le titre */
+}
+
+.affichage_resultat table {
+    width: 100%; /* Le tableau prend toute la largeur de son conteneur */
+    border-collapse: collapse; /* Bords du tableau plus nets */
+    margin-top: 10px; /* Espace au-dessus du tableau */
+    /* min-width: 400px;  Déplacé dans la media query */
+}
+
+.affichage_resultat caption {
+    caption-side: top; /* Positionne la légende au-dessus du tableau */
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+
+.affichage_resultat th,
+.affichage_resultat td {
+    border: 1px solid #ddd; /* Bordures de cellules */
+    padding: 8px; /* Padding des cellules */
+    text-align: left; /* Aligner le texte à gauche par défaut */
+    font-size: 16px;
+    color: white;
+}
+
+.affichage_resultat th {
+    background-color: #027e13; /* Fond vert pour les en-têtes */
+    color: white;
+    text-align: center; /* Centre le texte des en-têtes */
+}
+
+.affichage_resultat tr:nth-child(even) {
+    background-color: #474545; /* Couleur de fond pour les lignes paires */
+}
+
+/* Styles spécifiques pour les colonnes Kanji et Onyomi pour le centrage ou la largeur */
+.affichage_resultat td:nth-child(1) { /* Cible la première colonne (Kanji) */
+    text-align: center; /* Centre le kanji */
+    width: 5%; /* Largeur relative comme dans votre EJS */
+    font-weight: bold;
+}
+
+/* La deuxième colonne est Onyomi */
+.affichage_resultat td:nth-child(2) {
+    /* Styles spécifiques pour Onyomi */
+}
+
+
+/* --- Media Queries pour les petits écrans --- */
+/* Media query pour les écrans jusqu'à 1024px */
+@media screen and (max-width: 1024px) {
+    body {
+        margin: 0; /* Réinitialise les marges du body pour mobile */
+        width: 100%;
+        /* Les styles flexbox de centrage du body s'appliquent déjà */
+    }
+
+    .affichage_resultat {
+        width: 95%; /* Prend plus de largeur sur les écrans plus petits */
+        padding: 15px; /* Réduit le padding interne */
+        margin-top: 10px; /* Ajuste la marge supérieure */
+        margin: 10px auto; /* S'assure d'un centrage même si le body n'est pas flex */
+        box-sizing: border-box;
+        overflow-x: auto; /* Permet le défilement horizontal si le contenu dépasse */
+    }
+
+    .affichage_resultat > h2 {
+        font-size: 20px; /* Réduit la taille du titre */
+        margin-bottom: 10px;
+    }
+
+    .affichage_resultat th,
+    .affichage_resultat td {
+        font-size: 12px; /* Réduit la taille de la police pour les cellules */
+        padding: 6px; /* Réduit le padding des cellules */
+    }
+
+    .affichage_resultat table {
+        min-width: 400px; /* S'assure que le tableau a une largeur minimale pour le défilement */
+        /* width: 100%; est déjà défini dans les styles généraux */
+    }
+}
+/******************************************************************************************************/
+/* Nouvelle media query pour les écrans très petits (inférieurs à 480px, ou même 420px)               */
+/******************************************************************************************************/
+
+@media screen and (max-width: 480px) {
+   
+
+    .affichage_resultat {
+        width: 50%; /* Augmenter la largeur pour maximiser l'espace */
+        padding: 2px; /* Réduire encore le padding sur les très petits écrans */
+        margin-left: 300px;
+        
+    } 
+
+    .affichage_resultat table {
+        min-width: 320px; /* Réduire la largeur minimale du tableau pour les très petits écrans */
+       
+    }
+
+    .affichage_resultat th,
+    .affichage_resultat td {
+        font-size: 2px; /* Réduit la taille de la police pour les cellules */
+        padding: 0px; /* Réduit le padding des cellules */
+        
+    }
+    
+    /* Ajustements de largeur pour les colonnes du tableau sur très petits écrans */
+    .affichage_resultat th:nth-child(1),
+    .affichage_resultat td:nth-child(1) { /* Kanji */
+        width: 35%; /* Largeur plus grande pour le kanji */
+        min-width: 40px; /* Largeur minimale pour éviter qu'il soit trop petit */
+    }
+
+    .affichage_resultat th:nth-child(2),
+    .affichage_resultat td:nth-child(2) { /* kana */
+        width: 25%;
+        min-width: 70px;
+    }
+
+    .affichage_resultat th:nth-child(3),
+    .affichage_resultat td:nth-child(3) {/* Français */
+        width: 35%;
+        min-width: 100px;
+    }
+    
+    
+    /* Optionnel: Si les colonnes deviennent trop petites, envisagez de masquer certaines d'entre elles
+       ou de les empiler (approche plus avancée avec JS ou CSS Grid) */
+    /* Exemple pour masquer une colonne sur les très petits écrans : */
+    /* .affichage_resultat th:nth-child(2), /* Cache la colonne Onyomi */
+    /* .affichage_resultat td:nth-child(2) {
+        display: none;
+    } */
+}
+/* --- Media Queries pour les petits écrans --- */
+/* Media query pour les écrans jusqu'à 1024px */
+@media screen and (max-width: 1024px) {
+    body {
+        margin: 0; /* Réinitialise les marges du body pour mobile */
+        width: 100%;
+        /* Les styles flexbox de centrage du body s'appliquent déjà */
+    }
+
+    .affichage_resultat {
+        width: 95%; /* Prend plus de largeur sur les écrans plus petits */
+        padding: 15px; /* Réduit le padding interne */
+        margin-top: 10px; /* Ajuste la marge supérieure */
+        margin: 10px auto; /* S'assure d'un centrage même si le body n'est pas flex */
+        box-sizing: border-box;
+        overflow-x: auto; /* Permet le défilement horizontal si le contenu dépasse */
+    }
+
+    .affichage_resultat > h2 {
+        font-size: 20px; /* Réduit la taille du titre */
+        margin-bottom: 10px;
+    }
+
+    .affichage_resultat th,
+    .affichage_resultat td {
+        font-size: 12px; /* Réduit la taille de la police pour les cellules */
+        padding: 6px; /* Réduit le padding des cellules */
+    }
+
+    .affichage_resultat table {
+        min-width: 400px; /* S'assure que le tableau a une largeur minimale pour le défilement */
+        /* width: 100%; est déjà défini dans les styles généraux */
+    }
+
+        /* Ajustements de largeur pour les colonnes du tableau sur très petits écrans */
+    .affichage_resultat th:nth-child(1),
+    .affichage_resultat td:nth-child(1) { /* Kanji */
+        width: 15%; /* Largeur plus grande pour le kanji */
+        min-width: 40px; /* Largeur minimale pour éviter qu'il soit trop petit */
+    }
+
+    .affichage_resultat th:nth-child(2),
+    .affichage_resultat td:nth-child(2) { /* kana */
+        width: 15%;
+        min-width: 70px;
+    }
+
+    .affichage_resultat th:nth-child(3),
+    .affichage_resultat td:nth-child(3) {/* Français */
+        width: 35%;
+        min-width: 100px;
+    }
+    
+    /* Optionnel: Si les colonnes deviennent trop petites, envisagez de masquer certaines d'entre elles
+       ou de les empiler (approche plus avancée avec JS ou CSS Grid) */
+    /* Exemple pour masquer une colonne sur les très petits écrans : */
+    /* .affichage_resultat th:nth-child(2), /* Cache la colonne Onyomi */
+    /* .affichage_resultat td:nth-child(2) {
+        display: none;
+    } */
+
+}
+/****************************************************************************************/
+/* Nouvelle media query pour les écrans très petits (inférieurs à 480px, ou même 420px) */
+/****************************************************************************************/
+@media screen and (max-width: 480px) {
+    .affichage_resultat {
+        width: 98%; /* Augmenter la largeur pour maximiser l'espace */
+        padding: 10px; /* Réduire encore le padding sur les très petits écrans */
+    }
+
+    .affichage_resultat table {
+        min-width: 320px; /* Réduire la largeur minimale du tableau pour les très petits écrans */
+    }
+    
+    /* Ajustements de largeur pour les colonnes du tableau sur très petits écrans */
+    .affichage_resultat th:nth-child(1),
+    .affichage_resultat td:nth-child(1) { /* Kanji */
+        width: 35%; /* Largeur plus grande pour le kanji */
+        min-width: 40px; /* Largeur minimale pour éviter qu'il soit trop petit */
+    }
+
+    .affichage_resultat th:nth-child(2),
+    .affichage_resultat td:nth-child(2) { /* kana */
+        width: 25%;
+        min-width: 70px;
+    }
+
+    .affichage_resultat th:nth-child(3),
+    .affichage_resultat td:nth-child(3) {/* Français */
+        width: 35%;
+        min-width: 100px;
+    }
+    
+    /* Optionnel: Si les colonnes deviennent trop petites, envisagez de masquer certaines d'entre elles
+       ou de les empiler (approche plus avancée avec JS ou CSS Grid) */
+    /* Exemple pour masquer une colonne sur les très petits écrans : */
+    /* .affichage_resultat th:nth-child(2), /* Cache la colonne Onyomi */
+    /* .affichage_resultat td:nth-child(2) {
+        display: none;
+    } */
+}
+
+/****************************************************************************************/
+/* Nouvelle media query pour les écrans très petits (inférieurs à 320px, ou même 420px) */
+/****************************************************************************************/
+@media screen and (max-width: 320px) {
+    .affichage_resultat {
+        width: 98%; /* Augmenter la largeur pour maximiser l'espace */
+        padding: 10px; /* Réduire encore le padding sur les très petits écrans */
+    }
+
+    .affichage_resultat table {
+        min-width: 320px; /* Réduire la largeur minimale du tableau pour les très petits écrans */
+    }
+    
+    /* Ajustements de largeur pour les colonnes du tableau sur très petits écrans */
+    .affichage_resultat th:nth-child(1),
+    .affichage_resultat td:nth-child(1) { /* Kanji */
+        width: 35%; /* Largeur plus grande pour le kanji */
+        min-width: 40px; /* Largeur minimale pour éviter qu'il soit trop petit */
+    }
+
+    .affichage_resultat th:nth-child(2),
+    .affichage_resultat td:nth-child(2) { /* kana */
+        width: 25%;
+        min-width: 70px;
+    }
+
+    .affichage_resultat th:nth-child(3),
+    .affichage_resultat td:nth-child(3) {/* Français */
+        width: 35%;
+        min-width: 100px;
+    }
+
+    
+    /* Optionnel: Si les colonnes deviennent trop petites, envisagez de masquer certaines d'entre elles
+       ou de les empiler (approche plus avancée avec JS ou CSS Grid) */
+    /* Exemple pour masquer une colonne sur les très petits écrans : */
+    /* .affichage_resultat th:nth-child(2), /* Cache la colonne Onyomi */
+    /* .affichage_resultat td:nth-child(2) {
+        display: none;
+    } */
+}

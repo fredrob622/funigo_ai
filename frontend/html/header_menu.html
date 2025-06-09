@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Menu grille responsive</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="../css/menu_hamburger.css" rel="stylesheet">
+<link href="../css/header_menu.css" rel="stylesheet">
+
+</head>
+<body>
+    <header class="header">
+        <div class="banniere">
+            <div class="banniere-top-row">
+                <img src="../icones/Drapeau-France_240-gif.gif" alt="Drapeau France">
+                <h1>Funigo</h1>
+                <img src="../icones/Drapeau-Japon_240-gif.gif" alt="Drapeau Japon">
+            </div>
+
+            <div class="banniere-bottom-row">
+                <div id="paris-weather-menu">
+                    <div class="city-name">Météo Paris</div>
+                    <div class="weather-data">
+                        <span class="label">Température:</span> <span id="paris-temperature">Chargement...</span>
+                    </div>
+                    <div class="weather-data">
+                        <span class="label">Nuages:</span> <span id="paris-cloudcover">Chargement...</span>
+                    </div>
+                    <div class="weather-data">
+                        <span class="label">Pluie (1h):</span> <span id="paris-rain">Chargement...</span>
+                    </div>
+                </div>
+
+                <div id="tokyo-weather-menu">
+                    <div class="city-name">Météo Tokyo</div>
+                    <div class="weather-data">
+                        <span class="label">Température:</span> <span id="tokyo-temperature">Chargement...</span>
+                    </div>
+                    <div class="weather-data">
+                        <span class="label">Nuages:</span> <span id="tokyo-cloudcover">Chargement...</span>
+                    </div>
+                    <div class="weather-data">
+                        <span class="label">Pluie (1h):</span> <span id="tokyo-rain">Chargement...</span>
+                    </div>
+                </div>
+
+                <div id="exchange-rate-menu">
+                    <div class="currency-name">Taux EUR/JPY</div>
+                    <div class="currency-data">
+                        <span class="label">1 EUR =</span> <span id="eur-jpy-rate">Chargement...</span> <span class="unit">JPY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <button class="menu-toggle" aria-label="Basculer la navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-list">
+
+                <li> <div class="has-menu">
+                        <a href="./index.html" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit; margin-top: -15px;">
+                            <img src="../icones/home.png" alt="Home"> <span class="nav-span">Accueil<br>ホーム</span>
+                        </a>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="has-menu">
+                        <img src="../icones/france3.jpg" alt="France"> <span class="nav-span">France<br>フランス</span>
+                    </div>
+                    <ul class="sous-menu" aria-label="Sous-menu France">
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="../html/index_departement.html" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/departement_fr.gif" alt="Département"> <span class="nav-span">Département</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="../html/index_region.html" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/region_fr.jpg" alt="Région"> <span class="nav-span">Région</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <div class="has-menu">
+                        <img src="../icones/japon3.jpg" alt="japon"> <span class="nav-span">Japon<br>日本</span>
+                    </div>
+                    <ul class="sous-menu" aria-label="Sous-menu Japon">
+
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/icone_honshu4.jpg" alt="honshu"> <span class="nav-span">Honshu<br>本州</span>
+                                </a>
+                            </div>
+                            <ul class="sous-sous-menu" aria-label="Ville Honshu">
+                                <li><a href="#">Tokyo</a></li>
+                                <li><a href="#">Osaka</a></li>
+                                <li><a href="#">Okoyama</a></li>
+                                <li><a href="#">Autre Ville</a>
+                                    <ul class="sous-sous-menu" aria-label="Ville Honshu">
+                                        <li><a href="#">yokohama</a></li>
+                                        <li><a href="#">Kawagoe</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/icone_kyushu.jpg" alt="kyushu"> <span class="nav-span">Kyushu<br>九州</span>
+                                </a>
+                            </div>
+                            <ul class="sous-sous-menu" aria-label="Ville Honshu">
+                                <li><a href="#">Fukuoka</a></li>
+                                <li><a href="#">Nagazaki</a></li>
+                                <li><a href="#">Kagoshima</a></li>
+                                <li><a href="#">Autre Ville</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/icone_hokkaido6.jpg" alt="hokkaido"> <span class="nav-span">Hokkaido<br>北海道</span>
+                                </a>
+                            </div>
+                            <ul class="sous-sous-menu" aria-label="Ville Honshu">
+                                <li><a href="#">Sapporo</a></li>
+                                <li><a href="#">Otaru</a></li>
+                                <li><a href="#">Hakodate</a></li>
+                                <li><a href="#">Autre Ville</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/icone_shikoku5.jpg" alt="shikoku"> <span class="nav-span">Shikoku<br>四国</span>
+                                </a>
+                            </div>
+                            <ul class="sous-sous-menu" aria-label="Ville Honshu">
+                                <li><a href="#">Takamatsu</a></li>
+                                <li><a href="#">Koshi</a></li>
+                                <li><a href="#">Matsuyama</a></li>
+                                <li><a href="#">Autre Ville</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <div class="has-menu">
+                        <img src="../icones/langue4.png" alt="langue"> <span class="nav-span">Langue<br>語</span>
+                    </div>
+                    <ul class="sous-menu" aria-label="Sous-menu Japon">
+
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/kanji1.png" alt="kanji"> <span class="nav-span">Kanji<br>字</span>
+                                </a>
+                            </div>
+                            <ul class="sous-sous-menu" aria-label="Langue">
+                                <li><a href="./html/index_kanji.html">Dico kanji</a></li>
+                                <li><a href="#">Osaka</a></li>
+                                <li><a href="#">Okoyama</a></li>
+                                <li><a href="#">Autre Ville</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/vocabulaire2.jpg" alt="vocabulaire"> <span class="nav-span">Vocabulaire<br>単語</span>
+                                </a>
+                            </div>
+                            <ul class="sous-sous-menu" aria-label="Ville Honshu">
+                                <li><a href="#">Tokyo</a></li>
+                                <li><a href="#">Osaka</a></li>
+                                <li><a href="#">Okoyama</a></li>
+                                <li><a href="#">Autre Ville</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/grammaire2.png" alt="grammaire"> <span class="nav-span">Grammaire<br>文法</span>
+                                </a>
+                            </div>
+                            <ul class="sous-sous-menu" aria-label="Ville Honshu">
+                                <li><a href="./html/index_gram.html">Les régles</a></li>
+                                <li><a href="#">Conjugaison</a></li>
+                                <li><a href="#">Suffixes Verbaux</a></li>
+                                <li><a href="#">Autre Ville</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <div class="has-menu">
+                        <img src="../icones/icone_photo19.png" alt="photo"> <span class="nav-span">Photo <br>写真</span>
+                    </div>
+                    <ul class="sous-menu" aria-label="Sous-menu Japon">
+
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="\./icones/icone_honshu4.jpg" alt="honshu"> <span class="nav-span">Honshu<br>本州</span>
+                                </a>
+                            </div>
+                            <ul class="sous-sous-menu" aria-label="Ville Honshu">
+                                <li><a href="#">Tokyo</a></li>
+                                <li><a href="#">Osaka</a></li>
+                                <li><a href="#">Okoyama</a></li>
+                                <li><a href="#">Autre Ville</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/icone_kyushu.jpg" alt="kyushu"> <span class="nav-span">Kyushu<br>九州</span>
+                                </a>
+                            </div>
+                            <ul class="sous-sous-menu" aria-label="Ville Honshu">
+                                <li><a href="#">Fukuoka</a></li>
+                                <li><a href="#">Nagazaki</a></li>
+                                <li><a href="#">Kagoshima</a></li>
+                                <li><a href="#">Autre Ville</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/icone_hokkaido6.jpg" alt="hokkaido"> <span class="nav-span">Hokkaido<br>北海道</span>
+                                </a>
+                            </div>
+                            <ul class="sous-sous-menu" aria-label="Ville Honshu">
+                                <li><a href="#">Sapporo</a></li>
+                                <li><a href="#">Otaru</a></li>
+                                <li><a href="#">Hakodate</a></li>
+                                <li><a href="#">Autre Ville</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/icone_shikoku5.jpg" alt="shikoku"> <span class="nav-span">Shikoku<br>四国</span>
+                                </a>
+                            </div>
+                            <ul class="sous-sous-menu" aria-label="Ville Honshu">
+                                <li><a href="#">Takamatsu</a></li>
+                                <li><a href="#">Koshi</a></li>
+                                <li><a href="#">Matsuyama</a></li>
+                                <li><a href="#">Autre Ville</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <div class="has-menu">
+                        <img src="../icones/user1.jpg" alt="users"> <span class="nav-span">Users</span>
+                    </div>
+                    <ul class="sous-menu" aria-label="Sous-menu users">
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="\./icones/profile.png" alt="Profile"> <span class="nav-span">Profile</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/account2.png" alt="Compte"> <span class="nav-span">Compte</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/message2.png" alt="Message"> <span class="nav-span">Message</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <div class="has-menu">
+                        <img src="../icones/globe-earth2.png" alt="liens"> <span class="nav-span">Liens</span>
+                    </div>
+                    <ul class="sous-menu" aria-label="Sous-menu users">
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/profile.png" alt="Profile"> <span class="nav-span">Profile</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/account2.png" alt="Compte"> <span class="nav-span">Compte</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="has-sous-menu">
+                                <a href="#" target="_self" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <img src="../icones/message2.png" alt="Message"> <span class="nav-span">Message</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+</body>
+</html>

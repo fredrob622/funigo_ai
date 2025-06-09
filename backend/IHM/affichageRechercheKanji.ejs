@@ -1,39 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AffichageRechercheKanji</title>
-	<link rel="stylesheet" href="/affichageRechercheKanji.css">
+    <title>Résultats de Recherche Kanji</title>
+    
+    <link rel="stylesheet" href="/css/menu_hamburger.css">
+    <link rel="stylesheet" href="/css/header_menu.css">
+    <link rel="stylesheet" href="/css/affichageRechercheKanji.css">
+    
 </head>
 
 <body>
-	<section>   
-		
-        <div class="affichage_resultat">  
-			
-			<h2>Liste des kanjis</h2>
-			<table>
-				<caption>Resultat de la recherche 	</caption>
-				<tr>
-					<th>Kanji</th>
-					<th>Onyomi</th>
-					<th>Kunyomi</th>
-					<th>Français</th>
-				</tr>
+    <%- include('index_header_menu.ejs') %>
+    <section> 
+        <div class="affichage_resultat"> 
+            <h2>Liste des kanjis</h2>
+            <table>
+                <caption>Résultat de la recherche</caption>
+                <thead>
+                    <tr>
+                        <th>Kanji</th>
+                        <th>Onyomi</th>
+                        <th>Kunyomi</th>
+                        <th>Français</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (result && result.length > 0) { %>
+                        <% for(let i=0; i<result.length; i++) { %>
+                            <tr>
+                               <td width="5%" align="center"><%= result[i].kanji %></td>
+                               <td><%= result[i].onyomi %></td>
+                               <td><%= result[i].kunyomi %></td> 
+                               <td><%= result[i].francais %></td> 
+                            </tr> 
+                        <% } %>
+                    <% } else { %>
+                        <tr>
+                            <td colspan="4">Aucun résultat trouvé pour cette recherche.</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table> 
+        </div>
+    </section>
+    <%- include('footer_menu.ejs') %>
 
-				<!-- Boucle pour lire le tableau -->
-				<% for(i=0; i<result.length; i++) { %>
-					<tr>
-						 <td width=5% align=center ><%= result[i].kanji %></td>
-						 <td><%= result[i].onyomi %></td>
-						 <td><%= result[i].kunyomi %></td> 
-						 <td><%= result[i].francais %></td> 
-					  </tr>  
-				<% } %>
-			</table> 
-		</div>
-	</section>
+    <!-- Inclusions des JavaScripts -->
+    <script src="/js/menu_hamburger.js"></script>
+    <script src="/js/meteo-et-conversion.js"></script>
+
+    <!-- Script pour initialiser le menu hamburger et d'autres fonctions JS -->
+    <script>
+        // Assurez-vous que le DOM est complètement chargé avant d'initialiser le menu
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof initializeHamburgerMenu === 'function') {
+                initializeHamburgerMenu();
+                console.log("affichageRechercheKanji.ejs: initializeHamburgerMenu appelée.");
+            } else {
+                console.error("affichageRechercheKanji.ejs: Erreur: initializeHamburgerMenu n'est pas définie.");
+            }
+
+            // Si meteo-et-conversion.js a une fonction d'initialisation (ex: getTauxDeChange),
+            // vous devriez l'appeler ici aussi pour que la météo et le taux de change s'affichent.
+            if (typeof getTauxDeChange === 'function') { // Exemple si cette fonction existe
+                getTauxDeChange();
+                console.log("affichageRechercheKanji.ejs: getTauxDeChange appelée.");
+            }
+            // Ajoutez d'autres initialisations de script si nécessaire
+        });
+    </script>
+
 </body>
 </html>

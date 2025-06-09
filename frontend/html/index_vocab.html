@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>funigo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="../css/menu_hamburger.css" rel="stylesheet">
+    <link href="../css/header_menu.css" rel="stylesheet">
+    <link href="../css/acceuil.css" rel="stylesheet"> 
+    <link href="../css/index_vocab.css" rel="stylesheet"> 
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div id="contenu-placeholder"></div>
+    <div id="footer-placeholder"></div>
+
+    <script>
+        function fetchContent(elementId, sourcePath, type = 'html') {
+            return fetch(sourcePath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    if (type === 'json') {
+                        return response.json();
+                    } else {
+                        return response.text();
+                    }
+                })
+                .then(data => {
+                    if (type === 'html') {
+                        document.getElementById(elementId).innerHTML = data;
+                    } 
+                    return data;
+                })
+                .catch(error => {
+                    console.error('Erreur lors du chargement de ' + sourcePath + ':', error);
+                    document.getElementById(elementId).innerHTML = '<p style="color: red;">Erreur de chargement du contenu.</p>';
+                    throw error;
+                });
+        }
+
+        // Charger le header EN PREMIER
+        fetchContent('header-placeholder', 'header_menu.html')
+            .then(() => {
+                // *** POINT DE CHANGEMENT MAJEUR ICI ***
+                // Une fois le header inséré, chargez les scripts qui dépendent du header
+                const scriptsToLoadForHeader = [
+                    '../js/meteo-et-conversion.js',
+                    '../js/menu_hamburger.js'
+                ];
+
+                // Créez un tableau de promesses pour charger ces scripts séquentiellement ou en parallèle
+                // Séquentiel est souvent plus sûr si les scripts ont des dépendances entre eux
+                return scriptsToLoadForHeader.reduce((promiseChain, scriptSrc) => {
+                    return promiseChain.then(() => new Promise((resolve, reject) => {
+                        const script = document.createElement('script');
+                        script.src = scriptSrc;
+                        script.onload = () => {
+                            // Si c'est menu_hamburger.js, tentez d'initialiser son menu
+                            if (scriptSrc.includes('menu_hamburger.js') && typeof initializeHamburgerMenu === 'function') {
+                                initializeHamburgerMenu();
+                            }
+                            resolve();
+                        };
+                        script.onerror = () => reject(new Error(`Failed to load script: ${scriptSrc}`));
+                        document.body.appendChild(script);
+                    }));
+                }, Promise.resolve()); // Démarre la chaîne de promesses
+            })
+            .then(() => {
+                // Une fois que le header et ses scripts dépendants sont chargés,
+                // chargez le contenu de l'API Kanji
+                return fetchContent('contenu-placeholder', 'https://www.funigo.fr:5000/api/rechercheVocab', 'json');
+            })
+            .then(kanjiData => { // Ici, kanjiData contient les données JSON de l'API
+                // Chargez le script pour afficher les Kanji
+                const kanjiScript = document.createElement('script');
+                kanjiScript.src = '../js/kanji_display.js';
+                kanjiScript.onload = () => {
+                    if (typeof displayKanjiData === 'function') {
+                        displayKanjiData(kanjiData, 'contenu-placeholder'); 
+                    } else {
+                        console.error("Erreur: displayKanjiData n'est pas définie après le chargement de kanji_display.js.");
+                    }
+                };
+                document.body.appendChild(kanjiScript);
+
+                // Chargez le footer
+                return fetchContent('footer-placeholder', 'footer_menu.html');
+            })
+            .catch(error => console.error('Erreur globale de chargement:', error));
+
+    </script>
+</body>
+</html>

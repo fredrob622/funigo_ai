@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>funigo</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="/css/menu_hamburger.css" rel="stylesheet">
+    <link href="/css/header_menu.css" rel="stylesheet">
+    <link href="/css/index_vocab.css" rel="stylesheet">
+    <link href="/css/acceuil.css" rel="stylesheet"> 
+    
+</head>
+<body>
+
+	<!-- Inclusion du header -->
+	<%- include('index_header_menu.ejs') %>
+	
+	<!-- Inclusion du contenu principal -->
+    <%- include('rechercheVocab.ejs') %>
+	
+	<!-- Inclusion du footer -->
+    <%- include('footer_menu.ejs') %>
+
+    <script src="./js/meteo-et-conversion.js"></script>
+    <script src="./js/menu_hamburger.js"></script> 
+    
+
+    <script>
+        // Initialisations des scripts si nécessaire, car les includes EJS se chargent côté serveur.
+        // Assurez-vous que les fonctions initializeHamburgerMenu et initializeImageCarousel sont globales
+        // ou accessibles dans le scope de ce script.
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // ./js/menu_hamburger.js pour avoir le menu
+            if (typeof initializeHamburgerMenu === 'function') {
+                initializeHamburgerMenu();
+            } else {
+                console.error("Erreur: initializeHamburgerMenu (./js/menu_hamburger.js) n'est pas définie.");
+            }
+
+            // ./js/meteo-et-conversion.js
+            if (typeof initializeMeteo === 'function') {
+                initializeMeteo();
+            }else {
+                console.error("Erreur: initializeMeteo (./js/meteo-et-conversion.js)  n'est pas définie.");
+            }
+
+
+        });
+    </script>
+</body>
+</html>

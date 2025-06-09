@@ -1,0 +1,91 @@
+/* css/kanji.css */
+body {
+    font-family: sans-serif;
+    background-image: url(../images/pp3.webp);
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 1500px;
+}
+
+h1 {
+    color: white;
+    background-color: black;
+    border-radius: 95px;
+    text-align: center;
+    margin-bottom: 20px;
+    opacity: 0; /* Rendre le titre initialement invisible */
+    animation: slideInFromLeft 1.5s ease-out forwards; /* Appliquer l'animation */
+    font-size: 1.8em;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100vw); /* Déplacer le titre complètement à gauche de l'écran */
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0); /* Déplacer le titre à sa position centrée */
+        opacity: 1; /* Rendre le titre visible */
+    }
+}
+
+.kanji-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 150px min par carte, s'adapte */
+    gap: 20px;
+    padding: 20px;
+    justify-content: center; /* Centre les cartes dans la grille */
+}
+
+.kanji-card {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Assure que toutes les cartes ont la même hauteur */
+}
+
+.kanji-char {
+    font-size: 3em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.kanji-reading {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.kanji-meaning {
+    font-size: 0.9em;
+    color: #888;
+}
+
+/* Styles responsifs pour les écrans plus petits */
+@media (max-width: 600px) {
+    .kanji-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+        padding: 10px;
+    }
+    .kanji-char {
+        font-size: 2.5em;
+    }
+    .kanji-reading {
+        font-size: 1em;
+    }
+    .kanji-meaning {
+        font-size: 0.8em;
+    }
+}

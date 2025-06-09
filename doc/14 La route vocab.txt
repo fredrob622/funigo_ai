@@ -1,0 +1,93 @@
+/************************************************************************************************************/
+/****** Dans fichier /frontend/html/index_header_menu.html
+/****** Dans fichier /backend/IHM/index_header_menu.ejs
+/************************************************************************************************************/
+
+	<div class="has-sous-menu">
+		<a href=".html/test-funigo.html" target="_self" >
+			<img src="./icones/vocabulaire2.jpg" alt="vocabulaire"> <span class="nav-span">Vocabulaire 単語</span>
+		</a>
+	</div>
+	<ul class="sous-sous-menu" aria-label="Ville Honshu">
+		<li><a href="/kanji">Dico vocab</a></li>
+		
+/************************************************************************************************************/		
+/****** Dans fichier de conf  C:\apache24\conf\httpd-vhosts.conf 
+/************************************************************************************************************/
+
+Dans le fichier httpd-vhosts.conf
+
+   # Ajoute ceci si tu veux que funigo.fr/kanji soit aussi proxyfié par Apache
+    ProxyPass /vocab http://localhost:5000/vocab
+    ProxyPassReverse /vocab http://localhost:5000/vocab
+	
+    Dans le menu d'en-tête (issu de html/index_header_menu.html), un lien (<li><a href="/vocab">Dico vocab</a></li>) 
+	pointe vers l'URL /vocab.
+
+	Lorsque ce lien est cliqué, le navigateur initie une requête GET vers /vocab.
+
+	Routage via Apache (Proxy Pass) :
+
+	Votre configuration Apache intercepte la requête /vocab.
+
+	Grâce à un ProxyPass, Apache redirige cette requête vers votre serveur Node.js, à l'URL http://localhost:5000/vocab.
+	
+/************************************************************************************************************/	
+/****** Traitement par le serveur Node.js (backend/server.js)                              ******************/
+/************************************************************************************************************/
+
+Le fichier server.js d'Express contient une route GET : app.get('/vocab', (req, res) => { res.render('index_vocab'); });.
+
+Cette route est déclenchée par la requête. Elle demande à Express de rendre le template EJS index_vocab.ejs.
+
+Express est configuré pour trouver les fichiers EJS dans un dossier de vues (par exemple, backend/IHM comme indiqué 
+par vos include).
+
+Rendu de la page du formulaire Kanji (index_vocab.ejs) :
+
+/************************************************************************************************************/
+/****** Traitement backend/IHM/index_Vocab.ejs                                *******************************/
+/************************************************************************************************************/
+
+index_Vocab.ejs est un template EJS. Il est traité et transformé en HTML sur le serveur.
+
+Il utilise la directive EJS <%- include('rechercheVocab.ejs') %> pour insérer le contenu du formulaire de recherche 
+(backend/IHM/rechercheVocab.ejs) directement dans le HTML final envoyé au navigateur.
+
+Soumission du formulaire de recherche (rechercheVocab.ejs) :
+
+Une fois le formulaire affiché dans le navigateur, l'utilisateur saisit des critères et le soumet 
+(<form action="/api/rechercheVocab" method="post">).
+
+Cette action envoie une requête POST à l'URL /api/rechercheVocab.
+
+/************************************************************************************************************/	
+/****** Traitement de /api/rechercheVocab (par apps.js)                                    ******************/
+/************************************************************************************************************/
+
+Dans apps.js on a la définition de la route 
+
+	const rechercheVocabRouter = require("./routes/rechercheVocab");
+	app.use('/api', rechercheVocabRouter);
+
+/************************************************************************************************************/	
+/****** Traitement de ./routes/rechercheVocab.js                                            *****************/
+/************************************************************************************************************/
+
+router.post  execute la requête router.post exécute créé la requête SQL et la soumet à mysql 
+
+router.post('/api/rechercheVocab', function(req, res, next) {
+    
+    let voca_index = req.body.voca_index
+    let niveau = req.body.Niveau
+    let kana = req.body.kana
+    let kanji = req.body.kanji 
+    let traduction = req.body.traduction
+
+    let reqSql =  "select * from voca_char where";
+	
+Le résultat est renvoyé à affichageRechercheVocab.ejs par 
+
+	res.status(200).render('affichageRechercheVocab.ejs', { result }); // pour ejs
+
+/************************************************************************************************************/	

@@ -5,25 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AffichageRechercheVocab</title>
-	<link rel="stylesheet" href="/affichageRechercheVocab.css">
+	<link rel="stylesheet" href="/css/menu_hamburger.css">
+    <link rel="stylesheet" href="/css/header_menu.css">
+	<link rel="stylesheet" href="/css/affichageRechercheVocab.css">
 </head>
 
 <body>
-	<section>   
-		
+	<%- include('index_header_menu.ejs') %>
+	<section>   		
         <div class="affichage_resultat">  
 			
 			<h2>Dictionnaire Japonais/Francais </h2>
 			<table>
 				<caption>Resultat de la recherche </caption>	
 				<tr>
-					<th>Kana</th>
 					<th>Kanji</th>
+					<th>Kana</th>
 					<th>Français</th>
 				</tr>
 
 				<!-- Boucle pour lire le tableau -->
-				<% for(i=0; i<result.length; i++) { %>
+				<% for(i=0; i<result.length; i++) { %>	 
 						 <td width=20% align=center ><%= result[i].kana %></td>
 						 <td width=25% align=center ><%= result[i].kanji %></td>
 						 <td><%= result[i].francais %></td> 
@@ -32,5 +34,33 @@
 			</table> 
 		</div>
 	</section>
+	 <%- include('footer_menu.ejs') %>
+
+	   <!-- Inclusions des JavaScripts -->
+    <script src="/js/menu_hamburger.js"></script>
+    <script src="/js/meteo-et-conversion.js"></script>
+
+    <!-- Script pour initialiser le menu hamburger et d'autres fonctions JS -->
+    <script>
+        // Assurez-vous que le DOM est complètement chargé avant d'initialiser le menu
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof initializeHamburgerMenu === 'function') {
+                initializeHamburgerMenu();
+                console.log("affichageRechercheKanji.ejs: initializeHamburgerMenu appelée.");
+            } else {
+                console.error("affichageRechercheKanji.ejs: Erreur: initializeHamburgerMenu n'est pas définie.");
+            }
+
+            // Si meteo-et-conversion.js a une fonction d'initialisation (ex: getTauxDeChange),
+            // vous devriez l'appeler ici aussi pour que la météo et le taux de change s'affichent.
+            if (typeof getTauxDeChange === 'function') { // Exemple si cette fonction existe
+                getTauxDeChange();
+                console.log("affichageRechercheKanji.ejs: getTauxDeChange appelée.");
+            }
+            // Ajoutez d'autres initialisations de script si nécessaire
+        });
+    </script>
+
 </body>
 </html>
+

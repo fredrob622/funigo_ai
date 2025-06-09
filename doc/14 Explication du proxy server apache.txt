@@ -1,0 +1,103 @@
+fichier de configuration apache qui contient <VirtualHost *:443>
+
+	DocumentRoot "C:/Fichiers_Users/funigo/frontend/"
+	ServerName funigo.fr
+	ServerAlias funigo.fr *.funigo.fr
+	ServerAdmin admin@ex#ample.com
+	ErrorLog "${SRVROOT}/logs/funigoSSL-error.log"
+	TransferLog "${SRVROOT}/logs/funigoSSL-access.log"
+	
+	ProxyPreserveHost On
+    ProxyPass /api http://localhost:5000/api/
+    ProxyPassReverse /api http://localhost:5000/api/
+
+    # Ajoute ceci si tu veux que funigo.fr/kanji soit aussi proxyfié par Apache
+    ProxyPass /kanji http://localhost:5000/kanji
+    ProxyPassReverse /kanji http://localhost:5000/kanji
+	
+	SSLEngine on
+	SSLCertificateFile "c:/Certbot/live/funigo.fr/fullchain.pem"
+	SSLCertificateKeyFile "c:/Certbot/live/funigo.fr/privkey.pem"
+	
+	<Directory C:/Fichiers_Users/funigo/frontend/>
+			Options Indexes FollowSymLinks
+			AllowOverride None
+			Require all granted
+	</Directory>
+</VirtualHost>  peux-tu m'expliquer ProxyPreserveHost On
+    ProxyPass /api http://localhost:5000/api/
+    ProxyPassReverse /api http://localhost:5000/api/
+
+    # Ajoute ceci si tu veux que funigo.fr/kanji soit aussi proxyfié par Apache
+    ProxyPass /kanji http://localhost:5000/kanji
+    ProxyPassReverse /kanji http://localhost:5000/kanji
+	
+	
+/************** ProxyPreserveHost On *********************************************************************/	
+
+ proxy server (ou serveur proxy) est un intermédiaire entre un utilisateur et Internet. Il agit comme 
+ un relais entre votre ordinateur et les serveurs web que vous souhaitez atteindre.
+ Intermédiaire de requêtes :
+
+	Lorsque vous utilisez un proxy server, vos requêtes web passent d'abord par ce serveur avant d'atteindre 
+	le serveur de destination. Le proxy server envoie ensuite la réponse du serveur web à votre ordinateur.
+	et aussi Anonymat et confidentialité, Filtrage de contenu, Mise en cache et Sécurité
+
+	Fonctions principales d'un reverse proxy
+	Intermédiaire de requêtes :
+
+	Un reverse proxy reçoit les requêtes des clients et les transmet aux serveurs web internes. Il renvoie 
+	ensuite les réponses des serveurs web aux clients.
+
+ProxyPreserveHost On
+
+Fonction :
+Cette directive indique à Apache, lorsqu’il agit en tant que reverse proxy, 
+de conserver et transmettre l’en-tête Host: de la requête du navigateur vers le serveur backend, 
+au lieu de remplacer ce champ par le nom du serveur backend.
+
+Utilité :
+Cela permet au backend (par exemple, une application Node.js ou Python sur localhost:5000) de connaître 
+le nom de domaine réel utilisé par le client (ici funigo.fr), ce qui est souvent nécessaire pour générer 
+des URLs correctes ou pour des contrôles de sécurité.
+
+Exemple :
+Si un utilisateur accède à https://funigo.fr/api, le backend reçoit la requête avec l’en-tête Host: funigo.fr 
+au lieu de Host: localhost:5000.
+
+/************** ProxyPass /api http://localhost:5000/api/ *******************************************************/	
+
+ProxyPass /api http://localhost:5000/api/
+
+Fonction :
+Cette directive configure Apache pour rediriger toutes les requêtes reçues sur /api vers le serveur backend à 
+l’adresse http://localhost:5000/api/.
+
+/************** ProxyPassReverse /api http://localhost:5000/api/ *******************************************************/	
+
+ProxyPassReverse /api http://localhost:5000/api/
+
+Fonction :
+Cette directive sert à réécrire les en-têtes HTTP de redirection (Location, Content-Location, URI) 
+dans les réponses du backend, pour que le client ne voie jamais l’adresse du backend (localhost:5000) 
+mais toujours celle du proxy (funigo.fr).
+
+Utilité :
+Si ton application backend répond avec une redirection (par exemple Location: http://localhost:5000/api/login), 
+Apache va remplacer cette URL par https://funigo.fr/api/login avant de renvoyer la réponse au navigateur.
+
+/************** ProxyPassReverse /api http://localhost:5000/api/ *******************************************************/	
+
+ProxyPass /kanji http://localhost:5000/kanji
+ProxyPassReverse /kanji http://localhost:5000/kanji
+
+Cela permet de rediriger toutes les requêtes vers https://funigo.fr/kanji vers http://localhost:5000/kanji et 
+de corriger les redirections dans les réponses du backend.
+
+Directive					Effet principal
+
+ProxyPreserveHost On		Transmet le vrai Host: du client au backend
+ProxyPass /api ...			Redirige /api vers le backend
+ProxyPassReverse /api ...	Corrige les redirections du backend pour le client
+ProxyPass /kanji ...		Redirige /kanji vers le backend
+ProxyPassReverse /kanji ...	Corrige les redirections du backend pour le client

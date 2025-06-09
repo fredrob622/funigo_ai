@@ -1,126 +1,416 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
-
-::before, ::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    /* background-image: radial-gradient(circle at center center, rgba(217, 217, 217,0.05) 0%, rgba(217, 217, 217,0.05) 15%,rgba(197, 197, 197,0.05) 15%, rgba(197, 197, 197,0.05) 34%,rgba(178, 178, 178,0.05) 34%, rgba(178, 178, 178,0.05) 51%,rgba(237, 237, 237,0.05) 51%, rgba(237, 237, 237,0.05) 75%,rgba(138, 138, 138,0.05) 75%, rgba(138, 138, 138,0.05) 89%,rgba(158, 158, 158,0.05) 89%, rgba(158, 158, 158,0.05) 100%),radial-gradient(circle at center center, rgb(255,255,255) 0%, rgb(255,255,255) 6%,rgb(255,255,255) 6%, rgb(255,255,255) 12%,rgb(255,255,255) 12%, rgb(255,255,255) 31%,rgb(255,255,255) 31%, rgb(255,255,255) 92%,rgb(255,255,255) 92%, rgb(255,255,255) 97%,rgb(255,255,255) 97%, rgb(255,255,255) 100%); background-size: 42px 42px; */
-    height: 100vh;
-    background-image: url(../../images/pp3.webp);
-    /* overflow-x: hidden; */
-}
-
-.container {
-    position: relative;
-    height: 100vh;
-    width: 100vw;
+    font-family: sans-serif;
+    background-image: url(../images/pp3.webp);
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 1500px;
 }
 
 h1 {
-    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
-    font-family:'Lato', Arial, sans-serif;
-    letter-spacing: 5px;
+    color: white;
+    background-color: black;
+    border-radius: 95px;
     text-align: center;
-    padding-top: 1vh;
-    font-size: 1vw;
-    color: #333;
-    font-weight: 400;
-    width: 300px;
+    margin-bottom: 20px;
+    opacity: 0; /* Rendre le titre initialement invisible */
+    animation: slideInFromLeft 1.5s ease-out forwards; /* Appliquer l'animation */
+    font-size: 1.8em;
 }
 
-.cercle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px solid #222;
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100vw); /* Déplacer le titre complètement à gauche de l'écran */
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0); /* Déplacer le titre à sa position centrée */
+        opacity: 1; /* Rendre le titre visible */
+    }
+}
+
+.slideshow-container {
+    position: relative;
+    width: 910px; /* 3 * 300px + 2 * 5px (pour les espaces) */
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 240px); /* 3 colonnes de 300px */
+    grid-template-rows: repeat(3, 240px); /* 3 rangées de 300px */
+    grid-gap: 5px;
+    overflow: hidden;
+    border: 1px solid #ccc; /* Optionnel */
+    max-width: 1500px;
+    margin-left: 70px;
+    /* margin-left: -500px; */
+}
+
+.grid-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
     cursor: pointer;
-    position:absolute;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:#b2f2bb ;
 }
 
-img {
-    position: absolute;
-    transform: translate(0%, -50%) scale(0);
-    top: 35vh;
-    max-height: 450px ;
-    max-width: 300px;
-    margin-left: -100px;
-}
+/********************************************************************/
+/* Media query pour les écrans de taille moyenne (tablettes, etc.)  */
+/********************************************************************/
 
-.P01 {
-    left: 2%;
-    width: 13vw;
-    z-index: 10;
-}
-
-.P02 {
-    left: 10%;
-    width: 20vw;
-}
-
-.P03 {
-    left: 19%;
-    width: 9vw;
-    z-index: 35;
-}
-
-.P04 {
-    left: 28%;
-    width: 17vw;
-    z-index: 25;
-}
-
-.P05 {
-    left: 37%;
-    width: 10vw;
-    z-index: 35;
-}
-
-.P06 {
-    left: 46%;
-    width: 11vw;
-    z-index: 30;
-}
-
-.P07 {
-    left: 55%;
-    width: 12vw;
-}
-
-.P08 {
-    left: 63%;
-    width: 15vw;
-}
-
-@media screen and (max-width: 1118px) {
+@media screen and (max-width: 900px) and (min-width: 800px) {
+    .slideshow-container {
+        width: 95%;
+        display: flex; /* Utiliser Flexbox pour centrer les éléments */
+        flex-direction: column; /* Aligner les éléments en colonne */
+        align-items: center; /* Centrer les éléments horizontalement */
+    }
 
     h1 {
-        /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
-        font-family:'Lato', Arial, sans-serif;
-        letter-spacing: 5px;
+        color: white;
+        background-color: black;
+        border-radius: 95px;
         text-align: center;
-        padding-top: 1vh;
-        font-size: 4vw;
-        width: 10px;
-        color: #333;
-        font-weight: 600;
-        margin-left: -160px;
+        margin-bottom: 20px;
+        font-size: 2em;
+        opacity: 0; /* Rendre le titre initialement invisible */
+        animation: slideInFromLeft 1.5s ease-out forwards; /* Appliquer l'animation */
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 250px); /* 3 colonnes de 300px */
+        grid-template-rows: repeat(3, 250px); /* 3 rangées de 300px */
+        grid-gap: 5px;
+        overflow: hidden;
+        border: 1px solid #ccc; /* Optionnel */
+        margin: 20px auto; /* Ajouter des marges automatiques à gauche et à droite pour centrer */
+        max-width: 1500px;
+    }
+    .grid-container img {
+        width: 100%; /* L'image prend toute la largeur de sa cellule (150px) */
+        height: 100%; /* L'image prend toute la hauteur de sa cellule (150px) */
+        object-fit: cover; /* Remplir le conteneur 150x150 en rognant si nécessaire */
+    }
+}
+
+.prev, .next {
+    display: none !important; /* Masque complètement les éléments */
+}
+
+
+
+
+/********************************************************************/
+/* Media query pour les petits écrans (téléphones)                  */
+/********************************************************************/
+@media screen and (max-width: 880px) and (min-width: 780px) {
+
+
+    .slideshow-container {
+        width: 95%;
+    }
+
+    h1 {
+        color: white;
+        background-color: black;
+        border-radius: 95px;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1em;
+        opacity: 0; /* Rendre le titre initialement invisible */
+        animation: slideInFromLeft 1.5s ease-out forwards; /* Appliquer l'animation */
+        margin-left: 18px;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 230px); /* 3 colonnes de 300px */
+        grid-template-rows: repeat(3, 230px); /* 3 rangées de 300px */
+        grid-gap: 5px;
+        overflow: hidden;
+        border: 1px solid #ccc; /* Optionnel */
+        max-width: 1500px;
+    }
+    .grid-container img {
+        width: 100%; /* L'image prend toute la largeur de sa cellule (150px) */
+        height: 100%; /* L'image prend toute la hauteur de sa cellule (150px) */
+        object-fit: cover; /* Remplir le conteneur 150x150 en rognant si nécessaire */
+    }
+} 
+
+/********************************************************************/
+/* Media query pour les petits écrans (téléphones)                  */
+/********************************************************************/
+@media screen and (max-width: 780px) and (min-width: 690px) {
+
+
+    .slideshow-container {
+        width: 95%;
+    }
+
+    h1 {
+        color: white;
+        background-color: black;
+        border-radius: 95px;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 0.7em;
+        opacity: 0; /* Rendre le titre initialement invisible */
+        animation: slideInFromLeft 1.5s ease-out forwards; /* Appliquer l'animation */
+        margin-left: 18px;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 200px); /* 3 colonnes de 300px */
+        grid-template-rows: repeat(3, 230px); /* 3 rangées de 300px */
+        grid-gap: 5px;
+        overflow: hidden;
+        border: 1px solid #ccc; /* Optionnel */
+        max-width: 1500px;
+        justify-content: center;
+    }
+    .grid-container img {
+        width: 100%; /* L'image prend toute la largeur de sa cellule (150px) */
+        height: 100%; /* L'image prend toute la hauteur de sa cellule (150px) */
+        object-fit: cover; /* Remplir le conteneur 150x150 en rognant si nécessaire */
+    }
+} 
+
+/********************************************************************/
+/* Media query pour les petits écrans (téléphones)                  */
+/********************************************************************/
+
+@media screen and (max-width: 690px) and (min-width: 570px) {
+
+
+    .slideshow-container {
+        width: 95%;
+    }
+
+    h1 {
+        color: white;
+        background-color: black;
+        border-radius: 95px;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 0.7em;
+        opacity: 0; /* Rendre le titre initialement invisible */
+        animation: slideInFromLeft 1.5s ease-out forwards; /* Appliquer l'animation */
+        margin-left: 18px;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 170px); /* 3 colonnes de 300px */
+        grid-template-rows: repeat(3, 170px); /* 3 rangées de 300px */
+        grid-gap: 5px;
+        overflow: hidden;
+        border: 1px solid #ccc; /* Optionnel */
+        max-width: 1500px;
+        margin: auto;
+        justify-content: center;
+    }
+    .grid-container img {
+        width: 100%; /* L'image prend toute la largeur de sa cellule (150px) */
+        height: 100%; /* L'image prend toute la hauteur de sa cellule (150px) */
+        object-fit: cover; /* Remplir le conteneur 150x150 en rognant si nécessaire */
+    }
+} 
+
+/********************************************************************/
+/* Media query pour les petits écrans (téléphones)                  */
+/********************************************************************/
+
+@media screen and (max-width: 570px) and (min-width: 470px) {
+    .slideshow-container {
+        width: 95%;
+    }
+
+    h1 {
+        color: white;
+        background-color: black;
+        border-radius: 95px;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        opacity: 0; /* Rendre le titre initialement invisible */
+        animation: slideInFromLeft 1.5s ease-out forwards; /* Appliquer l'animation */
+        /* margin-left: 50px; */
         
     }
 
-    .container {
-        /* position: relative; */
-        height: 100vh;
-        width: 100vw;
-        margin-top: -450px;
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 130px); /* 3 colonnes de 300px */
+        grid-template-rows: repeat(3, 130px); /*3 rangées de 300px */
+        grid-gap: 5px;
+        overflow: hidden;
+        border: 1px solid #ccc; /* Optionnel */
+        max-width: 1500px;
+        justify-content: center;
+        margin-left: 0;
+    }
+    .grid-container img {
+        width: 100%; /* L'image prend toute la largeur de sa cellule (150px) */
+        height: 100%; /* L'image prend toute la hauteur de sa cellule (150px) */
+        object-fit: cover; /* Remplir le conteneur 150x150 en rognant si nécessaire */
+    }
+} 
+/********************************************************************/
+/* Media query pour les petits écrans (téléphones)                  */
+/********************************************************************/
+
+@media screen and (max-width: 470px) and (min-width: 380px) {
+    .slideshow-container {
+        width: 95%;
+    }
+
+    h1 {
+        color: white;
+        background-color: black;
+        border-radius: 95px;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 0.8em;
+        opacity: 0; /* Rendre le titre initialement invisible */
+        animation: slideInFromLeft 1.5s ease-out forwards; /* Appliquer l'animation */
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 110px); /* 3 colonnes de 300px */
+        grid-template-rows: repeat(3, 90px); /* 3 rangées de 300px */
+        grid-gap: 5px;
+        overflow: hidden;
+        border: 1px solid #ccc; /* Optionnel */
+        max-width: 1500px;
+        justify-content: center;
+        margin-left: 0;
+    }
+    .grid-container img {
+        width: 100%; /* L'image prend toute la largeur de sa cellule (150px) */
+        height: 100%; /* L'image prend toute la hauteur de sa cellule (150px) */
+        object-fit: cover; /* Remplir le conteneur 150x150 en rognant si nécessaire */
+    }
+} 
+
+
+/********************************************************************/
+/* Media query pour les petits écrans (téléphones)                  */
+/********************************************************************/
+
+@media screen and (max-width: 420px) and (min-width: 380px) {
+    .slideshow-container {
+        width: 95%;
+    }
+
+    h1 {
+        color: white;
+        background-color: black;
+        border-radius: 95px;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 0.8em;
+        opacity: 0; /* Rendre le titre initialement invisible */
+        animation: slideInFromLeft 1.5s ease-out forwards; /* Appliquer l'animation */
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 110px); /* 3 colonnes de 300px */
+        grid-template-rows: repeat(3, 90px); /* 3 rangées de 300px */
+        grid-gap: 5px;
+        overflow: hidden;
+        border: 1px solid #ccc; /* Optionnel */
+        max-width: 1500px;
+        justify-content: center;
+        margin-left: 10px;
+    }
+    .grid-container img {
+        width: 100%; /* L'image prend toute la largeur de sa cellule (150px) */
+        height: 100%; /* L'image prend toute la hauteur de sa cellule (150px) */
+        object-fit: cover; /* Remplir le conteneur 150x150 en rognant si nécessaire */
+    }
+} 
+
+
+/********************************************************************/
+/* Media query 330 pour les petits écrans (téléphones)                  */
+/********************************************************************/
+
+@media screen and (max-width: 380px) and (min-width: 330px) {
+    .grid-container {
+        margin-left: 20px;
+    }
+    h1 {
+        font-size: 0.7em;
+        animation: slideInFromLeft 1.5s ease-out forwards; /* Appliquer l'animation */
+        margin-left: 290px;
+        max-width: 330px;
+    }    
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 105px); /* 3 colonnes de 300px */
+        grid-template-rows: repeat(3, 90px); /* 3 rangées de 300px */
+        grid-gap: 5px;
+        overflow: hidden;
+        border: 1px solid #ccc; /* Optionnel */
+        max-width: 1500px;
+        justify-content: center;
+        margin-left: 0px;
+
+    }
+    
+    .grid-container img {
+        width: 100%; /* L'image prend toute la largeur de sa cellule (150px) */
+        height: 100%; /* L'image prend toute la hauteur de sa cellule (150px) */
+        object-fit: cover; /* Remplir le conteneur 150x150 en rognant si nécessaire */
     }
 }
+
+/********************************************************************/
+/* Media query 330 pour les petits écrans (téléphones)                  */
+/********************************************************************/
+
+@media screen and (max-width: 330px) and (min-width: 120px) {
+    .slideshow-container {
+        width: 95%;
+    }
+
+    h1 {
+        color: white;
+        background-color: black;
+        border-radius: 95px;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 0.7em;
+        opacity: 0; /* Rendre le titre initialement invisible */
+        animation: slideInFromLeft 1.5s ease-out forwards; /* Appliquer l'animation */
+        margin-left: 18px;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 105px); /* 3 colonnes de 300px */
+        grid-template-rows: repeat(3, 90px); /* 3 rangées de 300px */
+        grid-gap: 5px;
+        overflow: hidden;
+        border: 1px solid #ccc; /* Optionnel */
+        max-width: 1500px;
+        justify-content: center;
+        margin-left: 18px;
+    }
+    .grid-container img {
+        width: 100%; /* L'image prend toute la largeur de sa cellule (150px) */
+        height: 100%; /* L'image prend toute la hauteur de sa cellule (150px) */
+        object-fit: cover; /* Remplir le conteneur 150x150 en rognant si nécessaire */
+    }
+} 

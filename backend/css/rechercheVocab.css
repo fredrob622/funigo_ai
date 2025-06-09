@@ -110,7 +110,7 @@ form button {
 	width: 450px;
 	max-width: 500px;
 	height: 80px;
-	font-weight: 700;
+	font-weight: 700; 
 	font-size: 28px;
 	background: white;
 	border: rgba(48, 48, 48, 0.5) solid 1px;
@@ -120,7 +120,7 @@ form button {
 }
 
 /*******************************************************************************************************/
-/* 				For small devices 					*/
+/* 				For small devices 				                                                    	*/
 /*******************************************************************************************************/
 
 @media screen and (max-width: 860px) {

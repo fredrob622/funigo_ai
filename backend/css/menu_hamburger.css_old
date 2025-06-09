@@ -1,0 +1,535 @@
+
+/* --- Styles généraux pour la navigation --- */
+.main-nav {
+    background-color: black; /* Comme dans votre header_menu.css */
+    padding: 10px 0;
+    width: 100%;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Sur grand écran, les éléments sont horizontaux */
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 2500px; /* Ajouté depuis votre header_menu.css */
+    background-color:black
+}
+
+.nav-list li {
+    position: relative; /* Important pour le positionnement absolu des sous-menus */
+    margin: 0 10px 0 30px; /* Espace entre les éléments de menu principaux */
+    border-left: solid 1px transparent; /* Ajusté pour éviter un double border */
+    /* background-color: rgb(5, 114, 38); */
+    font-size: 25px; /* Dupliqué de ul.menu-principal > li */
+}
+
+.nav-list li:first-child {
+    border-left: none; /* Pas de bordure à gauche pour le premier élément */
+}
+
+/* Style des liens de menu principaux */
+.nav-list li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px; /* Ajustez au besoin */
+    display: block;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    text-align: center; /* Comme dans votre header_menu.css */
+}
+
+/* Style au survol pour les liens principaux */
+.nav-list li a:hover,
+.nav-list li a:focus {
+    background-color: #425df6; /* Couleur de survol comme dans votre header_menu.css */
+}
+
+
+/* Styles pour les conteneurs d'icônes/texte dans le menu */
+/* Ces styles devraient être sur les <a> si possible, ou les <div> les contenant */
+.has-menu, .has-sous-menu {
+    display: flex;
+    align-items: center;
+    /* Ajustez les padding ou margin ici si l'image et le texte sont trop proches */
+    padding: 0; /* Important pour éviter double padding avec le <a> */
+}
+
+.has-menu:hover {
+    background-color: #425df6;
+    border-bottom: 1px solid white; /* C'était sur le li dans header_menu.css */
+}
+
+/* .has-menu a {
+    padding-top: 0;
+    padding-bottom: 0;
+} */
+.has-sous-menu:hover {
+    background-color: #425df6;
+}
+
+.has-menu img {
+    width: 40px;
+    padding-left: 5px;
+    margin-right: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.has-sous-menu img {
+    width: 40px;
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+.nav-span {
+    padding-left: 15px;
+    color: white;
+    font-size: 15px; /* Dupliqué de span */
+}
+
+/* --- Styles des sous-menus (pour tous les niveaux) --- */
+.sous-menu, .sous-sous-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: black; /* Couleur de fond comme dans votre header_menu.css */
+    min-width: 150px; /* Largeur minimale pour les sous-menus */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: none; /* MASQUER PAR DÉFAUT */
+}
+
+.sous-sous-menu {
+    top: 0;
+    left: 100%;
+}
+
+.sous-menu li, .sous-sous-menu li {
+    position: relative;
+    width: 160px; /* Largeur fixe pour les sous-menus comme dans votre header_menu.css */
+}
+
+.sous-menu li a, .sous-sous-menu li a {
+    display: block;
+    padding: 12px 10px ; /* Ajusté pour cohérence */
+    /* padding-left: 10px; Repris de votre header_menu.css */
+    color: white;
+    text-decoration: none;
+    background-color: black;
+    transition: background-color 0.3s;
+    text-align-last: left;
+
+}
+
+/* Ajout des préfixes pour les sous-menus */
+.sous-menu li a::before {
+    margin-left: 5px;
+    /* content: "\2192\00A0\00A0\00A0\00A0\00A0\00A0"; Flèche droite et espaces */
+    color: white;
+    margin-right: 0; /* Ajusté */
+}
+
+.sous-sous-menu li a::before {
+    margin-left: 10px; /* Indentation */
+    content: "\2192\00A0\00A0\00A0\00A0\00A0\00A0";/* Tiret et espaces */
+    color: white;
+    font-size: 10px;
+    /* margin-right: 0; Ajusté */
+}
+
+.sous-sous-menu li a {
+    font-size: 15px;
+}
+/* Styles au survol pour les sous-menus */
+.sous-menu li:hover > a,
+.sous-sous-menu li:hover > a,
+.sous-menu li a:focus,
+.sous-sous-menu li a:focus {
+    background-color: #425df6;
+}
+
+/* Affichage sous-menu au survol pour desktop */
+.nav-list > li:hover > .sous-menu,
+.nav-list > li:focus-within > .sous-menu {
+    display: block;
+}
+
+.sous-menu li:hover > .sous-sous-menu,
+.sous-menu li:focus-within > .sous-sous-menu {
+    display: block;
+}
+
+/* --- Styles du bouton hamburger (masqué sur grand écran) --- */
+.menu-toggle {
+    display: none; /* Masqué par défaut sur les grands écrans */
+}
+
+/*****************************************************************************************************/
+/* --- Media query pour les petits écrans 768px (menu hamburger) ---                                 */
+/*****************************************************************************************************/
+
+@media (max-width: 768px) { 
+    /* Ajustez le point d'arrêt si nécessaire */
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* AFFICHER le bouton hamburger sur mobile */
+        background: none; /* Supprime le fond si vous en aviez un par défaut */
+        border: none;
+        color: white;
+        font-size: 24px; /* Ajustez la taille de l'icône si nécessaire */
+        cursor: pointer;
+        padding: 10px 20px; /* Ajustez le padding pour la zone de clic */
+        width: 100%;
+        text-align: right; /* Aligner l'icône à droite */
+        box-sizing: border-box; /* S'assurer que le padding est inclus dans la largeur */
+    }
+
+    .nav-list {
+        flex-direction: column; /* Empiler les liens de navigation verticalement */
+        width: 100%;
+        display: none; /* MASQUER la liste de navigation par défaut sur mobile */
+        background-color: #333; /* S'assurer que le menu a un fond */
+        text-align: left; /* Alignez le texte à gauche pour le menu mobile */
+        background-color: rgb(5, 114, 38);
+    }
+
+    .nav-list.active { /* Classe ajoutée par JavaScript lorsque le menu est ouvert */
+        display: flex; /* AFFICHER la liste de navigation */
+    }
+
+    .nav-list li {
+        width: 100%;
+        margin: 0;
+        border-left: none; /* Pas de bordure latérale sur mobile */
+        border-bottom: 1px solid black; /* Séparateur pour les éléments de menu */
+        font-size: 20px; /* Ajustez la taille de police pour mobile */
+    }
+
+    .nav-list li:last-child {
+        border-bottom: none;
+    }
+
+    .has-sous-menu {
+        display: block;
+    }
+
+    .nav-list li a {
+        padding: 15px 20px; /* Zone de contact plus grande pour mobile */
+        text-align: left; /* Aligner le texte des liens à gauche */
+    }
+
+    /* Sous-menus sur mobile */
+    .sous-menu, .sous-sous-menu {
+        position: static; /* Retire le positionnement absolu sur mobile */
+        display: none; /* Toujours masqués par défaut, pourront être ouverts par JS si besoin */
+        background-color: black; /* Couleur de fond pour les sous-menus */
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        padding-left: -20px; /* Indentation pour les sous-menus */
+        
+    }
+
+    .sous-sous-menu {
+        position: static; /* Retire le positionnement absolu sur mobile */
+        display: none; /* Toujours masqués par défaut, pourront être ouverts par JS si besoin */
+        /* background-color: rgb(165, 9, 9); Couleur de fond pour les sous-menus */
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        padding-left: -20px; /* Indentation pour les sous-menus */
+    }
+
+    
+    /* Sous-menus sur mobile */
+    /* .sous-menu:hover, .sous-sous-menu:hover {
+        background-color: #425df6;
+    } */
+
+    /* Styles au survol pour les sous-menus */
+    .sous-menu li:hover > a,
+    .sous-menu li a:focus {
+        background-color: #425df6;
+    }
+
+    /* Styles au survol pour les sous-menus */
+    .sous-sous-menu li:hover > a,
+    .sous-sous-menu li a:focus {
+        background-color: #425df6;
+    }
+
+    /* Pour que les liens dans les sous-menus s'affichent correctement sur mobile */
+    .sous-menu li a, .sous-sous-menu li a {
+       padding-left: 30px; /* Pour s'aligner avec l'indentation */
+       display: block;
+    }
+
+    /* Si vous voulez que les sous-menus soient toujours visibles quand le menu principal est ouvert,
+       décommentez les règles suivantes. Sinon, il faudrait du JS pour les déplier. */
+/*     
+    .nav-list.active .sous-menu,
+    .nav-list.active .sous-sous-menu {
+        display: flex;
+        flex-direction: column;
+    } */
+   
+    /* Si vous voulez que les sous-menus se "déplient" quand on clique sur le parent sur mobile,
+       il faudrait une logique JS supplémentaire pour basculer une classe sur le parent du sous-menu.
+       Pour l'instant, ils sont masqués par défaut sur mobile. */
+
+}
+/*****************************************************************************************************/
+/* --- Media query pour les petits écrans 420px (menu hamburger) ---                                 */
+/*****************************************************************************************************/
+
+@media (max-width: 420px) { 
+    /* Ajustez le point d'arrêt si nécessaire */
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5px 0;
+    }
+  
+
+    .menu-toggle {
+        display: block; /* AFFICHER le bouton hamburger sur mobile */
+        background: none; /* Supprime le fond si vous en aviez un par défaut */
+        border: none;
+        color: white;
+        font-size: 24px; /* Ajustez la taille de l'icône si nécessaire */
+        cursor: pointer;
+        padding: 10px 20px; /* Ajustez le padding pour la zone de clic */
+        width: 100%;
+        text-align: right; /* Aligner l'icône à droite */
+        box-sizing: border-box; /* S'assurer que le padding est inclus dans la largeur */
+    }
+
+    .nav-list {
+        flex-direction: column; /* Empiler les liens de navigation verticalement */
+        width: 100%;
+        display: none; /* MASQUER la liste de navigation par défaut sur mobile */
+        background-color: #333; /* S'assurer que le menu a un fond */
+        text-align: left; /* Alignez le texte à gauche pour le menu mobile */
+        background-color: rgb(5, 114, 38);
+        margin-left: -8px;
+    }
+
+    .nav-list.active { /* Classe ajoutée par JavaScript lorsque le menu est ouvert */
+        display: flex; /* AFFICHER la liste de navigation */
+    }
+
+    .nav-list li {
+        width: 100%;
+        margin: 0;
+        border-left: none; /* Pas de bordure latérale sur mobile */
+        border-bottom: 1px solid black; /* Séparateur pour les éléments de menu */
+        font-size: 20px; /* Ajustez la taille de police pour mobile */
+    }
+
+    .nav-list li:last-child {
+        border-bottom: none;
+    }
+
+    .has-sous-menu {
+        display: block;
+    }
+
+    .nav-list li a {
+        padding: 15px 20px; /* Zone de contact plus grande pour mobile */
+        text-align: left; /* Aligner le texte des liens à gauche */
+    }
+
+    /* Sous-menus sur mobile */
+    .sous-menu, .sous-sous-menu {
+        position: static; /* Retire le positionnement absolu sur mobile */
+        display: none; /* Toujours masqués par défaut, pourront être ouverts par JS si besoin */
+        background-color: black; /* Couleur de fond pour les sous-menus */
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        padding-left: -20px; /* Indentation pour les sous-menus */
+        
+    }
+
+    .sous-sous-menu {
+        position: static; /* Retire le positionnement absolu sur mobile */
+        display: none; /* Toujours masqués par défaut, pourront être ouverts par JS si besoin */
+        /* background-color: rgb(165, 9, 9); Couleur de fond pour les sous-menus */
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        padding-left: -20px; /* Indentation pour les sous-menus */
+    }
+
+    
+    /* Sous-menus sur mobile */
+    /* .sous-menu:hover, .sous-sous-menu:hover {
+        background-color: #425df6;
+    } */
+
+    /* Styles au survol pour les sous-menus */
+    .sous-menu li:hover > a,
+    .sous-menu li a:focus {
+        background-color: #425df6;
+    }
+
+    /* Styles au survol pour les sous-menus */
+    .sous-sous-menu li:hover > a,
+    .sous-sous-menu li a:focus {
+        background-color: #425df6;
+    }
+
+    /* Pour que les liens dans les sous-menus s'affichent correctement sur mobile */
+    .sous-menu li a, .sous-sous-menu li a {
+       padding-left: 30px; /* Pour s'aligner avec l'indentation */
+       display: block;
+    }
+
+    /* Si vous voulez que les sous-menus soient toujours visibles quand le menu principal est ouvert,
+       décommentez les règles suivantes. Sinon, il faudrait du JS pour les déplier. */
+/*     
+    .nav-list.active .sous-menu,
+    .nav-list.active .sous-sous-menu {
+        display: flex;
+        flex-direction: column;
+    } */
+   
+    /* Si vous voulez que les sous-menus se "déplient" quand on clique sur le parent sur mobile,
+       il faudrait une logique JS supplémentaire pour basculer une classe sur le parent du sous-menu.
+       Pour l'instant, ils sont masqués par défaut sur mobile. */
+
+}
+
+
+/*****************************************************************************************************/
+/* --- Media query pour les petits écrans 320px (menu hamburger) ---                                 */
+/*****************************************************************************************************/
+
+@media (max-width: 320px) { 
+    /* Ajustez le point d'arrêt si nécessaire */
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5px 0;
+    }
+  
+
+    .menu-toggle {
+        display: block; /* AFFICHER le bouton hamburger sur mobile */
+        background: none; /* Supprime le fond si vous en aviez un par défaut */
+        border: none;
+        color: white;
+        font-size: 24px; /* Ajustez la taille de l'icône si nécessaire */
+        cursor: pointer;
+        padding: 10px 20px; /* Ajustez le padding pour la zone de clic */
+        width: 100%;
+        text-align: right; /* Aligner l'icône à droite */
+        box-sizing: border-box; /* S'assurer que le padding est inclus dans la largeur */
+    }
+
+    .nav-list {
+        flex-direction: column; /* Empiler les liens de navigation verticalement */
+        width: 100%;
+        display: none; /* MASQUER la liste de navigation par défaut sur mobile */
+        background-color: #333; /* S'assurer que le menu a un fond */
+        text-align: left; /* Alignez le texte à gauche pour le menu mobile */
+        background-color: rgb(5, 114, 38);
+        margin-left: 50px;
+    }
+
+    .nav-list.active { /* Classe ajoutée par JavaScript lorsque le menu est ouvert */
+        display: flex; /* AFFICHER la liste de navigation */
+    }
+
+    .nav-list li {
+        width: 100%;
+        margin: 0;
+        border-left: none; /* Pas de bordure latérale sur mobile */
+        border-bottom: 1px solid black; /* Séparateur pour les éléments de menu */
+        font-size: 20px; /* Ajustez la taille de police pour mobile */
+    }
+
+    .nav-list li:last-child {
+        border-bottom: none;
+    }
+
+    .has-sous-menu {
+        display: block;
+    }
+
+    .nav-list li a {
+        padding: 15px 20px; /* Zone de contact plus grande pour mobile */
+        text-align: left; /* Aligner le texte des liens à gauche */
+    }
+
+    /* Sous-menus sur mobile */
+    .sous-menu, .sous-sous-menu {
+        position: static; /* Retire le positionnement absolu sur mobile */
+        display: none; /* Toujours masqués par défaut, pourront être ouverts par JS si besoin */
+        background-color: black; /* Couleur de fond pour les sous-menus */
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        padding-left: -20px; /* Indentation pour les sous-menus */
+        
+    }
+
+    .sous-sous-menu {
+        position: static; /* Retire le positionnement absolu sur mobile */
+        display: none; /* Toujours masqués par défaut, pourront être ouverts par JS si besoin */
+        /* background-color: rgb(165, 9, 9); Couleur de fond pour les sous-menus */
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        padding-left: -20px; /* Indentation pour les sous-menus */
+    }
+
+    
+    /* Sous-menus sur mobile */
+    /* .sous-menu:hover, .sous-sous-menu:hover {
+        background-color: #425df6;
+    } */
+
+    /* Styles au survol pour les sous-menus */
+    .sous-menu li:hover > a,
+    .sous-menu li a:focus {
+        background-color: #425df6;
+    }
+
+    /* Styles au survol pour les sous-menus */
+    .sous-sous-menu li:hover > a,
+    .sous-sous-menu li a:focus {
+        background-color: #425df6;
+    }
+
+    /* Pour que les liens dans les sous-menus s'affichent correctement sur mobile */
+    .sous-menu li a, .sous-sous-menu li a {
+       padding-left: 30px; /* Pour s'aligner avec l'indentation */
+       display: block;
+    }
+
+    /* Si vous voulez que les sous-menus soient toujours visibles quand le menu principal est ouvert,
+       décommentez les règles suivantes. Sinon, il faudrait du JS pour les déplier. */
+/*     
+    .nav-list.active .sous-menu,
+    .nav-list.active .sous-sous-menu {
+        display: flex;
+        flex-direction: column;
+    } */
+   
+    /* Si vous voulez que les sous-menus se "déplient" quand on clique sur le parent sur mobile,
+       il faudrait une logique JS supplémentaire pour basculer une classe sur le parent du sous-menu.
+       Pour l'instant, ils sont masqués par défaut sur mobile. */
+
+}

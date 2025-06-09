@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualisation du tracé d'un kanji</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .kanji-container {
+            margin-top: 20px;
+        }
+        .kanji {
+            font-size: 100px;
+            margin: 20px;
+        }
+        .stroke-order {
+            margin-top: 20px;
+        }
+        .stroke {
+            font-size: 50px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Visualisation du tracé d'un kanji</h1>
+        <div class="kanji-container">
+            <div class="kanji" id="kanji"></div>
+            <div class="stroke-order" id="stroke-order"></div>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour récupérer les données du kanji
+        async function getKanjiData(kanji) {
+            try {
+                const response = await fetch(`http://kanjivg.tagaini.net/kanji/${encodeURIComponent(kanji)}`);
+                const data = await response.text();
+                return data;
+            } catch (error) {
+                console.error('Erreur lors de la récupération des données du kanji:', error);
+                return null;
+            }
+        }
+
+        // Fonction pour afficher le tracé du kanji
+        async function displayKanjiStrokeOrder(kanji) {
+            const kanjiData = await getKanjiData(kanji);
+            if (kanjiData) {
+                document.getElementById('kanji').textContent = kanji;
+                document.getElementById('stroke-order').innerHTML = kanjiData;
+            } else {
+                document.getElementById('kanji').textContent = 'Kanji non trouvé';
+                document.getElementById('stroke-order').innerHTML = '';
+            }
+        }
+
+        // Exemple d'utilisation
+        const kanji = '日'; // Remplacez par le kanji que vous souhaitez visualiser
+        displayKanjiStrokeOrder(kanji);
+    </script>
+</body>
+</html>
