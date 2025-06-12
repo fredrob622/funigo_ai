@@ -34,8 +34,13 @@ app.get('/kanji', (req, res) => {
 });
 
 app.get('/vocab', (req, res) => {
-    // Cela va rendre IHM/index_kanji.ejs
+    // Cela va rendre IHM/index_vocab.ejs
     res.render('index_vocab');
+});
+
+app.get('/departement', (req, res) => {
+    // Cela va rendre IHM/index_kanji.ejs
+    res.render('index_departement');
 });
 
 // Lance le serveur

@@ -1,4 +1,6 @@
+**********************************************************************************************************
 On copie les fichiers JS dans backend\js
+**********************************************************************************************************
 
  Répertoire de C:\Fichiers_Users\funigo\backend\js
 
@@ -7,7 +9,9 @@ On copie les fichiers JS dans backend\js
 28/05/2025  17:26             1 234 menu_hamburger.js
 27/05/2025  16:00             4 119 meteo-et-conversion.js
 
+**********************************************************************************************************
 On copie les css dans backend\css
+**********************************************************************************************************
 
  Répertoire de C:\Fichiers_Users\funigo\backend\css
 
@@ -16,14 +20,16 @@ On copie les css dans backend\css
 07/08/2023  15:55             2 433 index_vertical.css
 30/05/2025  12:14            18 213 menu_hamburger.css
 
+**********************************************************************************************************
 copie index_kanji.html dans backend\index_kanji.ejs
-
+**********************************************************************************************************
  Répertoire de C:\Fichiers_Users\funigo\backend\IHM
 
 02/06/2025  18:52             4 591 index_kanji.ejs
 
-Modification du fichier pour mettre des includes
-
+**********************************************************************************************************
+Modification du fichier index_kanji.ejs pour mettre des includes
+**********************************************************************************************************
 	<!-- Inclusion du header -->
 	<%- include('IHM/index_header_menu.ejs') %>
 	
@@ -32,8 +38,21 @@ Modification du fichier pour mettre des includes
 	
 	<!-- Inclusion du footer -->
     <%- include('IHM/footer_menu.ejs') %>
-	
+
+**********************************************************************************************************
 Modification du fichier httpd-vhosts.conf
+**********************************************************************************************************
+
+on ajoute 
+	ProxyPreserveHost On
+    ProxyPass /api http://localhost:5000/
+    ProxyPassReverse /api http://localhost:5000/
+
+    # Ajoute ceci si tu veux que funigo.fr/kanji soit aussi proxyfié par Apache
+    ProxyPass /kanji http://localhost:5000/kanji
+    ProxyPassReverse /kanji http://localhost:5000/kanji
+	
+	
 
 <VirtualHost *:443>
 	DocumentRoot "C:/Fichiers_Users/funigo/frontend/"
@@ -61,3 +80,5 @@ Modification du fichier httpd-vhosts.conf
 			Require all granted
 	</Directory>
 </VirtualHost>
+
+**********************************************************************************************************
