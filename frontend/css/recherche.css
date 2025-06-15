@@ -1,64 +1,56 @@
-body {
-    font-family: Montserrat, "sans-serif";
-    color: #303030;
-    margin-left: 100px;
-    /* margin-top: 150px;   */
-    /* background-image: url(../images/pp3.webp); */
-}
+		
+		.formulaire_recherche {
+			width: 1000px;
+			border: 1px solid;
+			border-radius: 8px;
+			padding: 0 50px 0 50px;
+			background: #b2f2bb;
+			margin-left: 100px;
+		}
 
-.formulaire_recherche {
-    width: 650px;
-    border: 1px solid;
-    border-radius: 8px;
-    padding: 0 50px 0 50px;
-    background: #027e13;
-    /* margin-left: -40px; */
-}
+		.formulaire_recherche > h2 {
+			text-decoration : underline;
+		}
 
-.formulaire_recherche > h2 {
-	align-items: left;
-	font-weight: 600;
-	text-decoration : underline;
-    color: white;
-}
+		.class_input {
+			display: flex;
+		}
 
-.class_input {
-	display: flex;
-}
+		.class_label {
+			display: flex;
+		}
 
-.class_label {
-	display: flex;
-}
+		input, select {
+			margin-right: 20px;
+			margin-top: 10px;
+			margin-bottom: 30px;
+			/* font-family: Arial, Helvetica, sans-serif; */
+			font-family: lato, "sans-serif";
+			font-size: 20px;
+			font-weight: 500; 
+		}
 
-input, select {
-	margin-right: 20px;
-	margin-top: 10px;
-	margin-bottom: 30px;
-	/* font-family: Arial, Helvetica, sans-serif; */
-	font-family: lato, "sans-serif";
-	font-size: 20px;
-	font-weight: 500; 
-}
+		label {
+			margin-right: 20px;
+			margin-top: 10px;
+			margin-bottom: 30px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+			font-weight: 700; 
+		}
 
-label {
-	margin-right: 20px;
-	margin-top: 10px;
-	margin-bottom: 30px;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	font-weight: 700; 
-	color: white;
-}
-
-form button {
-	width: 250px;
-	height: 50px;
-	font-weight: 700;
-	font-size: 14px;
-	background: white;
-	border: rgba(48, 48, 48, 0.5) solid 1px;
-	border-radius: 5px;
-	box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
-	color: #303030;
-	}
-
+		form button {
+			width: 450px;
+			max-width: 500px;
+			height: 60px;
+			font-family: lato, "sans-serif";
+			font-weight: 700;
+			font-size: 28px;
+			background: white;
+			border: rgba(48, 48, 48, 0.5) solid 1px;
+			border-radius: 5px;
+			box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+			color: #303030;
+			margin: 20px;
+		}	 
+ 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>funigo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="./css/menu_hamburger.css" rel="stylesheet">
+    <link href="./css/header_menu.css" rel="stylesheet">
+    <link href="./css/acceuil.css" rel="stylesheet">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div id="contenu-placeholder"></div>
+    <div id="footer-placeholder"></div>
+
+    <script>
+        console.log("index.html: Début du script principal."); // Début du script
+
+        function includeHTML(elementId, filePath) {
+            console.log(`index.html: Tentative de chargement de ${filePath} dans ${elementId}`); // Avant chaque fetch
+            return fetch(filePath)
+                .then(response => {
+                    console.log(`index.html: Réponse reçue pour ${filePath}. Statut: ${response.status}`); // Après la réponse du fetch
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    document.getElementById(elementId).innerHTML = html;
+                    console.log(`index.html: ${filePath} chargé et injecté dans ${elementId}.`); // Après injection du HTML
+                })
+                .catch(error => console.error('Erreur lors du chargement de ' + filePath + ':', error));
+        }
+
+        // Charger le header
+        includeHTML('header-placeholder', 'html/index_header_menu.html')
+            .then(() => {
+                console.log("index.html: Header chargé. Chargement du contenu..."); // Après chargement du header
+                return includeHTML('contenu-placeholder', 'html/acceuil.html');
+            })
+            .then(() => {
+                console.log("index.html: Contenu chargé. Chargement des scripts dépendants..."); // Après chargement du contenu
+
+                // 1. Charger et initialiser meteo-et-conversion.js
+                const meteoScript = document.createElement('script');
+                meteoScript.src = './js/meteo-et-conversion.js';
+                meteoScript.onload = () => {
+                    console.log("index.html: meteo-et-conversion.js chargé."); // Après le chargement du script météo
+                    // Si meteo-et-conversion.js a une fonction d'initialisation, vous pourriez l'appeler ici
+                    // Exemple: if (typeof initializeMeteo === 'function') { initializeMeteo(); }
+                };
+                meteoScript.onerror = () => {
+                    console.error("index.html: Erreur de chargement de meteo-et-conversion.js."); // Si le script météo échoue à charger
+                };
+                document.body.appendChild(meteoScript);
+
+                // 2. Charger menu_hamburger.js ET l'initialiser
+                const menuScript = document.createElement('script');
+                menuScript.src = './js/menu_hamburger.js';
+                menuScript.onload = () => {
+                    console.log("index.html: menu_hamburger.js chargé."); // Après le chargement du script du menu
+                    if (typeof initializeHamburgerMenu === 'function') {
+                        initializeHamburgerMenu();
+                        console.log("index.html: initializeHamburgerMenu appelée."); // Après l'appel de la fonction d'initialisation
+                    } else {
+                        console.error("index.html: Erreur: initializeHamburgerMenu n'est pas définie.");
+                    }
+                };
+                menuScript.onerror = () => {
+                    console.error("index.html: Erreur de chargement de menu_hamburger.js."); // Si le script menu échoue à charger
+                };
+                document.body.appendChild(menuScript);
+
+                // 3. Charger acceuil.js ET l'initialiser après son chargement
+                const acceuilScript = document.createElement('script');
+                acceuilScript.src = './js/acceuil.js';
+                acceuilScript.onload = () => {
+                    console.log("index.html: acceuil.js chargé."); // Après le chargement du script acceuil
+                    if (typeof initializeImageCarousel === 'function') {
+                        initializeImageCarousel();
+                        console.log("index.html: initializeImageCarousel appelée."); // Après l'appel de la fonction d'initialisation
+                    } else {
+                        console.error("index.html: Erreur: initializeImageCarousel n'est pas définie après le chargement de acceuil.js.");
+                    }
+                };
+                acceuilScript.onerror = () => {
+                    console.error("index.html: Erreur de chargement de acceuil.js."); // Si le script acceuil échoue à charger
+                };
+                document.body.appendChild(acceuilScript);
+
+                // 4. Charger le footer si nécessaire
+                return includeHTML('footer-placeholder', 'html/footer_menu.html');
+            })
+            .catch(error => console.error('index.html: Erreur globale de chargement:', error)); // Erreur générique
+
+    </script>
+</body>
+</html>

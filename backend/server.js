@@ -1,50 +1,59 @@
-// C:\Fichiers_Users\funigo\backend\server.js
+const express = require('express');
+const path = require('path');
+const app = require('./app'); // Importe l'instance 'app' configurée dans backend/app.js
 
-// Importation des modules nécessaires
-const app = require('./app'); // <<< Importe l'instance 'app' configurée depuis app.js
-const express = require('express'); // Nécessaire pour express.static et path
-const path = require('path');       // Nécessaire pour path.join
+const port = 5000; // Le port sur lequel Node.js va écouter
 
-// --- Démarrage de la configuration Express qui dépend du chemin de base ---
-// Configuration du moteur de vues EJS (important de le faire ici)
+// MIDDLEWARE POUR SERVIR LES FICHIERS STATIQUES (TRÈS IMPORTANT : PLACER EN PREMIER !)
+// Ces chemins doivent correspondre aux chemins demandés par le navigateur (et proxifiés par Apache)
+// et sont relatifs à la position de CE FICHIER server.js (qui est dans backend/)
+// Les fichiers statiques (CSS, JS, images, icones, HTML fragments) sont dans le dossier 'frontend'.
+// Assurez-vous que ces chemins correspondent bien à la structure réelle de VOS FICHIERS.
+app.use('/css', express.static(path.join(__dirname, '../frontend/css')));
+app.use('/js', express.static(path.join(__dirname, '../frontend/js')));
+app.use('/images', express.static(path.join(__dirname, '../frontend/images'))); // Pour les images comme Pxx.JPG
+app.use('/icones', express.static(path.join(__dirname, '../frontend/icones'))); // Pour les icônes du menu
+app.use('/html', express.static(path.join(__dirname, '../frontend/html'))); // Pour les fragments HTML inclus (ex: header, footer)
+
+// Configuration des vues EJS
+// Les vues .ejs (comme index_kanji.ejs, index_vocab.ejs) sont dans backend/IHM
+app.set('views', path.join(__dirname, 'IHM')); 
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'IHM')); // Définit le dossier où Express trouvera tes fichiers EJS
 
-// Middlewares pour servir les fichiers statiques (CSS, JS, images, etc.)
-// Ces chemins doivent correspondre à la structure réelle de tes dossiers.
-// Assure-toi que les chemins sont accessibles depuis la racine de ton site.
-app.use(express.static(path.join(__dirname, 'public'))); // Si tu as un dossier 'public'
-app.use('/css', express.static(path.join(__dirname, 'frontend/css'))); // Rend le contenu de frontend/css accessible via /css
-app.use('/js', express.static(path.join(__dirname, 'frontend/js')));   // Rend le contenu de frontend/js accessible via /js
-app.use('/images', express.static(path.join(__dirname, 'frontend/images'))); // Rend le contenu de frontend/images accessible via /images
-app.use('/IHM', express.static(path.join(__dirname, 'backend/IHM')));
-
-// Si vous avez des fichiers HTML/EJS comme header_menu.ejs ou footer_menu.ejs dans 'frontend'
-// et que vous les incluez via EJS, ils doivent être dans le dossier 'views' (IHM ici).
-// S'ils étaient des fichiers statiques purs dans 'frontend' et vous les fetchiez,
-// la ligne suivante servirait ce dossier. Mais nous utilisons EJS pour l'inclusion maintenant.
-// app.use(express.static(path.join(__dirname, 'frontend'))); // Cette ligne peut être problématique si elle sert des fichiers que EJS doit rendre. À revoir si problèmes.
-
-// --- Définition des routes spécifiques au point d'entrée du serveur ---
-
-// Route pour servir la page principale des Kanji (l'ancien index_kanji.html)
+// Routes Express pour les pages EJS
+// Ces routes sont gérées par server.js et rendront les vues EJS
 app.get('/kanji', (req, res) => {
-    // Cela va rendre IHM/index_kanji.ejs
-    res.render('index_kanji');
+    res.render('index_kanji'); // Rendre la vue EJS depuis backend/IHM
 });
 
 app.get('/vocab', (req, res) => {
-    // Cela va rendre IHM/index_vocab.ejs
-    res.render('index_vocab');
+    res.render('index_vocab'); // Rendre la vue EJS depuis backend/IHM (assurez-vous d'avoir ce fichier)
 });
 
-app.get('/departement', (req, res) => {
-    // Cela va rendre IHM/index_kanji.ejs
-    res.render('index_departement');
-});
+// La route pour /departement est intentionnellement omise ici pour correspondre à votre demande.
+// app.get('/departement', (req, res) => {
+//     res.render('index_departement');
+// });
 
-// Lance le serveur
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Serveur HTTP en écoute sur le port ${PORT}`); // J'ai corrigé 'port' en 'PORT'
+// Route pour la page d'accueil principale
+// Si votre index.html principal est dans 'frontend/html/', il est servi par app.use('/html', ...)
+// et Apache proxifie la racine '/' vers Node.js qui va chercher '/html/index.html'.
+// Donc, cette route '/' n'est peut-être pas nécessaire ici si l'index.html est servi via express.static.
+// Si vous voulez une route explicite pour la racine qui envoie un fichier, ce serait :
+/*
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/html/index.html'));
+});
+*/
+// Si vous avez un fichier index.html à la racine de 'frontend/', ce serait :
+/*
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
+*/
+
+
+// Démarrer le serveur
+app.listen(port, () => {
+    console.log(`Serveur Node.js démarré sur http://localhost:${port}`);
 });

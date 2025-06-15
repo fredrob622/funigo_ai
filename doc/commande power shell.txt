@@ -1,0 +1,70 @@
+*************************** sauvegarder funigo avec AAAAMMJJHHMM *****************************************************
+# Générer le nom du répertoire de destination avec la date/heure
+$nouveauNom = "funigo_" + (Get-Date -Format "yyyyMMddHHmm")
+
+# Chemin source et destination
+$source = "C:\Fichiers_Users\funigo"
+$destination = "C:\Fichiers_Users\$nouveauNom"
+
+# Copier récursivement, en excluant node_modules
+Copy-Item -Path $source -Destination $destination -Recurse -Force -Exclude "node_modules"
+
+
+*************************** voir les liens *****************************************************
+
+Get-ChildItem -Path "c:/Certbot/live/funigo.fr/" -Recurse -Force | Where-Object { $_.LinkType } | ForEach-Object {
+    [PSCustomObject]@{
+        Lien     = $_.FullName
+        Type     = $_.LinkType
+        Cible    = (Get-Item $_.FullName).Target
+    }
+}
+
+Get-ChildItem -Path "." -Recurse -Force | Where-Object { $_.LinkType } | ForEach-Object {
+    [PSCustomObject]@{
+        Lien     = $_.FullName
+        Type     = $_.LinkType
+        Cible    = (Get-Item $_.FullName).Target
+    }
+}
+
+PS C:\Fichiers_Users\funigo\frontend> Get-ChildItem -Path "." -Recurse -Force | Where-Object { $_.LinkType } | ForEach-Object {
+>>     [PSCustomObject]@{
+>>         Lien     = $_.FullName
+>>         Type     = $_.LinkType
+>>         Cible    = (Get-Item $_.FullName).Target
+>>     }
+>> }
+
+Lien                                         Type         Cible
+----                                         ----         -----
+C:\Fichiers_Users\funigo\frontend\index.html SymbolicLink {C:\Fichiers_Users\funigo\frontend\html\index.html}
+
+
+*************************** créer un lien *****************************************************
+
+PS C:\Fichiers_Users\funigo\frontend> New-Item -ItemType SymbolicLink -Path "index.html" -Target "html/index.html"
+
+
+    Répertoire : C:\Fichiers_Users\funigo\frontend
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---l        15/06/2025     18:33              0 index.html
+
+*************************** tree sous gitbach  *****************************************************
+
+
+fredr@Ulysse MINGW64 /c/Fichiers_Users/funigo (main)
+$ find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
+
+
+## en excluant répertoire 
+
+find . -type d \( -name node_modules -o -name .git -o -name archive \) -prune -o -print | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
+
+### en gardant que les répertoires 
+
+find . -type d \( -name node_modules -o -name .git -o -name archive \) -prune -o -type d -print | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
+

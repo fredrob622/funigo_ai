@@ -2,10 +2,13 @@
 <html>
 <head>
     <title>funigo</title>
+    <!-- Le lien Font Awesome est déjà absolu via son CDN, il reste inchangé. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="./css/menu_hamburger.css" rel="stylesheet">
-    <link href="./css/header_menu.css" rel="stylesheet">
-    <link href="./css/acceuil.css" rel="stylesheet">
+    
+    <!-- Chemins CSS corrigés pour être absolus (commencent par '/') -->
+    <link href="/css/menu_hamburger.css" rel="stylesheet">
+    <link href="/css/header_menu.css" rel="stylesheet">
+    <link href="/css/acceuil.css" rel="stylesheet">
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -33,9 +36,11 @@
         }
 
         // Charger le header
+        // Chemins corrigés pour être relatifs (ne commencent PAS par '/')
         includeHTML('header-placeholder', 'html/index_header_menu.html')
             .then(() => {
                 console.log("index.html: Header chargé. Chargement du contenu..."); // Après chargement du header
+                // Chemin corrigé pour être relatif (ne commence PAS par '/')
                 return includeHTML('contenu-placeholder', 'html/acceuil.html');
             })
             .then(() => {
@@ -43,11 +48,13 @@
 
                 // 1. Charger et initialiser meteo-et-conversion.js
                 const meteoScript = document.createElement('script');
-                meteoScript.src = './js/meteo-et-conversion.js';
+                // Chemin corrigé pour être relatif (ne commence PAS par '/')
+                meteoScript.src = 'js/meteo-et-conversion.js';
                 meteoScript.onload = () => {
                     console.log("index.html: meteo-et-conversion.js chargé."); // Après le chargement du script météo
                     // Si meteo-et-conversion.js a une fonction d'initialisation, vous pourriez l'appeler ici
-                    // Exemple: if (typeof initializeMeteo === 'function') { initializeMeteo(); }
+                    if (typeof initializeMeteo === 'function') { initializeMeteo(); }
+                    if (typeof getTauxDeChange === 'function') { getTauxDeChange(); } 
                 };
                 meteoScript.onerror = () => {
                     console.error("index.html: Erreur de chargement de meteo-et-conversion.js."); // Si le script météo échoue à charger
@@ -56,7 +63,8 @@
 
                 // 2. Charger menu_hamburger.js ET l'initialiser
                 const menuScript = document.createElement('script');
-                menuScript.src = './js/menu_hamburger.js';
+                // Chemin corrigé pour être relatif (ne commence PAS par '/')
+                menuScript.src = 'js/menu_hamburger.js';
                 menuScript.onload = () => {
                     console.log("index.html: menu_hamburger.js chargé."); // Après le chargement du script du menu
                     if (typeof initializeHamburgerMenu === 'function') {
@@ -73,7 +81,8 @@
 
                 // 3. Charger acceuil.js ET l'initialiser après son chargement
                 const acceuilScript = document.createElement('script');
-                acceuilScript.src = './js/acceuil.js';
+                // Chemin corrigé pour être relatif (ne commence PAS par '/')
+                acceuilScript.src = 'js/acceuil.js';
                 acceuilScript.onload = () => {
                     console.log("index.html: acceuil.js chargé."); // Après le chargement du script acceuil
                     if (typeof initializeImageCarousel === 'function') {
@@ -89,10 +98,10 @@
                 document.body.appendChild(acceuilScript);
 
                 // 4. Charger le footer si nécessaire
+                // Chemin corrigé pour être relatif (ne commence PAS par '/')
                 return includeHTML('footer-placeholder', 'html/footer_menu.html');
             })
             .catch(error => console.error('index.html: Erreur globale de chargement:', error)); // Erreur générique
-
     </script>
 </body>
 </html>
